@@ -8,7 +8,11 @@ const ProductList = () => {
   return (
     <>
       {error && <Text>{error}</Text>}
-      <SimpleGrid columns={{ base: 1, md: 2, lg: 3, xl: 4 }} spacing={6}>
+      <SimpleGrid
+        columns={{ base: 1, md: 2, lg: 3, xl: 4 }}
+        spacing={4}
+        padding={4}
+      >
         {data.map((prod) => (
           <ProductCard key={prod.productId} product={prod} />
         ))}
