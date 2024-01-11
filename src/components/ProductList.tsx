@@ -1,4 +1,3 @@
-import React from "react";
 import useProducts from "../hooks/useProducts";
 import ProductCard from "./ProductCard";
 import { SimpleGrid, Text } from "@chakra-ui/react";
