@@ -20,7 +20,12 @@ const Footer = () => {
             <Text textColor="base.700" fontWeight="bold">
               Contact Us
             </Text>
-            <Text textColor="base.700">+1 604 679-0998</Text>
+            <HStack>
+              <Text textColor="base.700">+1 604 679-0998</Text>
+              <Link className="social-icon-link whatsapp" to="" target="_blank">
+                <i className="fa-brands fa-whatsapp" />
+              </Link>
+            </HStack>
             <Text textColor="base.700">contact@michelespasta.ca</Text>
           </VStack>
 
