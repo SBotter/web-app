@@ -7,6 +7,7 @@ const HeroPage = () => {
       <div className="hero-container">
         <Heading>
           <Text
+            color="base.50"
             fontSize={{ base: "20px", md: "50px", lg: "80px" }}
             align="center"
           >
@@ -15,6 +16,7 @@ const HeroPage = () => {
         </Heading>
         <Heading>
           <Text
+            color="base.50"
             fontSize={{ base: "30px", md: "80px", lg: "100px" }}
             align="center"
           >
@@ -23,6 +25,7 @@ const HeroPage = () => {
         </Heading>
 
         <Text
+          color="base.50"
           marginTop={10}
           fontSize={{ base: "15px", md: "30px", lg: "45px" }}
           align="center"
@@ -30,6 +33,7 @@ const HeroPage = () => {
           The Artisanal Delight of Handcrafted Pasta Perfection!
         </Text>
         <Text
+          color="base.50"
           fontSize={{ base: "15px", md: "30px", lg: "45px" }}
           align="center"
         >
