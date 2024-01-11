@@ -1,5 +1,13 @@
+import Footer from "../components/Footer";
+import HeroPage from "../components/HeroPage";
+
 const HomePage = () => {
-  return <div>HomePage</div>;
+  return (
+    <>
+      <HeroPage />
+      <Footer />
+    </>
+  );
 };
 
 export default HomePage;
