@@ -34,8 +34,17 @@ const MenuCard = ({ product }: Props) => {
             borderRadius: 20,
           }}
         />
-        <Heading marginTop={-12} marginLeft={2}>
-          {product.productGroupName}
+        <Heading
+          marginTop={-12}
+          marginLeft={2}
+          bg="base.700"
+          borderTopLeftRadius={20}
+          borderBottomLeftRadius={20}
+          opacity={0.8}
+        >
+          <Text color="base.50" p={2}>
+            {product.productGroupName}
+          </Text>
         </Heading>
         <CardBody>
           <Text color="base.700">{product.productGroupDescription}</Text>

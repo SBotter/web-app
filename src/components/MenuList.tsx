@@ -1,4 +1,4 @@
-import { SimpleGrid, HStack, VStack, Heading } from "@chakra-ui/react";
+import { SimpleGrid, HStack, VStack, Heading, Text } from "@chakra-ui/react";
 
 import MenuCard from "./MenuCard";
 import useMenuList from "../hooks/useMenuList";
@@ -8,9 +8,16 @@ const MenuList = () => {
   return (
     <>
       <VStack>
-        <Heading color="base.700" marginTop={10} marginBottom={10}>
-          Artisanal Handcrafted Pasta, Culinary Excellence.
+        <Heading marginTop={10} marginBottom={10}>
+          <Text
+            color="base.700"
+            fontSize={{ base: "30px", md: "50px", lg: "80px" }}
+            align="center"
+          >
+            Artisanal Handcrafted Pasta, Culinary Excellence.
+          </Text>
         </Heading>
+
         <HStack>
           <SimpleGrid columns={{ base: 1, md: 3 }} p={5} spacing={5}>
             {data.map((prod) => (
