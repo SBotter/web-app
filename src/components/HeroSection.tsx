@@ -1,7 +1,7 @@
 import { Heading, Text } from "@chakra-ui/react";
 import "./../index.css";
 
-const HeroPage = () => {
+const HeroSection = () => {
   return (
     <>
       <div className="hero-container">
@@ -45,4 +45,4 @@ const HeroPage = () => {
   );
 };
 
-export default HeroPage;
+export default HeroSection;

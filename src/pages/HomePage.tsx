@@ -1,10 +1,12 @@
 import Footer from "../components/Footer";
-import HeroPage from "../components/HeroPage";
+import HeroSection from "../components/HeroSection";
+import MenuList from "../components/MenuList";
 
 const HomePage = () => {
   return (
     <>
-      <HeroPage />
+      <HeroSection />
+      <MenuList />
       <Footer />
     </>
   );
