@@ -317,4 +317,71 @@ export default [
     ],
     isDeleted: false,
   },
+  {
+    companyId: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    productId: "143cda25-3aeb-4890-8ba7-965ff44305a9",
+    productName: "Ham & Cheese Canneloni",
+    productDescription:
+      "Ham & Cheese Cannelloni: A Cheesy Embrace in Every Bite.",
+    category: [
+      {
+        categoryId: "3837af85-62da-4ef5-85c7-453084fdb960",
+        categoryName: "canneloni",
+      },
+    ],
+    productGroupName: "Canneloni",
+    picture: [
+      {
+        pictureId: "e2f7bed0-6316-4650-979e-ee0b2a26753d",
+        picturePath: "cnneloni_1.jpg",
+      },
+    ],
+    package: [
+      {
+        packageId: "51ac7451-6068-467e-802d-55eb45d90925",
+        packageName: "package",
+        packageDescription: "Serves up 3 people",
+        packageUnit: "kg",
+        packageSize: "1",
+        packagePrice: 60,
+      },
+    ],
+    ingredient: [
+      {
+        ingredientId: "d063f86e-df61-47b5-9da3-79e1ce5c6d51",
+        ingredientName: "special flour",
+      },
+      {
+        ingredientId: "32ca0909-4913-4de6-b86d-1d30a409820c",
+        ingredientName: "yeast",
+      },
+      {
+        ingredientId: "95529787-e293-4203-af53-0b7090e5358b",
+        ingredientName: "olive oil",
+      },
+      {
+        ingredientId: "656393c6-e762-45c9-b55b-d7f84097044c",
+        ingredientName: "fleur de sel",
+      },
+      {
+        ingredientId: "23f1517c-557a-40d6-9f87-d4cdb8709acc",
+        ingredientName: "water",
+      },
+      {
+        ingredientId: "6a7a6513-5f48-40af-b773-c1b0867474aa",
+        ingredientName: "salt",
+      },
+      {
+        ingredientId: "23451b8d-762b-45f0-8088-de75fea62bba",
+        ingredientName: "fresh rosemery herb",
+      },
+    ],
+    instruction: [
+      {
+        instructionId: "9298afdb-4b16-409d-8270-8efa3a1545db",
+        instructionName: "keep on fridge up to 6 days",
+      },
+    ],
+    isDeleted: false,
+  },
 ];
