@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { Product } from "../hooks/useProducts";
 import {
   Card,
@@ -8,7 +7,11 @@ import {
   VStack,
   Divider,
   Box,
+  CardFooter,
+  Button,
 } from "@chakra-ui/react";
+import { FaCartPlus } from "react-icons/fa";
+import { Link, Link as RouterLink } from "react-router-dom";
 
 interface Props {
   product: Product;
@@ -48,6 +51,18 @@ const ProductCard = ({ product }: Props) => {
               <Text color="base.700">{product.productDescription}</Text>
             </VStack>
           </CardBody>
+          <Divider borderColor="base.800" />
+          <CardFooter margin="auto">
+            <Button
+              as={RouterLink} // Use the Link component from react-router-dom
+              to={`/products/detail/${product.productId}`}
+              leftIcon={<FaCartPlus />}
+              colorScheme="base"
+              variant="solid"
+            >
+              Add to Cart
+            </Button>
+          </CardFooter>
         </Card>
       </Link>
     </Box>

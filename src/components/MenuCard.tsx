@@ -58,7 +58,7 @@ const MenuCard = ({ product }: Props) => {
             to={`/${product.productGroupPath}`}
             leftIcon={<FaSearchPlus />}
             colorScheme="base"
-            variant="outline"
+            variant="solid"
           >
             Find all options
           </Button>
