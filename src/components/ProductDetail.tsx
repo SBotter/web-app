@@ -17,8 +17,8 @@ interface Props {
 
 const ProductDetail = ({ product }: Props) => {
   return (
-    <Box width="100%" p={4}>
-      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={4}>
+    <Box width="100%" p={{ base: 2, md: 4 }}>
+      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: 2, md: 4 }}>
         <Box boxShadow="md" border={2}>
           <Image
             src={`/images/products/${product.picture[0].picturePath}`}
@@ -28,7 +28,7 @@ const ProductDetail = ({ product }: Props) => {
             overflow="hidden"
           />
         </Box>
-        <Box width="100%" p={4}>
+        <Box width="100%" p={{ base: 2, md: 4 }}>
           <VStack alignItems="flex-start">
             <Heading>
               <Text color="base.700" fontSize="40px">
@@ -38,7 +38,7 @@ const ProductDetail = ({ product }: Props) => {
             <Text color="base.700" fontSize="15px">
               {product.productGroupName}
             </Text>
-            <Divider bgColor="base.700" />
+            <Divider bgColor="base.800" />
             <Box marginTop={10}>
               <IngredientsPanel
                 ingredient={product.ingredient}
