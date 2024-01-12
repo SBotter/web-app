@@ -6,6 +6,7 @@ export interface Product {
   productName: string;
   productDescription: string;
   category: Category[];
+  productGroupName: string;
   picture: Picture[];
   package: Package[];
 }

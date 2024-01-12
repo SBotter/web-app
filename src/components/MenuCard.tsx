@@ -9,7 +9,7 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { FaSearchPlus } from "react-icons/fa";
-import { Link as RouterLink } from "react-router-dom";
+import { Link, Link as RouterLink } from "react-router-dom";
 import { ProductGroup } from "../hooks/useMenuList";
 
 interface Props {
@@ -19,21 +19,23 @@ interface Props {
 const MenuCard = ({ product }: Props) => {
   return (
     <>
-      <Card borderRadius={20} bg="#FFF">
-        <Image
-          src={`/images/products/${product.productGroupImage}`}
-          objectFit="cover"
-          height="350px"
-          width="auto"
-          borderTopLeftRadius={20}
-          borderTopRightRadius={20}
-          overflow="hidden"
-          _hover={{
-            transform: "scale(1.03)",
-            transition: "transform .15s ease-in",
-            borderRadius: 20,
-          }}
-        />
+      <Card borderRadius={20} bg="#FFF" boxShadow="md">
+        <Link to={`/${product.productGroupPath}`}>
+          <Image
+            src={`/images/products/${product.productGroupImage}`}
+            objectFit="cover"
+            height="350px"
+            width="100%"
+            borderTopLeftRadius={20}
+            borderTopRightRadius={20}
+            overflow="hidden"
+            _hover={{
+              transform: "scale(1.03)",
+              transition: "transform .15s ease-in",
+              borderRadius: 20,
+            }}
+          />
+        </Link>
         <Heading
           marginTop={-12}
           marginLeft={2}

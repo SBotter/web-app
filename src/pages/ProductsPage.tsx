@@ -4,7 +4,7 @@ import ProductList from "../components/ProductList";
 const ProductsPage = () => {
   return (
     <>
-      <ProductList />
+      <ProductList filterValue="" />
       <Footer />
     </>
   );

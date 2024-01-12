@@ -24,8 +24,9 @@ const ProductCard = ({ product }: Props) => {
       boxSize="100%"
       borderRadius={10}
       overflow="hidden"
+      boxShadow="md"
     >
-      <Card borderRadius={10} overflow="hidden" bg="base.100">
+      <Card borderRadius={10} overflow="hidden" bg="base.100" height="100%">
         <Image
           src={`/images/products/${product.picture[0].picturePath}`}
           objectFit="cover"

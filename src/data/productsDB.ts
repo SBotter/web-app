@@ -10,6 +10,7 @@ export default [
         categoryName: "Focaccia",
       },
     ],
+    productGroupName: "Focaccia",
     picture: [
       {
         pictureId: "d3289ef0-7244-4991-b9f3-dd4a5f5889ef",
@@ -48,6 +49,7 @@ export default [
         categoryName: "Focaccia",
       },
     ],
+    productGroupName: "Sauce",
     picture: [
       {
         pictureId: "d3289ef0-7244-4991-b9f3-dd4a5f5889ef",
@@ -94,6 +96,7 @@ export default [
         categoryName: "Focaccia",
       },
     ],
+    productGroupName: "stuffedpasta",
     picture: [
       {
         pictureId: "d17e9257-c7d4-4e32-95aa-53ffe74ae995",
@@ -140,10 +143,11 @@ export default [
         categoryName: "Focaccia",
       },
     ],
+    productGroupName: "Focaccia",
     picture: [
       {
         pictureId: "e2f7bed0-6316-4650-979e-ee0b2a26753d",
-        picturePath: "ravioli_2.jpg",
+        picturePath: "focaccia_3.jpg",
       },
     ],
     package: [
