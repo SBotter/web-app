@@ -35,6 +35,43 @@ export default [
         packagePrice: 15.0,
       },
     ],
+    ingredient: [
+      {
+        ingredientId: "d063f86e-df61-47b5-9da3-79e1ce5c6d51",
+        ingredientName: "special flour",
+      },
+      {
+        ingredientId: "32ca0909-4913-4de6-b86d-1d30a409820c",
+        ingredientName: "yeast",
+      },
+      {
+        ingredientId: "95529787-e293-4203-af53-0b7090e5358b",
+        ingredientName: "olive oil",
+      },
+      {
+        ingredientId: "656393c6-e762-45c9-b55b-d7f84097044c",
+        ingredientName: "fleur de sel",
+      },
+      {
+        ingredientId: "23f1517c-557a-40d6-9f87-d4cdb8709acc",
+        ingredientName: "water",
+      },
+      {
+        ingredientId: "6a7a6513-5f48-40af-b773-c1b0867474aa",
+        ingredientName: "salt",
+      },
+      {
+        ingredientId: "23451b8d-762b-45f0-8088-de75fea62bba",
+        ingredientName: "fresh rosemery herb",
+      },
+    ],
+    instruction: [
+      {
+        instructionId: "9298afdb-4b16-409d-8270-8efa3a1545db",
+        instructionName: "keep on fridge up to 6 days",
+      },
+    ],
+
     isDeleted: false,
   },
   {
@@ -82,6 +119,43 @@ export default [
         packagePrice: 50.0,
       },
     ],
+    ingredient: [
+      {
+        ingredientId: "d063f86e-df61-47b5-9da3-79e1ce5c6d51",
+        ingredientName: "special flour",
+      },
+      {
+        ingredientId: "32ca0909-4913-4de6-b86d-1d30a409820c",
+        ingredientName: "yeast",
+      },
+      {
+        ingredientId: "95529787-e293-4203-af53-0b7090e5358b",
+        ingredientName: "olive oil",
+      },
+      {
+        ingredientId: "656393c6-e762-45c9-b55b-d7f84097044c",
+        ingredientName: "fleur de sel",
+      },
+      {
+        ingredientId: "23f1517c-557a-40d6-9f87-d4cdb8709acc",
+        ingredientName: "water",
+      },
+      {
+        ingredientId: "6a7a6513-5f48-40af-b773-c1b0867474aa",
+        ingredientName: "salt",
+      },
+      {
+        ingredientId: "23451b8d-762b-45f0-8088-de75fea62bba",
+        ingredientName: "fresh rosemery herb",
+      },
+    ],
+    instruction: [
+      {
+        instructionId: "9298afdb-4b16-409d-8270-8efa3a1545db",
+        instructionName: "keep on fridge up to 6 days",
+      },
+    ],
+
     isDeleted: false,
   },
   {
@@ -129,6 +203,43 @@ export default [
         packagePrice: 50.0,
       },
     ],
+    ingredient: [
+      {
+        ingredientId: "d063f86e-df61-47b5-9da3-79e1ce5c6d51",
+        ingredientName: "special flour",
+      },
+      {
+        ingredientId: "32ca0909-4913-4de6-b86d-1d30a409820c",
+        ingredientName: "yeast",
+      },
+      {
+        ingredientId: "95529787-e293-4203-af53-0b7090e5358b",
+        ingredientName: "olive oil",
+      },
+      {
+        ingredientId: "656393c6-e762-45c9-b55b-d7f84097044c",
+        ingredientName: "fleur de sel",
+      },
+      {
+        ingredientId: "23f1517c-557a-40d6-9f87-d4cdb8709acc",
+        ingredientName: "water",
+      },
+      {
+        ingredientId: "6a7a6513-5f48-40af-b773-c1b0867474aa",
+        ingredientName: "salt",
+      },
+      {
+        ingredientId: "23451b8d-762b-45f0-8088-de75fea62bba",
+        ingredientName: "fresh rosemery herb",
+      },
+    ],
+    instruction: [
+      {
+        instructionId: "9298afdb-4b16-409d-8270-8efa3a1545db",
+        instructionName: "keep on fridge up to 6 days",
+      },
+    ],
+
     isDeleted: false,
   },
   {
@@ -153,27 +264,55 @@ export default [
     package: [
       {
         packageId: "51ac7451-6068-467e-802d-55eb45d90925",
-        packageName: "150g",
-        packageDescription: "package for one person",
-        packageUnit: "grams",
-        packageSize: "150.0",
-        packagePrice: 15.0,
+        packageName: "Small",
+        packageDescription: "About 250g.",
+        packageUnit: "piece",
+        packageSize: "1",
+        packagePrice: 8.0,
       },
       {
         packageId: "e1cc608a-d17e-47cd-8725-798103aa8dfb",
-        packageName: "300g",
-        packageDescription: "package for two people",
-        packageUnit: "grams",
-        packageSize: "300.0",
-        packagePrice: 30.0,
+        packageName: "Large",
+        packageDescription: "About 450g.",
+        packageUnit: "piece",
+        packageSize: "1",
+        packagePrice: 15.0,
+      },
+    ],
+    ingredient: [
+      {
+        ingredientId: "d063f86e-df61-47b5-9da3-79e1ce5c6d51",
+        ingredientName: "special flour",
       },
       {
-        packageId: "19c770b0-f64d-4b78-8d8d-b582879a0370",
-        packageName: "500g",
-        packageDescription: "package for three people",
-        packageUnit: "grams",
-        packageSize: "500.0",
-        packagePrice: 50.0,
+        ingredientId: "32ca0909-4913-4de6-b86d-1d30a409820c",
+        ingredientName: "yeast",
+      },
+      {
+        ingredientId: "95529787-e293-4203-af53-0b7090e5358b",
+        ingredientName: "olive oil",
+      },
+      {
+        ingredientId: "656393c6-e762-45c9-b55b-d7f84097044c",
+        ingredientName: "fleur de sel",
+      },
+      {
+        ingredientId: "23f1517c-557a-40d6-9f87-d4cdb8709acc",
+        ingredientName: "water",
+      },
+      {
+        ingredientId: "6a7a6513-5f48-40af-b773-c1b0867474aa",
+        ingredientName: "salt",
+      },
+      {
+        ingredientId: "23451b8d-762b-45f0-8088-de75fea62bba",
+        ingredientName: "fresh rosemery herb",
+      },
+    ],
+    instruction: [
+      {
+        instructionId: "9298afdb-4b16-409d-8270-8efa3a1545db",
+        instructionName: "keep on fridge up to 6 days",
       },
     ],
     isDeleted: false,

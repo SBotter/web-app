@@ -9,6 +9,8 @@ export interface Product {
   productGroupName: string;
   picture: Picture[];
   package: Package[];
+  ingredient: Ingredient[];
+  instruction: Instruction[];
 }
 
 export interface Category {
@@ -28,6 +30,16 @@ export interface Package {
   packageUnit: string;
   packageSize: string;
   packagePrice: number;
+}
+
+export interface Ingredient {
+  ingredientId: string;
+  ingredientName: string;
+}
+
+export interface Instruction {
+  instructionId: string;
+  instructionName: string;
 }
 
 const useProducts = () => ({ data: products, isLoading: false, error: null });
