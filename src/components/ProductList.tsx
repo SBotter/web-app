@@ -9,7 +9,7 @@ interface Props {
 const ProductList = ({ filterValue }: Props) => {
   const { data, error } = useProducts();
   const [filter] = useState(filterValue);
-  console.log(filterValue);
+  
   return (
     <>
       {error && <Text>{error}</Text>}

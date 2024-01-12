@@ -1,7 +1,7 @@
-import ProductDetailFilter from "../components/ProductDetailFIlter";
 import { Box, Card, CardBody } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import Footer from "../components/Footer";
+import ProductDetailFilter from "../components/ProductDetailFilter";
 
 const DetailsPage = () => {
   const { filterValue } = useParams();

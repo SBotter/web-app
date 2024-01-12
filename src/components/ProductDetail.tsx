@@ -10,14 +10,12 @@ import {
   TabIndicator,
   TabPanels,
   TabPanel,
-  HStack,
   Table,
   Thead,
   Tr,
   Th,
   Tbody,
   Td,
-  Tfoot,
 } from "@chakra-ui/react";
 import { Product } from "../hooks/useProducts";
 
