@@ -86,7 +86,7 @@ export default [
         categoryName: "Focaccia",
       },
     ],
-    productGroupName: "Sauce",
+    productGroupName: "focaccia",
     picture: [
       {
         pictureId: "d3289ef0-7244-4991-b9f3-dd4a5f5889ef",
@@ -161,13 +161,13 @@ export default [
   {
     companyId: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
     productId: "e4d0a10f-1cac-4e8a-84ad-16c8b95b46d3",
-    productName: "Focaccia Confit Tomato",
+    productName: "Raviolli Butternut Squash",
     productDescription:
-      "Focaccia with Confit Tomatoes: A Sun-Kissed Symphony of Tomato Elegance",
+      "Savor the season with our Handmade Butternut Squash Ravioli—each delicate pasta pocket is a celebration of autumn's richness and handmade perfection.",
     category: [
       {
         categoryId: "3837af85-62da-4ef5-85c7-453084fdb960",
-        categoryName: "Focaccia",
+        categoryName: "ravioli",
       },
     ],
     productGroupName: "stuffedpasta",
@@ -411,6 +411,156 @@ export default [
         packageUnit: "kg",
         packageSize: "1",
         packagePrice: 60,
+      },
+    ],
+    ingredient: [
+      {
+        ingredientId: "d063f86e-df61-47b5-9da3-79e1ce5c6d51",
+        ingredientName: "special flour",
+      },
+      {
+        ingredientId: "32ca0909-4913-4de6-b86d-1d30a409820c",
+        ingredientName: "yeast",
+      },
+      {
+        ingredientId: "95529787-e293-4203-af53-0b7090e5358b",
+        ingredientName: "olive oil",
+      },
+      {
+        ingredientId: "656393c6-e762-45c9-b55b-d7f84097044c",
+        ingredientName: "fleur de sel",
+      },
+      {
+        ingredientId: "23f1517c-557a-40d6-9f87-d4cdb8709acc",
+        ingredientName: "water",
+      },
+      {
+        ingredientId: "6a7a6513-5f48-40af-b773-c1b0867474aa",
+        ingredientName: "salt",
+      },
+      {
+        ingredientId: "23451b8d-762b-45f0-8088-de75fea62bba",
+        ingredientName: "fresh rosemery herb",
+      },
+    ],
+    instruction: [
+      {
+        instructionId: "9298afdb-4b16-409d-8270-8efa3a1545db",
+        instructionName: "keep on fridge up to 6 days",
+      },
+    ],
+    isDeleted: false,
+  },
+  {
+    companyId: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    productId: "9399d77d-5cf7-4086-8c57-c96f7fb2d8bd",
+    productName: "Fetuccine Beets",
+    productDescription:
+      "Indulge in the vibrant charm of our Fresh Beet Fettuccine, where handcrafted pasta meets the earthy sweetness of beets for a uniquely delightful culinary experience.",
+    category: [
+      {
+        categoryId: "3837af85-62da-4ef5-85c7-453084fdb960",
+        categoryName: "Pasta Secca",
+      },
+    ],
+    productGroupName: "pastasecca",
+    picture: [
+      {
+        pictureId: "e2f7bed0-6316-4650-979e-ee0b2a26753d",
+        picturePath: "pastasecca_2.jpg",
+      },
+    ],
+    package: [
+      {
+        packageId: "51ac7451-6068-467e-802d-55eb45d90925",
+        packageName: "Small",
+        packageDescription: "Serves 1 person",
+        packageUnit: "g",
+        packageSize: "200",
+        packagePrice: 12,
+      },
+      {
+        packageId: "51ac7451-6068-467e-802d-55eb45d90925",
+        packageName: "Large",
+        packageDescription: "Serves up 3 people",
+        packageUnit: "g",
+        packageSize: "500",
+        packagePrice: 30,
+      },
+    ],
+    ingredient: [
+      {
+        ingredientId: "d063f86e-df61-47b5-9da3-79e1ce5c6d51",
+        ingredientName: "special flour",
+      },
+      {
+        ingredientId: "32ca0909-4913-4de6-b86d-1d30a409820c",
+        ingredientName: "yeast",
+      },
+      {
+        ingredientId: "95529787-e293-4203-af53-0b7090e5358b",
+        ingredientName: "olive oil",
+      },
+      {
+        ingredientId: "656393c6-e762-45c9-b55b-d7f84097044c",
+        ingredientName: "fleur de sel",
+      },
+      {
+        ingredientId: "23f1517c-557a-40d6-9f87-d4cdb8709acc",
+        ingredientName: "water",
+      },
+      {
+        ingredientId: "6a7a6513-5f48-40af-b773-c1b0867474aa",
+        ingredientName: "salt",
+      },
+      {
+        ingredientId: "23451b8d-762b-45f0-8088-de75fea62bba",
+        ingredientName: "fresh rosemery herb",
+      },
+    ],
+    instruction: [
+      {
+        instructionId: "9298afdb-4b16-409d-8270-8efa3a1545db",
+        instructionName: "keep on fridge up to 6 days",
+      },
+    ],
+    isDeleted: false,
+  },
+  {
+    companyId: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    productId: "f0f63185-c0bb-4eb4-bb13-488ba0e22ce4",
+    productName: "Tomato Sauce",
+    productDescription:
+      "Our classic Tomato Sauce is a symphony of sun-ripened tomatoes, simmered to perfection with aromatic herbs and a touch of olive oil. Bursting with freshness, it transforms every dish into a taste of traditional Italian warmth.",
+    category: [
+      {
+        categoryId: "3837af85-62da-4ef5-85c7-453084fdb960",
+        categoryName: "Sauce",
+      },
+    ],
+    productGroupName: "sauce",
+    picture: [
+      {
+        pictureId: "e2f7bed0-6316-4650-979e-ee0b2a26753d",
+        picturePath: "tomatosauce_1.jpg",
+      },
+    ],
+    package: [
+      {
+        packageId: "51ac7451-6068-467e-802d-55eb45d90925",
+        packageName: "Small",
+        packageDescription: "Serves 1 person",
+        packageUnit: "g",
+        packageSize: "250",
+        packagePrice: 8,
+      },
+      {
+        packageId: "51ac7451-6068-467e-802d-55eb45d90925",
+        packageName: "Large",
+        packageDescription: "Serves up 3 people",
+        packageUnit: "g",
+        packageSize: "500",
+        packagePrice: 15,
       },
     ],
     ingredient: [
