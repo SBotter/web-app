@@ -4,7 +4,7 @@ import MenuCard from "./MenuCard";
 import useMenuList from "../hooks/useMenuList";
 
 const MenuList = () => {
-  const { data, error } = useMenuList();
+  const { data } = useMenuList();
   return (
     <>
       <VStack>

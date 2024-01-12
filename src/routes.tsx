@@ -4,12 +4,12 @@ import HomePage from "./pages/HomePage";
 import Layout from "./pages/Layout";
 import ContactPage from "./pages/ContactPage";
 import ProductsPage from "./pages/ProductsPage";
-import StuffedPastaPage from "./pages/stuffedPastaPage";
+import StuffedPastaPage from "./pages/StuffedPastaPage";
 import FocacciaPage from "./pages/FocacciaPage";
 import PastaSeccaPage from "./pages/PastaSeccaPage";
 import LasagnaPage from "./pages/LasagnaPage";
 import SaucePage from "./pages/SaucePage";
-import CannelloniPage from "./pages/cannelloniPage";
+import CannelloniPage from "./pages/CannelloniPage";
 
 const router = createBrowserRouter([
   {
