@@ -27,7 +27,7 @@ const ProductCard = ({ product }: Props) => {
       overflow="hidden"
       boxShadow="md"
     >
-      <Link to={`/products/detail?${product.productId}`}>
+      <Link to={`/products/detail/${product.productId}`}>
         <Card borderRadius={10} overflow="hidden" bg="base.100" height="100%">
           <Image
             src={`/images/products/${product.picture[0].picturePath}`}
