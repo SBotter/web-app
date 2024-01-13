@@ -173,7 +173,8 @@ function Map() {
                         placeholder="Delivery Address"
                         ref={destinationRef}
                         onFocus={clearRoute}
-                        bgColor="base.700"
+                        bgColor="base.300"
+                        color="base.800"
                       />
                     </Autocomplete>
                     <Button
