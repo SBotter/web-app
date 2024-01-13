@@ -1,11 +1,11 @@
-import { Box, Card, CardBody } from "@chakra-ui/react";
+import { Box, Card, CardBody, CardFooter } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import Footer from "../components/Footer";
 import ProductDetailFilter from "../components/ProductDetailFilter";
+import Map from "../components/Map";
 
 const DetailsPage = () => {
   const { filterValue } = useParams();
-  console.log(filterValue);
 
   if (filterValue == null) return;
 
@@ -16,6 +16,11 @@ const DetailsPage = () => {
           <CardBody>
             <ProductDetailFilter filterValue={filterValue} />
           </CardBody>
+          <CardFooter>
+            <Box boxSize={"100%"}>
+              <Map />
+            </Box>
+          </CardFooter>
         </Card>
       </Box>
       <Footer />

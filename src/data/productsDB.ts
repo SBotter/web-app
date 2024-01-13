@@ -480,7 +480,7 @@ export default [
         packagePrice: 12,
       },
       {
-        packageId: "51ac7451-6068-467e-802d-55eb45d90925",
+        packageId: "aa722286-c48c-4e4c-b2ac-f5a7d736ff9b",
         packageName: "Large",
         packageDescription: "Serves up 3 people",
         packageUnit: "g",
@@ -547,7 +547,7 @@ export default [
     ],
     package: [
       {
-        packageId: "51ac7451-6068-467e-802d-55eb45d90925",
+        packageId: "0e8dcaf0-f3c6-4476-8ba7-e879f84cc922",
         packageName: "Small",
         packageDescription: "Serves 1 person",
         packageUnit: "g",
@@ -555,7 +555,7 @@ export default [
         packagePrice: 8,
       },
       {
-        packageId: "51ac7451-6068-467e-802d-55eb45d90925",
+        packageId: "26f882cd-6e51-45ff-889b-34523655e8fa",
         packageName: "Large",
         packageDescription: "Serves up 3 people",
         packageUnit: "g",

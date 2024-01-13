@@ -30,8 +30,8 @@ const ProductCard = ({ product }: Props) => {
       overflow="hidden"
       boxShadow="md"
     >
-      <Link to={`/products/detail/${product.productId}`}>
-        <Card borderRadius={10} overflow="hidden" bg="base.100" height="100%">
+      <Card borderRadius={10} overflow="hidden" bg="base.100" height="100%">
+        <Link to={`/products/detail/${product.productId}`}>
           <Image
             src={`/images/products/${product.picture[0].picturePath}`}
             objectFit="cover"
@@ -41,30 +41,30 @@ const ProductCard = ({ product }: Props) => {
             borderRadius={20}
             overflow="hidden"
           />
+        </Link>
 
-          <CardBody>
-            <VStack marginTop={0} alignItems="start">
-              <Text fontSize={20} color="base.700" fontWeight={"500"}>
-                {product.productName}
-              </Text>
-              <Divider borderColor="base.800" />
-              <Text color="base.700">{product.productDescription}</Text>
-            </VStack>
-          </CardBody>
-          <Divider borderColor="base.800" />
-          <CardFooter margin="auto">
-            <Button
-              as={RouterLink} // Use the Link component from react-router-dom
-              to={`/products/detail/${product.productId}`}
-              leftIcon={<FaCartPlus />}
-              colorScheme="base"
-              variant="solid"
-            >
-              Add to Cart
-            </Button>
-          </CardFooter>
-        </Card>
-      </Link>
+        <CardBody>
+          <VStack marginTop={0} alignItems="start">
+            <Text fontSize={20} color="base.700" fontWeight={"500"}>
+              {product.productName}
+            </Text>
+            <Divider borderColor="base.800" />
+            <Text color="base.700">{product.productDescription}</Text>
+          </VStack>
+        </CardBody>
+        <Divider borderColor="base.800" />
+        <CardFooter margin="auto">
+          <Button
+            as={RouterLink} // Use the Link component from react-router-dom
+            to={`/products/detail/${product.productId}`}
+            leftIcon={<FaCartPlus />}
+            colorScheme="base"
+            variant="solid"
+          >
+            Add to Cart
+          </Button>
+        </CardFooter>
+      </Card>
     </Box>
   );
 };

@@ -11,6 +11,7 @@ import LasagnaPage from "./pages/LasagnaPage";
 import SaucePage from "./pages/SaucePage";
 import CannelloniPage from "./pages/CannelloniPage";
 import DetailsPage from "./pages/DetailsPage";
+import DeliveryPage from "./pages/DeliveryPage";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,7 @@ const router = createBrowserRouter([
       { path: "/products/sauce", element: <SaucePage /> },
       { path: "/products/canneloni", element: <CannelloniPage /> },
       { path: "/products/detail/:filterValue", element: <DetailsPage /> },
+      { path: "/delivery", element: <DeliveryPage /> },
     ],
   },
 ]);

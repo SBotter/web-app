@@ -17,7 +17,7 @@ const ProductDetailFilter = ({ filterValue }: Props) => {
             : prod.productId.toLowerCase().includes(filter);
         })
         .map((prod) => (
-          <ProductDetail product={prod} />
+          <ProductDetail key={prod.productId} product={prod} />
         ))}
     </div>
   );
