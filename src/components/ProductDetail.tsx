@@ -6,10 +6,14 @@ import {
   Text,
   Heading,
   Divider,
+  Button,
 } from "@chakra-ui/react";
 import { Product } from "../hooks/useProducts";
 import PackageTable from "./PackageTable";
 import IngredientsPanel from "./IngredientsPanel";
+import { Link as RouterLink } from "react-router-dom";
+
+import { CiDeliveryTruck } from "react-icons/ci";
 
 interface Props {
   product: Product;
@@ -47,6 +51,17 @@ const ProductDetail = ({ product }: Props) => {
             </Box>
             <Box width="100%" marginTop={10}>
               <PackageTable productPackage={product.package} />
+            </Box>
+            <Box width="100%" p={{ base: 2, md: 4 }} textAlign={"center"}>
+              <Button
+                as={RouterLink} // Use the Link component from react-router-dom
+                to={"/delivery"}
+                leftIcon={<CiDeliveryTruck size="2em" />}
+                colorScheme="base"
+                variant="solid"
+              >
+                WE DELIVERY!
+              </Button>
             </Box>
           </VStack>
         </Box>

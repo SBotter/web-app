@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import "./Navbar.css";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { IconContext } from "react-icons/lib";
-import { NavLink } from "react-router-dom";
-import { Image } from "@chakra-ui/react";
+import { NavLink, Link as RouterLink } from "react-router-dom";
+import { Button, Image } from "@chakra-ui/react";
+import { CiDeliveryTruck } from "react-icons/ci";
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -45,6 +46,19 @@ function Navbar() {
                 >
                   Contact
                 </NavLink>
+              </li>
+              <li>
+                <Button
+                  as={RouterLink} // Use the Link component from react-router-dom
+                  to={"/delivery"}
+                  leftIcon={<CiDeliveryTruck size="2em" />}
+                  colorScheme="base"
+                  variant="solid"
+                  onClick={closeMobileMenu}
+                  className="button-margin-bottom"
+                >
+                  WE DELIVERY!
+                </Button>
               </li>
             </ul>
           </div>

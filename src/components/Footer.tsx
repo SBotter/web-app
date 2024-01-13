@@ -8,6 +8,7 @@ import {
   Divider,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import { CiDeliveryTruck } from "react-icons/ci";
 import "../index.css";
 
 const Footer = () => {
@@ -15,7 +16,7 @@ const Footer = () => {
     <>
       <Box bg="base.100" marginTop={5}>
         <Divider bg="base.700" />
-        <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10} padding={4}>
+        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10} padding={4}>
           <VStack>
             <Text textColor="base.700" fontWeight="bold">
               Contact Us
@@ -27,6 +28,20 @@ const Footer = () => {
               </Link>
             </HStack>
             <Text textColor="base.700">contact@michelespasta.ca</Text>
+          </VStack>
+
+          <VStack>
+            <Link to={"/delivery"}>
+              <Box textAlign={"center"}>
+                <CiDeliveryTruck
+                  size="2em"
+                  className="product-detail-delivery_cost"
+                />
+                <Text textColor="base.700" fontWeight="bold">
+                  WE DELIVERY
+                </Text>
+              </Box>
+            </Link>
           </VStack>
 
           <VStack>

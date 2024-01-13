@@ -126,6 +126,10 @@
     .nav-item:hover {
       border: none;
     }
+
+    .button-margin-bottom{
+      margin-bottom: 10px
+    }
   
     .nav-item {
       width: 100%;
