@@ -1,4 +1,4 @@
-import { Text, HStack, Box } from "@chakra-ui/react";
+import { Text, HStack, Box, Center } from "@chakra-ui/react";
 
 interface Props {
   distance: number;
@@ -32,14 +32,16 @@ function DeliveryCalculator({ distance }: Props) {
 
   if (distance && distance > Number(deliveryRadious))
     return (
-      <div>
-        <p>
-          Sorry! We do not offer delivery services for locations that are too
-          distant from our current operational range, but we are open to making
-          special arrangements; please feel free to contact us for further
-          assistance.
-        </p>
-      </div>
+      <Center>
+        <Box width="50%" marginLeft={5}>
+          <Text color="base.800" textAlign={"center"}>
+            Sorry! We do not offer delivery services for locations that are too
+            distant from our current operational range, but we are open to
+            making special arrangements; please feel free to contact us for
+            further assistance.
+          </Text>
+        </Box>
+      </Center>
     );
 
   if (distance && distance === 0) return null;
