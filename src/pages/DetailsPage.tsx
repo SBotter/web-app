@@ -16,11 +16,6 @@ const DetailsPage = () => {
           <CardBody>
             <ProductDetailFilter filterValue={filterValue} />
           </CardBody>
-          <CardFooter>
-            <Box boxSize={"100%"}>
-              <Map />
-            </Box>
-          </CardFooter>
         </Card>
       </Box>
       <Footer />
