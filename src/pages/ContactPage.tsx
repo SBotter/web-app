@@ -52,7 +52,7 @@ const ContactPage = () => {
             </VStack>
           </Box>
 
-          <Box bg="base.700" borderRadius={20} width="100%" padding={4}>
+          <Box bg="base.200" borderRadius={20} width="100%" padding={4}>
             <FormContact />
           </Box>
         </SimpleGrid>

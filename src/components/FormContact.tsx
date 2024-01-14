@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.css";
 import { FormEvent, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-import { Box, Button, useToast } from "@chakra-ui/react";
+import { Box, Button, useToast, Text } from "@chakra-ui/react";
 
 const FormContact = () => {
   const toast = useToast();
@@ -70,11 +70,19 @@ const FormContact = () => {
             if (result.status === 200) {
               toast({
                 position: "bottom-right",
+                duration: 3000,
+                isClosable: true,
+                status: "success",
                 render: () => (
                   <Box color="white" p={3} bg="base.800" borderRadius={10}>
                     Success!!
                   </Box>
                 ),
+              });
+              setMessage({
+                contact_name: "",
+                contact_email: "",
+                contact_message: "",
               });
             }
           },
@@ -94,9 +102,7 @@ const FormContact = () => {
   return (
     <form ref={form} onSubmit={sendEmail}>
       <div className="mb-3">
-        <label htmlFor="contact_name" className="form-label">
-          Name:
-        </label>
+        <Text color="base.800">Name:</Text>
         <input
           id="contact_name"
           name="contact_name"
@@ -112,9 +118,7 @@ const FormContact = () => {
         )}
       </div>
       <div className="mb-3">
-        <label htmlFor="contact_email" className="form-label">
-          Email:
-        </label>
+        <Text color="base.800">E-mail:</Text>
         <input
           id="contact_email"
           name="contact_email"
@@ -130,9 +134,7 @@ const FormContact = () => {
         )}
       </div>
       <div className="mb-3">
-        <label htmlFor="contact_message" className="form-label">
-          Message:
-        </label>
+        <Text color="base.800">Message:</Text>
         <textarea
           id="contact_message"
           name="contact_message"
@@ -149,7 +151,12 @@ const FormContact = () => {
         )}
       </div>
       <Box textAlign="right">
-        <Button colorScheme="base" variant="outline" type="submit">
+        <Button
+          bg="base.700"
+          variant="outline"
+          _hover={{ bg: "base.50", color: "base.700" }}
+          type="submit"
+        >
           Submit
         </Button>
       </Box>
