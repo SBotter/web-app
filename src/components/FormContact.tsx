@@ -58,47 +58,72 @@ const FormContact = () => {
     e.preventDefault();
 
     if (validateForm()) {
-      emailjs
-        .sendForm(
-          import.meta.env.VITE_REACT_APP_EMAIL_SERVICE_ID,
-          import.meta.env.VITE_REACT_APP_EMAIL_TEMPLATE_ID,
-          form.current,
-          import.meta.env.VITE_REACT_APP_EMAIL_PUBLIC_KEY
-        )
-        .then(
-          (result) => {
-            if (result.status === 200) {
-              toast({
-                position: "bottom-right",
-                duration: 3000,
-                isClosable: true,
-                status: "success",
-                render: () => (
-                  <Box color="white" p={3} bg="base.800" borderRadius={10}>
-                    Success!!
-                  </Box>
-                ),
-              });
-              setMessage({
-                contact_name: "",
-                contact_email: "",
-                contact_message: "",
-              });
-            }
-          },
-          (error) => {
-            toast({
-              position: "bottom-right",
-              render: () => (
-                <Box color="white" p={3} bg="base.800" borderRadius={10}>
-                  {error.text}
-                </Box>
-              ),
+      const loadingPromiseToastId = toast({
+        title: "Sending Email",
+        description: "Please wait...",
+        status: "info",
+        duration: null, // null duration makes it a persistent toast until explicitly closed
+        isClosable: true,
+        variant: "outline",
+        render: ({ onClose }) => (
+          <Box
+            color="white"
+            p={3}
+            bg="base.800"
+            borderRadius={10}
+            onClick={onClose}
+            cursor="pointer"
+          >
+            <Text fontWeight="bold" mb={2}>
+              Sending Email
+            </Text>
+            <Text fontSize="sm">Please wait...</Text>
+          </Box>
+        ),
+      });
+
+      const emailSendingPromise = emailjs.sendForm(
+        import.meta.env.VITE_REACT_APP_EMAIL_SERVICE_ID,
+        import.meta.env.VITE_REACT_APP_EMAIL_TEMPLATE_ID,
+        form.current,
+        import.meta.env.VITE_REACT_APP_EMAIL_PUBLIC_KEY
+      );
+
+      emailSendingPromise
+        .then((result) => {
+          if (result.status === 200) {
+            toast.update(loadingPromiseToastId, {
+              title: "Email Sent Successfully",
+              description: "Thank you for reaching out!",
+              status: "success",
+              duration: 5000, // Set a duration for the success toast
+            });
+
+            // Clear form fields after successful submission
+            setMessage({
+              contact_name: "",
+              contact_email: "",
+              contact_message: "",
             });
           }
-        );
+        })
+        .catch((error) => {
+          // Close loading toast
+          toast.close(loadingPromiseToastId);
+
+          // Display error toast
+          toast({
+            position: "bottom-right",
+            render: () => (
+              <Box color="white" p={3} bg="base.800" borderRadius={10}>
+                {error.text}
+              </Box>
+            ),
+          });
+        });
     }
   };
+
   return (
     <form ref={form} onSubmit={sendEmail}>
       <div className="mb-3">
