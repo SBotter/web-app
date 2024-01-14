@@ -1,9 +1,11 @@
 import "bootstrap/dist/css/bootstrap.css";
 import { FormEvent, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-import { Box, Button } from "@chakra-ui/react";
+import { Box, Button, useToast } from "@chakra-ui/react";
 
 const FormContact = () => {
+  const toast = useToast();
+
   const form = useRef<HTMLFormElement | any>("");
 
   const [message, setMessage] = useState({
@@ -65,10 +67,26 @@ const FormContact = () => {
         )
         .then(
           (result) => {
-            console.log(result.text);
+            if (result.status === 200) {
+              toast({
+                position: "bottom-right",
+                render: () => (
+                  <Box color="white" p={3} bg="base.800" borderRadius={10}>
+                    Success!!
+                  </Box>
+                ),
+              });
+            }
           },
           (error) => {
-            console.log(error.text);
+            toast({
+              position: "bottom-right",
+              render: () => (
+                <Box color="white" p={3} bg="base.800" borderRadius={10}>
+                  {error.text}
+                </Box>
+              ),
+            });
           }
         );
     }
