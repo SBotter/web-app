@@ -13,7 +13,7 @@ const ContactPage = () => {
   return (
     <>
       <VStack>
-        <Heading marginTop={10} marginBottom={10}>
+        <Heading marginTop={10} marginBottom={10} p={5}>
           <Text
             color="base.700"
             fontSize={{ base: "20px", md: "30px", lg: "50px" }}
