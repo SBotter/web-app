@@ -4,6 +4,7 @@ import "./index.css";
 import { ChakraProvider, ColorModeScript } from "@chakra-ui/react";
 import { RouterProvider } from "react-router-dom";
 import router from "./routes";
+import "bootstrap/dist/css/bootstrap.css";
 
 import theme from "./theme";
 

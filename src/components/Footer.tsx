@@ -8,7 +8,6 @@ import {
   Divider,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import { CiDeliveryTruck } from "react-icons/ci";
 import "../index.css";
 
 const Footer = () => {
@@ -16,28 +15,29 @@ const Footer = () => {
     <>
       <Box bg="base.100" marginTop={5}>
         <Divider bg="base.700" />
-        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10} padding={4}>
+        <SimpleGrid
+          columns={{ base: 1, md: 3 }}
+          spacing={10}
+          padding={4}
+          textAlign={"center"}
+        >
           <VStack>
-            <Text textColor="base.700" fontWeight="bold">
+            <Text textColor="base.800" fontWeight="bold">
               Contact Us
             </Text>
-            <HStack>
-              <Text textColor="base.700">+1 604 679-0998</Text>
-              <Link className="social-icon-link whatsapp" to="" target="_blank">
-                <i className="fa-brands fa-whatsapp" />
-              </Link>
-            </HStack>
-            <Text textColor="base.700">contact@michelespasta.ca</Text>
+            <i className="fa-brands fa-whatsapp product-detail-icon-link" />
+            <Text textColor="base.800">+1 604 679-0998</Text>
+            <i className="fa-regular fa-envelope product-detail-icon-link" />
+            <Text color="base.800">michelespasta@gmail.com</Text>
+            <i className="fa-brands fa-instagram product-detail-icon-link" />
+            <Text color="base.800">@micheles.pasta</Text>
           </VStack>
 
           <VStack>
             <Link to={"/delivery"}>
-              <Box textAlign={"center"}>
-                <CiDeliveryTruck
-                  size="2em"
-                  className="product-detail-delivery_cost"
-                />
-                <Text textColor="base.700" fontWeight="bold">
+              <Box width={"100%"}>
+                <i className="fa-solid fa-truck-monster product-detail-icon-link" />
+                <Text textColor="base.800" fontWeight="bold">
                   WE DELIVERY
                 </Text>
               </Box>
@@ -45,10 +45,10 @@ const Footer = () => {
           </VStack>
 
           <VStack>
-            <Text textColor="base.700" fontWeight="bold">
+            <Text textColor="base.800" fontWeight="bold">
               Social Media
             </Text>
-            <HStack>
+            <HStack spacing={5}>
               <Link
                 className="social-icon-link"
                 to="http://www.facebook.com"

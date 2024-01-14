@@ -5,7 +5,6 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import { IconContext } from "react-icons/lib";
 import { NavLink, Link as RouterLink } from "react-router-dom";
 import { Button, Image } from "@chakra-ui/react";
-import { CiDeliveryTruck } from "react-icons/ci";
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -51,7 +50,9 @@ function Navbar() {
                 <Button
                   as={RouterLink} // Use the Link component from react-router-dom
                   to={"/delivery"}
-                  leftIcon={<CiDeliveryTruck size="2em" />}
+                  leftIcon={
+                    <i className="fa-solid fa-truck-monster product-detail-icon-link" />
+                  }
                   colorScheme="base"
                   variant="solid"
                   onClick={closeMobileMenu}

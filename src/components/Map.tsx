@@ -154,8 +154,11 @@ function Map() {
                 onClick={handleToggle}
               >
                 <Box flex="1" textAlign={"center"}>
+                  <i className="fa-solid fa-truck-monster product-detail-icon-link" />
                   <Text color="base.800">
-                    {isOpen ? "" : "Calculate your Delivery"}
+                    {isOpen
+                      ? "Calculate your Delivery"
+                      : "Calculate your Delivery"}
                   </Text>
                 </Box>
                 <AccordionIcon />
