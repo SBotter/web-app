@@ -180,9 +180,10 @@ const FormContact = () => {
           bg="base.700"
           variant="outline"
           _hover={{ bg: "base.50", color: "base.700" }}
+          textColor={"base.50"}
           type="submit"
         >
-          Submit
+          Send Message
         </Button>
       </Box>
     </form>
