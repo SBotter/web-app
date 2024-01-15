@@ -4,7 +4,6 @@ import {
   CardBody,
   Text,
   Image,
-  VStack,
   Divider,
   Box,
   CardFooter,
@@ -30,7 +29,7 @@ const ProductCard = ({ product }: Props) => {
       overflow="hidden"
       boxShadow="md"
     >
-      <Card borderRadius={10} overflow="hidden" bg="base.100" height="100%">
+      <Card borderRadius={10} overflow="hidden" bg="#FFF" height="100%">
         <Link to={`/products/detail/${product.productId}`}>
           <Image
             src={`/images/products/${product.picture[0].picturePath}`}
@@ -42,15 +41,19 @@ const ProductCard = ({ product }: Props) => {
             overflow="hidden"
           />
         </Link>
-
         <CardBody>
-          <VStack marginTop={0} alignItems="start">
+          <Box width={"100%"} justifyItems="left">
             <Text fontSize={20} color="base.700" fontWeight={"500"}>
               {product.productName}
             </Text>
-            <Divider borderColor="base.800" />
-            <Text color="base.700">{product.productDescription}</Text>
-          </VStack>
+            <Text color="base.700" marginTop={-5}>
+              {product.category[0].categoryName}
+            </Text>
+          </Box>
+          <Divider borderColor="base.800" />
+          <Text color="base.700" marginTop={10}>
+            {product.productDescription}
+          </Text>
         </CardBody>
         <Divider borderColor="base.800" />
         <CardFooter margin="auto">
