@@ -7,7 +7,6 @@ import {
   Heading,
   Divider,
   Button,
-  HStack,
 } from "@chakra-ui/react";
 import { Product } from "../hooks/useProducts";
 import PackageTable from "./PackageTable";
