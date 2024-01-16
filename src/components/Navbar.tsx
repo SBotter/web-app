@@ -58,7 +58,7 @@ function Navbar() {
                   onClick={closeMobileMenu}
                   className="button-margin-bottom"
                 >
-                  WE DELIVERY!
+                  WE DELIVER!
                 </Button>
               </li>
             </ul>

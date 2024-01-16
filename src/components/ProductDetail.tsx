@@ -7,6 +7,7 @@ import {
   Heading,
   Divider,
   Button,
+  HStack,
 } from "@chakra-ui/react";
 import { Product } from "../hooks/useProducts";
 import PackageTable from "./PackageTable";
@@ -14,6 +15,7 @@ import IngredientsPanel from "./IngredientsPanel";
 import { Link as RouterLink } from "react-router-dom";
 
 import { CiDeliveryTruck } from "react-icons/ci";
+import { FaWhatsapp } from "react-icons/fa";
 
 interface Props {
   product: Product;
@@ -39,8 +41,8 @@ const ProductDetail = ({ product }: Props) => {
                 {product.productName}
               </Text>
             </Heading>
-            <Text color="base.700" fontSize="15px">
-              {product.productGroupName}
+            <Text color="base.700" fontSize="15px" marginTop={-8}>
+              {product.category[0].categoryName}
             </Text>
             <Divider bgColor="base.800" />
             <Box marginTop={10}>
@@ -53,15 +55,26 @@ const ProductDetail = ({ product }: Props) => {
               <PackageTable productPackage={product.package} />
             </Box>
             <Box width="100%" p={{ base: 2, md: 4 }} textAlign={"center"}>
-              <Button
-                as={RouterLink} // Use the Link component from react-router-dom
-                to={"/delivery"}
-                leftIcon={<CiDeliveryTruck size="2em" />}
-                colorScheme="base"
-                variant="solid"
-              >
-                WE DELIVERY!
-              </Button>
+              <HStack>
+                <Button
+                  as={RouterLink} // Use the Link component from react-router-dom
+                  to={"/contact"}
+                  leftIcon={<FaWhatsapp />}
+                  colorScheme="base"
+                  variant="solid"
+                >
+                  Place you Order
+                </Button>
+                <Button
+                  as={RouterLink} // Use the Link component from react-router-dom
+                  to={"/delivery"}
+                  leftIcon={<CiDeliveryTruck size="2em" />}
+                  colorScheme="base"
+                  variant="solid"
+                >
+                  WE DELIVER!
+                </Button>
+              </HStack>
             </Box>
           </VStack>
         </Box>

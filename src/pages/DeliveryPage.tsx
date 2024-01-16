@@ -12,13 +12,14 @@ const DeliveryPage = () => {
             fontSize={{ base: "30px", md: "50px", lg: "80px" }}
             align="center"
           >
-            WE DELIVERY!
+            WE DELIVER!
           </Text>
         </Heading>
         <Text
           color="base.700"
           fontSize={{ base: "15px", md: "25px", lg: "40px" }}
           align="center"
+          p={5}
         >
           Experience the convenience of culinary delight at your doorstep with
           our delivery service bringing the flavors of artisanal excellence

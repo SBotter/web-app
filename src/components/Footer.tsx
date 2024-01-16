@@ -38,7 +38,7 @@ const Footer = () => {
               <Box width={"100%"}>
                 <i className="fa-solid fa-truck-monster product-detail-icon-link" />
                 <Text textColor="base.800" fontWeight="bold">
-                  WE DELIVERY
+                  WE DELIVER
                 </Text>
               </Box>
             </Link>

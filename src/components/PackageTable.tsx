@@ -35,11 +35,12 @@ const PackageTable = ({ productPackage }: Props) => {
           <Tr key={item.packageId}>
             <Td>
               <Text color="base.700" fontSize="18px">
-                {item.packageSize} {item.packageUnit}
+                {item.packageSize} ({item.packageUnit})
               </Text>
             </Td>
             <Td>
               <Text color="base.700" fontSize="18px">
+                <i className="fa-solid fa-dollar-sign product-detail-icon-link" />
                 {item.packagePrice}
               </Text>
             </Td>
