@@ -23,7 +23,7 @@ interface Props {
 const ProductDetail = ({ product }: Props) => {
   return (
     <Box width="100%" p={{ base: 2, md: 4 }}>
-      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: 2, md: 4 }}>
+      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ md: 4 }}>
         <Box boxShadow="md" border={2}>
           <Image
             src={`/images/products/${product.picture[0].picturePath}`}
