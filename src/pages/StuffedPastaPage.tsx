@@ -21,11 +21,12 @@ const StuffedPastaPage = () => {
           color="base.700"
           fontSize={{ base: "15px", md: "25px", lg: "40px" }}
           align="center"
+          p={5}
         >
           Savor the excellence of our stuffed pasta collection, from the
           artfully folded Ravioli revealing a symphony of flavors to the
           bite-sized wonders of Tortellini, and the charmingly folded
-          Cappelletti—each crafted with precision and filled with love,
+          Cappelletti each crafted with precision and filled with love,
           promising a delectable journey in every bite.
         </Text>
         <Flex width="100%" justify="center">

@@ -19,6 +19,7 @@ const PastaSeccaPage = () => {
           color="base.700"
           fontSize={{ base: "15px", md: "25px", lg: "40px" }}
           align="center"
+          p={5}
         >
           Explore the simplicity and versatility of our dried pasta collection,
           featuring meticulously crafted fettuccine and spaghetti. Made with the

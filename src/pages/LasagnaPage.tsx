@@ -19,6 +19,7 @@ const LasagnaPage = () => {
           color="base.700"
           fontSize={{ base: "15px", md: "25px", lg: "40px" }}
           align="center"
+          p={5}
         >
           Dive into the sumptuous world of handmade lasagnas on our webapp,
           where layers of artisanal pasta, slow-simmered sauces, and melted

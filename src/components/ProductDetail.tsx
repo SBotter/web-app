@@ -55,11 +55,14 @@ const ProductDetail = ({ product }: Props) => {
               <PackageTable productPackage={product.package} />
             </Box>
             <Box width="100%" p={{ base: 2, md: 4 }} textAlign={"center"}>
-              <HStack>
+              <SimpleGrid
+                columns={{ base: 1, md: 2 }}
+                spacing={{ base: 2, md: 4 }}
+              >
                 <Button
                   as={RouterLink} // Use the Link component from react-router-dom
                   to={"/contact"}
-                  leftIcon={<FaWhatsapp />}
+                  leftIcon={<FaWhatsapp size="1.3em" />}
                   colorScheme="base"
                   variant="solid"
                 >
@@ -74,7 +77,7 @@ const ProductDetail = ({ product }: Props) => {
                 >
                   WE DELIVER!
                 </Button>
-              </HStack>
+              </SimpleGrid>
             </Box>
           </VStack>
         </Box>

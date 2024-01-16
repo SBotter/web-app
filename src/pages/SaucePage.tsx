@@ -21,6 +21,7 @@ const SaucePage = () => {
           color="base.700"
           fontSize={{ base: "15px", md: "25px", lg: "40px" }}
           align="center"
+          p={5}
         >
           Discover our trio of exquisite sauces – Classic Tomato for a taste of
           Italy's sun-ripened richness, Béchamel for creamy indulgence, and

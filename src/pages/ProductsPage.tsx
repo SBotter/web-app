@@ -21,9 +21,10 @@ const ProductsPage = () => {
           color="base.700"
           fontSize={{ base: "15px", md: "25px", lg: "40px" }}
           align="center"
+          p={5}
         >
           Transform meals into gourmet experiences with our exceptional
-          handcrafted delights—stuffed raviolis, lasagna layers, signature
+          handcrafted delights stuffed raviolis, lasagna layers, signature
           sauces, artisanal focaccias, silky fettuccini, and classic spaghetti,
           creating a symphony of flavors.
         </Text>

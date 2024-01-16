@@ -6,7 +6,7 @@ const CannelloniPage = () => {
   return (
     <>
       <VStack>
-        <Heading marginTop={10} marginBottom={10}p={5}>
+        <Heading marginTop={10} marginBottom={10} p={5}>
           <Text
             color="base.700"
             fontSize={{ base: "30px", md: "50px", lg: "80px" }}
@@ -19,6 +19,7 @@ const CannelloniPage = () => {
           color="base.700"
           fontSize={{ base: "15px", md: "25px", lg: "40px" }}
           align="center"
+          p={5}
         >
           Discover the artistry in every bite with our handmade cannelloni,
           where tender pasta tubes embrace a medley of rich fillings, promising

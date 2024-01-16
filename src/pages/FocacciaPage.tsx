@@ -19,6 +19,7 @@ const FocacciaPage = () => {
           color="base.700"
           fontSize={{ base: "15px", md: "25px", lg: "40px" }}
           align="center"
+          p={5}
         >
           Elevate your senses with our handmade focaccias, where aromatic
           rosemary, succulent confit tomatoes, delicate fleur de sel, and

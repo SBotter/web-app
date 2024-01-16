@@ -353,85 +353,10 @@ export default [
   },
   {
     companyId: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    productId: "744d9cdb-2f42-4112-b160-86daf0d443ea",
-    productName: "Focaccia Rosemery",
-    productDescription: "Focaccia with Rosemary: A Herb-Infused Delight",
-    category: [
-      {
-        categoryId: "3837af85-62da-4ef5-85c7-453084fdb960",
-        categoryName: "Focaccia",
-      },
-    ],
-    productGroupName: "Focaccia",
-    picture: [
-      {
-        pictureId: "d3289ef0-7244-4991-b9f3-dd4a5f5889ef",
-        picturePath: "focaccia_2.jpg",
-      },
-    ],
-    package: [
-      {
-        packageId: "51ac7451-6068-467e-802d-55eb45d90925",
-        packageName: "Small",
-        packageDescription: "about 250g",
-        packageUnit: "unit",
-        packageSize: "small",
-        packagePrice: 8.0,
-      },
-      {
-        packageId: "e1cc608a-d17e-47cd-8725-798103aa8dfb",
-        packageName: "Large",
-        packageDescription: "package for two people",
-        packageUnit: "grams",
-        packageSize: "large",
-        packagePrice: 15.0,
-      },
-    ],
-    ingredient: [
-      {
-        ingredientId: "d063f86e-df61-47b5-9da3-79e1ce5c6d51",
-        ingredientName: "special flour",
-      },
-      {
-        ingredientId: "32ca0909-4913-4de6-b86d-1d30a409820c",
-        ingredientName: "yeast",
-      },
-      {
-        ingredientId: "95529787-e293-4203-af53-0b7090e5358b",
-        ingredientName: "olive oil",
-      },
-      {
-        ingredientId: "656393c6-e762-45c9-b55b-d7f84097044c",
-        ingredientName: "fleur de sel",
-      },
-      {
-        ingredientId: "23f1517c-557a-40d6-9f87-d4cdb8709acc",
-        ingredientName: "water",
-      },
-      {
-        ingredientId: "6a7a6513-5f48-40af-b773-c1b0867474aa",
-        ingredientName: "salt",
-      },
-      {
-        ingredientId: "23451b8d-762b-45f0-8088-de75fea62bba",
-        ingredientName: "fresh rosemery herb",
-      },
-    ],
-    instruction: [
-      {
-        instructionId: "9298afdb-4b16-409d-8270-8efa3a1545db",
-        instructionName: "keep on fridge up to 6 days",
-      },
-    ],
-
-    isDeleted: false,
-  },
-  {
-    companyId: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    productId: "0743b575-c0bd-4381-a9f2-cd9dd3fa18b2",
-    productName: "Focaccia Confit Tomato",
+    productId: "5fb605c9-35c4-4824-a2d6-631f62602170",
+    productName: "Rosemery Focaccia",
     productDescription:
-      "Focaccia with Confit Tomatoes: A Sun-Kissed Symphony of Tomato Elegance",
+      "Enhance your pasta dinner experience with our exquisite Rosemary Focaccia—an artisanal masterpiece featuring a perfect balance of airy softness, a crisp olive oil-kissed exterior, and the aromatic touch of fresh rosemary. This flavorful delight serves as an excellent appetizer, setting the stage for an unforgettable dining experience.",
     category: [
       {
         categoryId: "3837af85-62da-4ef5-85c7-453084fdb960",
@@ -441,70 +366,58 @@ export default [
     productGroupName: "focaccia",
     picture: [
       {
-        pictureId: "d3289ef0-7244-4991-b9f3-dd4a5f5889ef",
-        picturePath: "focaccia_3.jpg",
+        pictureId: "2223344e-b237-462d-beef-40896e0813f0",
+        picturePath: "focaccia_2.jpg",
       },
     ],
     package: [
       {
-        packageId: "51ac7451-6068-467e-802d-55eb45d90925",
-        packageName: "150g",
-        packageDescription: "package for one person",
-        packageUnit: "grams",
-        packageSize: "150.0",
+        packageId: "2e399f86-0de8-45dc-839c-2366603e24e5",
+        packageName: "Small",
+        packageDescription: "Small",
+        packageUnit: "un",
+        packageSize: "1",
+        packagePrice: 8.0,
+      },
+      {
+        packageId: "bae3f9d7-f650-4c87-82b9-084807c6fadf",
+        packageName: "Large",
+        packageDescription: "Large",
+        packageUnit: "un",
+        packageSize: "1",
         packagePrice: 15.0,
-      },
-      {
-        packageId: "e1cc608a-d17e-47cd-8725-798103aa8dfb",
-        packageName: "300g",
-        packageDescription: "package for two people",
-        packageUnit: "grams",
-        packageSize: "300.0",
-        packagePrice: 30.0,
-      },
-      {
-        packageId: "19c770b0-f64d-4b78-8d8d-b582879a0370",
-        packageName: "500g",
-        packageDescription: "package for three people",
-        packageUnit: "grams",
-        packageSize: "500.0",
-        packagePrice: 50.0,
       },
     ],
     ingredient: [
       {
         ingredientId: "d063f86e-df61-47b5-9da3-79e1ce5c6d51",
-        ingredientName: "special flour",
+        ingredientName: "Special Flour",
       },
       {
         ingredientId: "32ca0909-4913-4de6-b86d-1d30a409820c",
-        ingredientName: "yeast",
+        ingredientName: "Filtered Water",
       },
       {
         ingredientId: "95529787-e293-4203-af53-0b7090e5358b",
-        ingredientName: "olive oil",
+        ingredientName: "Olive oil",
       },
       {
-        ingredientId: "656393c6-e762-45c9-b55b-d7f84097044c",
-        ingredientName: "fleur de sel",
+        ingredientId: "7f179fa9-982b-4de7-9c2d-579c71f102c7",
+        ingredientName: "Yeast",
       },
       {
-        ingredientId: "23f1517c-557a-40d6-9f87-d4cdb8709acc",
-        ingredientName: "water",
+        ingredientId: "8f921ce7-1746-4489-91f5-cc0d00d01e35",
+        ingredientName: "Fresh Rosemery",
       },
       {
-        ingredientId: "6a7a6513-5f48-40af-b773-c1b0867474aa",
-        ingredientName: "salt",
-      },
-      {
-        ingredientId: "23451b8d-762b-45f0-8088-de75fea62bba",
-        ingredientName: "fresh rosemery herb",
+        ingredientId: "08077963-cbe4-4965-a1be-98702771c363",
+        ingredientName: "Fleur de sel",
       },
     ],
     instruction: [
       {
         instructionId: "9298afdb-4b16-409d-8270-8efa3a1545db",
-        instructionName: "keep on fridge up to 6 days",
+        instructionName: "Keep on freedge up to 5 days.",
       },
     ],
 
@@ -512,37 +425,37 @@ export default [
   },
   {
     companyId: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    productId: "ada57eac-72fc-4180-9190-f5aa5da083cc",
-    productName: "Focaccia Confit Tomato",
+    productId: "1d772cc6-6851-4029-b15c-01811e75deba",
+    productName: "Confit Tomato Focaccia",
     productDescription:
-      "Focaccia with Confit Tomatoes: A Sun-Kissed Symphony of Tomato Elegance",
+      "Elevate your pasta dinner with our Confit Tomato Focaccia, a culinary masterpiece boasting a golden-brown exterior, soft airy interior, and the rich, savory allure of slow-roasted confit tomatoes. Each delightful bite unveils the perfect harmony of flavors, accentuated by the crisp texture, olive oil infusion, aromatic fresh oregano, the subtle warmth of roasted garlic, and a finishing touch of special Parmigiano Reggiano sprinkles on top. This exceptional Focaccia serves as a delectable appetizer, setting the stage for a pasta feast that promises to be truly memorable.",
     category: [
       {
         categoryId: "3837af85-62da-4ef5-85c7-453084fdb960",
         categoryName: "Focaccia",
       },
     ],
-    productGroupName: "Focaccia",
+    productGroupName: "focaccia",
     picture: [
       {
-        pictureId: "e2f7bed0-6316-4650-979e-ee0b2a26753d",
+        pictureId: "2223344e-b237-462d-beef-40896e0813f0",
         picturePath: "focaccia_3.jpg",
       },
     ],
     package: [
       {
-        packageId: "51ac7451-6068-467e-802d-55eb45d90925",
+        packageId: "2e399f86-0de8-45dc-839c-2366603e24e5",
         packageName: "Small",
-        packageDescription: "About 250g.",
-        packageUnit: "piece",
+        packageDescription: "Small",
+        packageUnit: "un",
         packageSize: "1",
         packagePrice: 8.0,
       },
       {
-        packageId: "e1cc608a-d17e-47cd-8725-798103aa8dfb",
+        packageId: "bae3f9d7-f650-4c87-82b9-084807c6fadf",
         packageName: "Large",
-        packageDescription: "About 450g.",
-        packageUnit: "piece",
+        packageDescription: "Large",
+        packageUnit: "un",
         packageSize: "1",
         packagePrice: 15.0,
       },
@@ -550,39 +463,40 @@ export default [
     ingredient: [
       {
         ingredientId: "d063f86e-df61-47b5-9da3-79e1ce5c6d51",
-        ingredientName: "special flour",
+        ingredientName: "Special Flour",
       },
       {
         ingredientId: "32ca0909-4913-4de6-b86d-1d30a409820c",
-        ingredientName: "yeast",
+        ingredientName: "Filtered Water",
       },
       {
         ingredientId: "95529787-e293-4203-af53-0b7090e5358b",
-        ingredientName: "olive oil",
+        ingredientName: "Olive oil",
       },
       {
-        ingredientId: "656393c6-e762-45c9-b55b-d7f84097044c",
-        ingredientName: "fleur de sel",
+        ingredientId: "7f179fa9-982b-4de7-9c2d-579c71f102c7",
+        ingredientName: "Yeast",
       },
       {
-        ingredientId: "23f1517c-557a-40d6-9f87-d4cdb8709acc",
-        ingredientName: "water",
+        ingredientId: "8f921ce7-1746-4489-91f5-cc0d00d01e35",
+        ingredientName: "Fresh Oregano",
       },
       {
-        ingredientId: "6a7a6513-5f48-40af-b773-c1b0867474aa",
-        ingredientName: "salt",
+        ingredientId: "bfda62db-8abc-46dc-add4-90ed268d8fa7",
+        ingredientName: "Roasted Garlic",
       },
       {
-        ingredientId: "23451b8d-762b-45f0-8088-de75fea62bba",
-        ingredientName: "fresh rosemery herb",
+        ingredientId: "08077963-cbe4-4965-a1be-98702771c363",
+        ingredientName: "Fleur de sel",
       },
     ],
     instruction: [
       {
         instructionId: "9298afdb-4b16-409d-8270-8efa3a1545db",
-        instructionName: "keep on fridge up to 6 days",
+        instructionName: "Keep on freedge up to 5 days.",
       },
     ],
+
     isDeleted: false,
   },
   {
