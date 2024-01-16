@@ -273,7 +273,7 @@ export default [
   {
     companyId: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
     productId: "07501e9c-696b-42cb-8bf3-4b64f3442252",
-    productName: "Butternut Squash Ravioli",
+    productName: "Buffalo Mozzarella Ravioli",
     productDescription:
       "Embark on a culinary journey with our exquisite Handmade Buffalo Mozzarella-stuffed Ravioli, where each intricately crafted pasta parcel encases the luxurious creaminess of buffalo mozzarella filling. Savor the harmonious balance of velvety pasta and the indulgent, tangy nuances of buffalo mozzarella, creating a savory symphony that elevates the classic ravioli into a true gourmet delight.",
     category: [
