@@ -1,5 +1,5 @@
 .hero-container{
-    background: url('assets/images/products/valentines.jpg') center center/cover no-repeat;
+    background: url('assets/images/products/valentines_2.jpg') center center/cover no-repeat;
     height: 100vh;
     width: 100%;
     display: flex;
@@ -8,6 +8,13 @@
     align-items: center;
     box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.2);
     object-fit: contain;
+    position: relative;
+}
+/* promotional price */
+.promotional-price {
+  position: absolute;
+    bottom: 5%; /* Adjust the distance from the bottom as needed */
+    right: 5%; /* Adjust the distance from the right as needed */
 }
 
 /* Social Icons */
@@ -37,4 +44,20 @@
 
 .map-marker {
   margin-top: -30px;
+}
+
+@media screen and (max-width: 960px) {
+  .hero-container{
+    background: url('assets/images/products/valentines_5.jpg') center center/cover no-repeat;
+    background-color: rgba(240, 239, 239, 0.8);
+  }
+  
+  .promotional-price {
+    position: static; /* Remove absolute positioning */
+        
+        margin-top: 10%; /* Adjust the margin as a percentage of the container height */
+        bottom: auto; /* Remove the bottom positioning */
+        right: auto; /* Remove the right positioning */
+  }
+  
 }
