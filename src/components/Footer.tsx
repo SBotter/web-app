@@ -84,7 +84,7 @@ const Footer = () => {
         <VStack>
           <Image src="/images/PastaLogo.png" height="90px" />
           <Text textColor="base.700" fontSize="12px">
-            copiryght© 2023
+            copiryght© 2024
           </Text>
         </VStack>
       </Box>
