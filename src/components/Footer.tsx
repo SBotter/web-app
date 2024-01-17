@@ -27,10 +27,17 @@ const Footer = () => {
             </Text>
             <i className="fa-brands fa-whatsapp product-detail-icon-link" />
             <Text textColor="base.800">+1 604 679-0998</Text>
-            <i className="fa-regular fa-envelope product-detail-icon-link" />
-            <Text color="base.800">michelespasta@gmail.com</Text>
-            <i className="fa-brands fa-instagram product-detail-icon-link" />
-            <Text color="base.800">@micheles.pasta</Text>
+            <Link to="/contact" target="_self">
+              <i className="fa-regular fa-envelope product-detail-icon-link" />
+              <Text color="base.800">michelespasta@gmail.com</Text>
+            </Link>
+            <Link
+              to="https://www.instagram.com/micheles.pasta/"
+              target="_blank"
+            >
+              <i className="fa-brands fa-instagram product-detail-icon-link" />
+              <Text color="base.800">@micheles.pasta</Text>
+            </Link>
           </VStack>
 
           <VStack>
@@ -75,8 +82,8 @@ const Footer = () => {
       </Box>
       <Box bg="base.100" padding={2}>
         <VStack>
-          <Image src="/images/PastaLogo.png" height="50px" />
-          <Text textColor="base.700" fontSize="10px">
+          <Image src="/images/PastaLogo.png" height="90px" />
+          <Text textColor="base.700" fontSize="12px">
             copiryght© 2023
           </Text>
         </VStack>
