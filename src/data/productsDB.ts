@@ -354,7 +354,7 @@ export default [
   {
     companyId: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
     productId: "5fb605c9-35c4-4824-a2d6-631f62602170",
-    productName: "Rosemery Focaccia",
+    productName: "Rosemary Focaccia",
     productDescription:
       "Enhance your pasta dinner experience with our exquisite Rosemary Focaccia—an artisanal masterpiece featuring a perfect balance of airy softness, a crisp olive oil-kissed exterior, and the aromatic touch of fresh rosemary. This flavorful delight serves as an excellent appetizer, setting the stage for an unforgettable dining experience.",
     category: [
@@ -407,7 +407,7 @@ export default [
       },
       {
         ingredientId: "8f921ce7-1746-4489-91f5-cc0d00d01e35",
-        ingredientName: "Fresh Rosemery",
+        ingredientName: "Fresh Rosemary",
       },
       {
         ingredientId: "08077963-cbe4-4965-a1be-98702771c363",
@@ -799,7 +799,7 @@ export default [
       },
       {
         ingredientId: "23451b8d-762b-45f0-8088-de75fea62bba",
-        ingredientName: "fresh rosemery herb",
+        ingredientName: "fresh rosemary herb",
       },
     ],
     instruction: [
@@ -866,7 +866,7 @@ export default [
       },
       {
         ingredientId: "23451b8d-762b-45f0-8088-de75fea62bba",
-        ingredientName: "fresh rosemery herb",
+        ingredientName: "fresh rosemary herb",
       },
     ],
     instruction: [
@@ -941,7 +941,7 @@ export default [
       },
       {
         ingredientId: "23451b8d-762b-45f0-8088-de75fea62bba",
-        ingredientName: "fresh rosemery herb",
+        ingredientName: "fresh rosemary herb",
       },
     ],
     instruction: [
