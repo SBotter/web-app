@@ -501,6 +501,250 @@ export default [
   },
   {
     companyId: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    productId: "e8b81aa1-0ec7-40c1-975f-ae6512af6456",
+    productName: "Fettuccini",
+    productDescription:
+      "Indulge in the unparalleled taste of our handmade fettuccine pasta, meticulously crafted with the finest Italian flour and free-range eggs for an authentic culinary experience that embodies the essence of traditional Italian craftsmanship.",
+    category: [
+      {
+        categoryId: "3837af85-62da-4ef5-85c7-453084fdb960",
+        categoryName: "Pasta Secca",
+      },
+    ],
+    productGroupName: "pastasecca",
+    picture: [
+      {
+        pictureId: "2223344e-b237-462d-beef-40896e0813f0",
+        picturePath: "pastasecca_5.jpg",
+      },
+    ],
+    package: [
+      {
+        packageId: "2e399f86-0de8-45dc-839c-2366603e24e5",
+        packageName: "Weight",
+        packageDescription: "By per weight",
+        packageUnit: "g",
+        packageSize: "200",
+        packagePrice: 10.0,
+      },
+    ],
+    ingredient: [
+      {
+        ingredientId: "d063f86e-df61-47b5-9da3-79e1ce5c6d51",
+        ingredientName: "Special Flour",
+      },
+      {
+        ingredientId: "08077963-cbe4-4965-a1be-98702771c363",
+        ingredientName: "Free-range Eggs",
+      },
+    ],
+    instruction: [
+      {
+        instructionId: "9298afdb-4b16-409d-8270-8efa3a1545db",
+        instructionName:
+          "Bring the water to a complete boil and add salt on it",
+      },
+      {
+        instructionId: "7a47b268-a3b7-4afd-9e01-14253ddb2f31",
+        instructionName: "Add the fettuccine gently",
+      },
+      {
+        instructionId: "7a47b268-a3b7-4afd-9e01-14253ddb2f31",
+        instructionName: "Cook 3 minutes to achieve al dente fettuccine.",
+      },
+      {
+        instructionId: "f1ee6509-702f-4ce3-a2c9-0bb5d69510f8",
+        instructionName: "Up to 6 months in dry condition.",
+      },
+    ],
+
+    isDeleted: false,
+  },
+  {
+    companyId: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    productId: "aca65dc9-8e6f-4595-86b9-7be8d57b8ae5",
+    productName: "Spinash Fettuccini",
+    productDescription:
+      "Elevate your culinary journey with our exquisite handmade fettuccine pasta, expertly crafted using special Italian flour, free-range eggs, and a vibrant infusion of spinach in the dough, creating a symphony of flavors and a visually stunning dining experience that pays homage to the rich traditions of Italian artisanal pasta-making.",
+    category: [
+      {
+        categoryId: "3837af85-62da-4ef5-85c7-453084fdb960",
+        categoryName: "Pasta Secca",
+      },
+    ],
+    productGroupName: "pastasecca",
+    picture: [
+      {
+        pictureId: "2223344e-b237-462d-beef-40896e0813f0",
+        picturePath: "pastasecca_4.jpg",
+      },
+    ],
+    package: [
+      {
+        packageId: "2e399f86-0de8-45dc-839c-2366603e24e5",
+        packageName: "Weight",
+        packageDescription: "By per weight",
+        packageUnit: "g",
+        packageSize: "200",
+        packagePrice: 10.0,
+      },
+    ],
+    ingredient: [
+      {
+        ingredientId: "d063f86e-df61-47b5-9da3-79e1ce5c6d51",
+        ingredientName: "Special Flour",
+      },
+      {
+        ingredientId: "08077963-cbe4-4965-a1be-98702771c363",
+        ingredientName: "Free-range Eggs",
+      },
+    ],
+    instruction: [
+      {
+        instructionId: "9298afdb-4b16-409d-8270-8efa3a1545db",
+        instructionName:
+          "Bring the water to a complete boil and add salt on it",
+      },
+      {
+        instructionId: "7a47b268-a3b7-4afd-9e01-14253ddb2f31",
+        instructionName: "Add the fettuccine gently",
+      },
+      {
+        instructionId: "7a47b268-a3b7-4afd-9e01-14253ddb2f31",
+        instructionName: "Cook 3 minutes to achieve al dente fettuccine.",
+      },
+      {
+        instructionId: "f1ee6509-702f-4ce3-a2c9-0bb5d69510f8",
+        instructionName: "Up to 6 months in dry condition.",
+      },
+    ],
+
+    isDeleted: false,
+  },
+  {
+    companyId: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    productId: "8a4c9d46-a6da-4eed-8145-8823143726c4",
+    productName: "Beets Fettuccini",
+    productDescription:
+      "Embark on a gastronomic adventure with our artisanal handmade fettuccine pasta, where the perfect marriage of special Italian flour, free-range eggs, and the vibrant essence of beets in the dough creates a visually stunning masterpiece that not only delights the palate but also captures the spirit of innovation and tradition in every delectable strand.",
+    category: [
+      {
+        categoryId: "3837af85-62da-4ef5-85c7-453084fdb960",
+        categoryName: "Pasta Secca",
+      },
+    ],
+    productGroupName: "pastasecca",
+    picture: [
+      {
+        pictureId: "2223344e-b237-462d-beef-40896e0813f0",
+        picturePath: "pastasecca_2.jpg",
+      },
+    ],
+    package: [
+      {
+        packageId: "2e399f86-0de8-45dc-839c-2366603e24e5",
+        packageName: "Weight",
+        packageDescription: "By per weight",
+        packageUnit: "g",
+        packageSize: "200",
+        packagePrice: 10.0,
+      },
+    ],
+    ingredient: [
+      {
+        ingredientId: "d063f86e-df61-47b5-9da3-79e1ce5c6d51",
+        ingredientName: "Special Flour",
+      },
+      {
+        ingredientId: "08077963-cbe4-4965-a1be-98702771c363",
+        ingredientName: "Free-range Eggs",
+      },
+    ],
+    instruction: [
+      {
+        instructionId: "9298afdb-4b16-409d-8270-8efa3a1545db",
+        instructionName:
+          "Bring the water to a complete boil and add salt on it",
+      },
+      {
+        instructionId: "7a47b268-a3b7-4afd-9e01-14253ddb2f31",
+        instructionName: "Add the fettuccine gently",
+      },
+      {
+        instructionId: "7a47b268-a3b7-4afd-9e01-14253ddb2f31",
+        instructionName: "Cook 3 minutes to achieve al dente fettuccine.",
+      },
+      {
+        instructionId: "f1ee6509-702f-4ce3-a2c9-0bb5d69510f8",
+        instructionName: "Up to 6 months in dry condition.",
+      },
+    ],
+
+    isDeleted: false,
+  },
+  {
+    companyId: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    productId: "47050fba-3660-45ab-b93f-289f302b0d46",
+    productName: "Funghi Fettuccini",
+    productDescription:
+      "Savor the exquisite charm of our best-selling Funghi Fettuccine, a culinary sensation that captivates the senses with the perfect blend of special Italian flour and free-range eggs, creating a rich and flavorful pasta that serves as the ideal canvas for our signature mushroom-infused delight, providing an unparalleled dining experience that celebrates simplicity, authenticity, and irresistible taste.",
+    category: [
+      {
+        categoryId: "3837af85-62da-4ef5-85c7-453084fdb960",
+        categoryName: "Pasta Secca",
+      },
+    ],
+    productGroupName: "pastasecca",
+    picture: [
+      {
+        pictureId: "2223344e-b237-462d-beef-40896e0813f0",
+        picturePath: "pastasecca_6.jpg",
+      },
+    ],
+    package: [
+      {
+        packageId: "2e399f86-0de8-45dc-839c-2366603e24e5",
+        packageName: "Weight",
+        packageDescription: "By per weight",
+        packageUnit: "g",
+        packageSize: "200",
+        packagePrice: 10.0,
+      },
+    ],
+    ingredient: [
+      {
+        ingredientId: "d063f86e-df61-47b5-9da3-79e1ce5c6d51",
+        ingredientName: "Special Flour",
+      },
+      {
+        ingredientId: "08077963-cbe4-4965-a1be-98702771c363",
+        ingredientName: "Free-range Eggs",
+      },
+    ],
+    instruction: [
+      {
+        instructionId: "9298afdb-4b16-409d-8270-8efa3a1545db",
+        instructionName:
+          "Bring the water to a complete boil and add salt on it",
+      },
+      {
+        instructionId: "7a47b268-a3b7-4afd-9e01-14253ddb2f31",
+        instructionName: "Add the fettuccine gently",
+      },
+      {
+        instructionId: "7a47b268-a3b7-4afd-9e01-14253ddb2f31",
+        instructionName: "Cook 3 minutes to achieve al dente fettuccine.",
+      },
+      {
+        instructionId: "f1ee6509-702f-4ce3-a2c9-0bb5d69510f8",
+        instructionName: "Up to 6 months in dry condition.",
+      },
+    ],
+
+    isDeleted: false,
+  },
+  {
+    companyId: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
     productId: "143cda25-3aeb-4890-8ba7-965ff44305a9",
     productName: "Ham & Cheese Canneloni",
     productDescription:
@@ -568,7 +812,7 @@ export default [
   },
   {
     companyId: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    productId: "8dfa48fb-f8db-40ac-a883-319f1bd88afd",
+    productId: "6106c06f-5c6b-443f-804a-7581b9059c44",
     productName: "Lasagna Bolognese Sauce",
     productDescription:
       "Bolognese Bliss: Layers of Indulgence in our Classic Lasagna Bolognese",
@@ -593,81 +837,6 @@ export default [
         packageUnit: "kg",
         packageSize: "1",
         packagePrice: 60,
-      },
-    ],
-    ingredient: [
-      {
-        ingredientId: "d063f86e-df61-47b5-9da3-79e1ce5c6d51",
-        ingredientName: "special flour",
-      },
-      {
-        ingredientId: "32ca0909-4913-4de6-b86d-1d30a409820c",
-        ingredientName: "yeast",
-      },
-      {
-        ingredientId: "95529787-e293-4203-af53-0b7090e5358b",
-        ingredientName: "olive oil",
-      },
-      {
-        ingredientId: "656393c6-e762-45c9-b55b-d7f84097044c",
-        ingredientName: "fleur de sel",
-      },
-      {
-        ingredientId: "23f1517c-557a-40d6-9f87-d4cdb8709acc",
-        ingredientName: "water",
-      },
-      {
-        ingredientId: "6a7a6513-5f48-40af-b773-c1b0867474aa",
-        ingredientName: "salt",
-      },
-      {
-        ingredientId: "23451b8d-762b-45f0-8088-de75fea62bba",
-        ingredientName: "fresh rosemery herb",
-      },
-    ],
-    instruction: [
-      {
-        instructionId: "9298afdb-4b16-409d-8270-8efa3a1545db",
-        instructionName: "keep on fridge up to 6 days",
-      },
-    ],
-    isDeleted: false,
-  },
-  {
-    companyId: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    productId: "9399d77d-5cf7-4086-8c57-c96f7fb2d8bd",
-    productName: "Fetuccine Beets",
-    productDescription:
-      "Indulge in the vibrant charm of our Fresh Beet Fettuccine, where handcrafted pasta meets the earthy sweetness of beets for a uniquely delightful culinary experience.",
-    category: [
-      {
-        categoryId: "3837af85-62da-4ef5-85c7-453084fdb960",
-        categoryName: "Pasta Secca",
-      },
-    ],
-    productGroupName: "pastasecca",
-    picture: [
-      {
-        pictureId: "e2f7bed0-6316-4650-979e-ee0b2a26753d",
-        picturePath: "pastasecca_2.jpg",
-      },
-    ],
-    package: [
-      {
-        packageId: "51ac7451-6068-467e-802d-55eb45d90925",
-        packageName: "Small",
-        packageDescription: "Serves 1 person",
-        packageUnit: "g",
-        packageSize: "200",
-        packagePrice: 12,
-      },
-      {
-        packageId: "aa722286-c48c-4e4c-b2ac-f5a7d736ff9b",
-        packageName: "Large",
-        packageDescription: "Serves up 3 people",
-        packageUnit: "g",
-        packageSize: "500",
-        packagePrice: 30,
       },
     ],
     ingredient: [
