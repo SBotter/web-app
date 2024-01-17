@@ -1,6 +1,7 @@
 import { Heading, Text } from "@chakra-ui/react";
-
 import "./../index.css";
+
+import MenuPromoList from "./MenuPromoList";
 
 const PromotionalSection = () => {
   return (
@@ -43,6 +44,9 @@ const PromotionalSection = () => {
             </Text>
           </Heading>
         </div>
+      </div>
+      <div>
+        <MenuPromoList />
       </div>
     </>
   );
