@@ -26,7 +26,7 @@ const Footer = () => {
               Contact Us
             </Text>
             <i className="fa-brands fa-whatsapp product-detail-icon-link" />
-            <Text textColor="base.800">+1 604 679-0998</Text>
+            <Text textColor="base.800">+1 604 679-0898</Text>
             <Link to="/contact" target="_self">
               <i className="fa-regular fa-envelope product-detail-icon-link" />
               <Text color="base.800">michelespasta@gmail.com</Text>

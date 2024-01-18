@@ -5,6 +5,7 @@ import {
   Card,
   Box,
   CardFooter,
+  CardHeader,
 } from "@chakra-ui/react";
 
 import useProductsPromotional from "../hooks/useProductsPromotional";
@@ -15,28 +16,20 @@ const MenuPromoList = () => {
   return (
     <>
       <Box p={5}>
-        <Card borderRadius={20} bg="base.100" boxShadow="md">
-          <Heading
-            marginTop={-20}
-            marginLeft={10}
-            marginRight={0}
-            bg="base.700"
-            borderTopLeftRadius={20}
-            borderBottomLeftRadius={20}
-            opacity={0.8}
-          >
-            <Text
-              color="base.50"
-              fontSize={{ base: "30px", md: "50px", lg: "80px" }}
-              align="center"
-            >
-              Savor the Love: Inside Our Exclusive Handmade Fresh Pasta
-              Valentine's Basket
-            </Text>
-          </Heading>
-
+        <Card borderRadius={20} bg="base.100" boxShadow="md" opacity={0.9}>
+          <CardHeader>
+            <Heading>
+              <Text
+                color="base.800"
+                fontSize={{ base: "20px", md: "30px", lg: "40px" }}
+                align="center"
+              >
+                Inside Our Exclusive Handmade Fresh Pasta Valentine's Basket
+              </Text>
+            </Heading>
+          </CardHeader>
           <CardFooter p={0}>
-            <SimpleGrid columns={{ base: 1, md: 3 }} p={5} spacing={5}>
+            <SimpleGrid columns={{ base: 2, md: 4 }} p={4} spacing={4}>
               {data.map((prod) => (
                 <MenuCardPromo key={prod.productId} product={prod} />
               ))}
