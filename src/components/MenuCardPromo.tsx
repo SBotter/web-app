@@ -2,12 +2,9 @@ import {
   Card,
   Image,
   Text,
-  Heading,
   CardBody,
   Divider,
   SimpleGrid,
-  CardFooter,
-  HStack,
   Box,
   CardHeader,
 } from "@chakra-ui/react";
