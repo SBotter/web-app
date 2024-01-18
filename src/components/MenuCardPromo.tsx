@@ -29,13 +29,17 @@ const MenuCardPromo = ({ product }: Props) => {
             overflow="hidden"
           />
           <Text color="base.800">{product.productGroupName}</Text>
+          <Divider backgroundColor={"base.800"} width="100%" />
         </CardHeader>
-        <Divider backgroundColor={"base.800"} width="100%" />
-        <CardBody marginTop={-20}>
-          <SimpleGrid columns={1} spacing={2} padding={2}>
+        <CardBody marginTop={-8} p={0}>
+          <SimpleGrid columns={1} spacing={2} p={2}>
             {product.package.map((prod) => (
-              <Box textAlign={"left"} height={{ base: "40px" }}>
-                <Text key={prod.packageId} color={"base.800"}>
+              <Box
+                key={prod.packageId}
+                textAlign={"left"}
+                height={{ base: "45px" }}
+              >
+                <Text color={"base.800"}>
                   {prod.packageSize} - {prod.packageName}
                 </Text>
               </Box>

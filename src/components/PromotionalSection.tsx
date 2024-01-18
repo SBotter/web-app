@@ -11,7 +11,7 @@ const PromotionalSection = () => {
         <Heading>
           <Text
             color="base.50"
-            fontSize={{ base: "50px", md: "80px", lg: "100px" }}
+            fontSize={{ base: "25px", sm: "30px", md: "35px", lg: "70px" }}
             align="center"
           >
             VALENTINE'S DAY
@@ -20,7 +20,7 @@ const PromotionalSection = () => {
         <Text
           color="base.50"
           marginTop={10}
-          fontSize={{ base: "15px", md: "30px", lg: "45px" }}
+          fontSize={{ base: "10px", sm: "12px", md: "20px", lg: "25px" }}
           align="center"
         >
           Surprise your love with our exclusive handmade fresh pasta basket!
@@ -30,7 +30,7 @@ const PromotionalSection = () => {
         </Text>
         <Text
           color="base.50"
-          fontSize={{ base: "15px", md: "30px", lg: "45px" }}
+          fontSize={{ base: "10px", sm: "12px", md: "20px", lg: "25px" }}
           align="center"
         >
           Where passion meets pasta.
@@ -40,7 +40,7 @@ const PromotionalSection = () => {
             <Text
               textAlign={"center"}
               color="base.50"
-              fontSize={{ base: "50px", md: "80px", lg: "100px" }}
+              fontSize={{ base: "20px", sm: "30px", md: "35px", lg: "70px" }}
             >
               $120.00
             </Text>
@@ -48,7 +48,7 @@ const PromotionalSection = () => {
           <Text
             marginTop={-5}
             color="base.50"
-            fontSize={{ base: "10px", md: "14px", lg: "16px" }}
+            fontSize={{ base: "8px", sm: "10px", md: "14px", lg: "16px" }}
           >
             * delivery service is complimentary for distances up to 20
             kilometers.

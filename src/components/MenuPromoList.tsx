@@ -29,7 +29,11 @@ const MenuPromoList = () => {
             </Heading>
           </CardHeader>
           <CardFooter p={0}>
-            <SimpleGrid columns={{ base: 2, md: 4 }} p={4} spacing={4}>
+            <SimpleGrid
+              columns={{ base: 1, sm: 2, md: 4, lg: 4, xl: 4 }}
+              p={4}
+              spacing={4}
+            >
               {data.map((prod) => (
                 <MenuCardPromo key={prod.productId} product={prod} />
               ))}
