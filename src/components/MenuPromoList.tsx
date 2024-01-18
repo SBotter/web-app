@@ -28,11 +28,12 @@ const MenuPromoList = () => {
               </Text>
             </Heading>
           </CardHeader>
-          <CardFooter p={0}>
+          <CardFooter justifyContent={"space-between"}>
             <SimpleGrid
-              columns={{ base: 1, sm: 2, md: 4, lg: 4, xl: 4 }}
-              p={4}
-              spacing={4}
+              columns={{ base: 1, sm: 1, md: 4, lg: 4, xl: 4 }}
+              spacing={{ base: 1, sm: 3, md: 4, lg: 4, xl: 4 }}
+              p={{ base: 1, sm: 3, md: 4, lg: 4, xl: 4 }}
+              width={"100%"}
             >
               {data.map((prod) => (
                 <MenuCardPromo key={prod.productId} product={prod} />
