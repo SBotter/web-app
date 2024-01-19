@@ -53,20 +53,20 @@ const FilterProducts = () => {
           <MenuButton
             as={Button}
             rightIcon={<IoIosArrowDropdown />}
-            bg="base.200"
-            borderColor="base.800"
+            bg="base.50"
             border={1}
             color="base.800"
             borderRadius={20}
             _hover={{
               bg: "base.800",
               color: "base.50",
+              borderColor: "base.800",
             }}
           >
             Find Your choice!
           </MenuButton>
 
-          <MenuList bg="base.700" color="base.50">
+          <MenuList bgColor={"base.50"} borderColor={"base.800"}>
             {listFilter
               .sort((a, b) => (a.name > b.name ? 1 : -1))
               .map((item) => (
@@ -74,8 +74,13 @@ const FilterProducts = () => {
                   as="a"
                   href={`/products${item.path}`}
                   key={item.id}
-                  bg="base.700"
-                  color="base.50"
+                  bg="base.50"
+                  color="base.800"
+                  _hover={{
+                    bg: "base.100",
+                    color: "base.800",
+                    fontWeight: "bold",
+                  }}
                 >
                   {item.name}
                 </MenuItem>

@@ -22,11 +22,22 @@ const Header = () => {
       id: "1",
       name: "Products",
       path: "/products",
+      icon: "fa-regular fa-rectangle-list",
+      display: "1",
     },
     {
       id: "2",
       name: "Contact",
       path: "/contact",
+      icon: "fa-brands fa-whatsapp",
+      display: "1",
+    },
+    {
+      id: "3",
+      name: "We Deliver",
+      path: "/delivery",
+      icon: "fa-solid fa-truck-monster",
+      display: "1",
     },
   ];
 
@@ -55,7 +66,7 @@ const Header = () => {
                 color="base.800"
                 borderRadius={20}
                 _hover={{
-                  bg: "base.200",
+                  bg: "base.800",
                   color: "base.50",
                   borderColor: "base.800",
                 }}
@@ -83,25 +94,28 @@ const Header = () => {
             </Menu>
           ) : (
             <HStack spacing={4}>
-              {listMenuItems.map((item) => (
-                <Button
-                  key={item.id}
-                  as={RouterLink} // Use the Link component from react-router-dom
-                  to={item.path}
-                  variant="outline"
-                  bgColor="base.50"
-                  borderColor={"base.800"}
-                  color={"base.800"}
-                  borderWidth="2"
-                  _hover={{
-                    bg: "base.200", // Change background color on hover
-                    color: "base.50", // Change text color on hover
-                    borderColor: "base.800",
-                  }}
-                >
-                  {item.name}
-                </Button>
-              ))}
+              {listMenuItems
+                .filter((d) => d.display == "1")
+                .map((item) => (
+                  <Button
+                    key={item.id}
+                    as={RouterLink} // Use the Link component from react-router-dom
+                    to={item.path}
+                    variant="outline"
+                    bgColor="base.50"
+                    borderColor={"base.800"}
+                    color={"base.800"}
+                    borderWidth="2"
+                    leftIcon={<i className={item.icon} />}
+                    _hover={{
+                      bg: "base.800", // Change background color on hover
+                      color: "base.50", // Change text color on hover
+                      borderColor: "base.800",
+                    }}
+                  >
+                    {item.name}
+                  </Button>
+                ))}
             </HStack>
           )}
           <Box paddingRight={5} paddingLeft={{ base: 0, md: 20 }}>
