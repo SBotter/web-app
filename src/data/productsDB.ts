@@ -844,37 +844,42 @@ export default [
         ingredientId: "d063f86e-df61-47b5-9da3-79e1ce5c6d51",
         ingredientName: "special flour",
       },
-      {
-        ingredientId: "32ca0909-4913-4de6-b86d-1d30a409820c",
-        ingredientName: "yeast",
+	        {
+        ingredientId: "4727f41e-43a1-4848-9668-1501508ca53e",
+        ingredientName: "ground beef bolognese",
       },
-      {
-        ingredientId: "95529787-e293-4203-af53-0b7090e5358b",
-        ingredientName: "olive oil",
+	        {
+        ingredientId: "b6cf884a-0ed1-4468-888f-73b867dde366",
+        ingredientName: "Cheese",
       },
-      {
-        ingredientId: "656393c6-e762-45c9-b55b-d7f84097044c",
-        ingredientName: "fleur de sel",
-      },
-      {
-        ingredientId: "23f1517c-557a-40d6-9f87-d4cdb8709acc",
-        ingredientName: "water",
-      },
-      {
-        ingredientId: "6a7a6513-5f48-40af-b773-c1b0867474aa",
-        ingredientName: "salt",
-      },
-      {
-        ingredientId: "23451b8d-762b-45f0-8088-de75fea62bba",
-        ingredientName: "fresh rosemary herb",
-      },
-    ],
+
+      ],
     instruction: [
       {
         instructionId: "9298afdb-4b16-409d-8270-8efa3a1545db",
-        instructionName: "keep on fridge up to 6 days",
+        instructionName: "Preheat the Oven: it's around 375°F (190°C).",
       },
-    ],
+      {
+        instructionId: "07c4e600-a46f-4ed0-ac0a-55360d4ef0db",
+        instructionName: "Remove the lid",
+      },
+      {
+        instructionId: "6c8b549b-3fc8-4646-a59a-9ba0faca8cac",
+        instructionName: "Place in Oven: Position the uncovered lasagna in the preheated oven.",
+      },
+      {
+        instructionId: "bbbd1a73-b97c-479d-9b3d-2fd1ec130d00",
+        instructionName: "Bake for 30 Minutes: Cook the lasagna for approximately 30 minutes. This initial stage without the lid helps in the early cooking process.",
+      },
+    {
+        instructionId: "7b4f3794-1eff-4cc3-9b88-c2beb1694896",
+        instructionName: "Adjust Cooking Time: Adjust the total cooking time as needed. Aim for a thorough cooking process where the lasagna is bubbling, and the cheese is fully melted.",
+      },
+    {
+        instructionId: "0c0d431a-8ea9-432e-864c-ebf965bbac45",
+        instructionName: "Serve: Slice the lasagna into portions and serve while it's still hot.",
+      },
+	],
     isDeleted: false,
   },
   {
