@@ -60,7 +60,7 @@ const Header = () => {
                   borderColor: "base.800",
                 }}
               >
-                Find Your choice!
+                View Menu
               </MenuButton>
               <MenuList bgColor={"base.50"} borderColor={"base.800"}>
                 {listMenuItems.map((item) => (
@@ -105,7 +105,7 @@ const Header = () => {
             </HStack>
           )}
           <Box paddingRight={5} paddingLeft={{ base: 0, md: 20 }}>
-            <HStack>
+            {/*<HStack>
               <Box padding={2}>
                 <i
                   className="fa-solid fa-cart-shopping product-detail-icon-link-gray"
@@ -118,7 +118,7 @@ const Header = () => {
                   title="Coming Soon"
                 />
               </Box>
-            </HStack>
+            </HStack>*/}
           </Box>
         </HStack>
       </Flex>
