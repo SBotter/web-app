@@ -849,14 +849,6 @@ export default [
         ingredientName: "ground beef bolognese",
       },
       {
-        ingredientId: "4727f41e-43a1-4848-9668-1501508ca53e",
-        ingredientName: "ground beef bolognese",
-      },
-      {
-        ingredientId: "b6cf884a-0ed1-4468-888f-73b867dde366",
-        ingredientName: "Cheese",
-      },
-      {
         ingredientId: "b6cf884a-0ed1-4468-888f-73b867dde366",
         ingredientName: "Cheese",
       },
