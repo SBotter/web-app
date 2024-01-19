@@ -63,6 +63,9 @@ function Navbar() {
               </li>
             </ul>
           </div>
+          <div>
+            <i className="fa-solid fa-cart-shopping product-detail-icon-link" />
+          </div>
         </nav>
       </IconContext.Provider>
     </>

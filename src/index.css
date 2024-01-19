@@ -45,12 +45,17 @@
   }
 
   /* Product Detail Icons */
-.product-detail-icon-link {
-  color: #55462e;
-  font-size: 21px;
-}
-
-.product-detail-delivery_cost{
+  .product-detail-icon-link {
+    color: #55462e;
+    font-size: 21px;
+  }
+  
+  .product-detail-icon-link-gray {
+    color: #85837f;
+    font-size: 21px;
+  }
+  
+  .product-detail-delivery_cost{
   color: #55462e;
   font-size: 17px;
 }

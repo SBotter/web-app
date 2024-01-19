@@ -1,11 +1,11 @@
 import { Outlet } from "react-router-dom";
 import { Box } from "@chakra-ui/react";
-import NavBar from "../components/Navbar";
+import Header from "../components/Header";
 
 const Layout = () => {
   return (
     <>
-      <NavBar />
+      <Header />
       <Box bg="base.50">
         <Outlet />
       </Box>
