@@ -1,6 +1,7 @@
 import { Heading, VStack, Text, Flex } from "@chakra-ui/react";
 import Footer from "../components/Footer";
 import ProductList from "../components/ProductList";
+import FilterProducts from "../components/FilterProducts";
 
 const PastaSeccaPage = () => {
   return (
@@ -32,6 +33,9 @@ const PastaSeccaPage = () => {
           <ProductList filterValue="pastasecca" />
         </Flex>
       </VStack>
+      <Flex justifyContent={"center"}>
+        <FilterProducts />
+      </Flex>
       <Footer />
     </>
   );

@@ -96,8 +96,16 @@ const FilterProducts = () => {
                 key={item.id}
                 as={RouterLink} // Use the Link component from react-router-dom
                 to={`/products${item.path}`}
-                colorScheme="base"
-                variant="solid"
+                variant="outline"
+                bgColor="base.50"
+                borderColor={"base.800"}
+                color={"base.800"}
+                borderWidth="2"
+                _hover={{
+                  bg: "base.800", // Change background color on hover
+                  color: "base.50", // Change text color on hover
+                  borderColor: "base.800",
+                }}
               >
                 {item.name}
               </Button>

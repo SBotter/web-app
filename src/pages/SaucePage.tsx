@@ -1,6 +1,7 @@
 import { Heading, VStack, Text, Flex } from "@chakra-ui/react";
 import Footer from "../components/Footer";
 import ProductList from "../components/ProductList";
+import FilterProducts from "../components/FilterProducts";
 
 const SaucePage = () => {
   return (
@@ -33,6 +34,9 @@ const SaucePage = () => {
           <ProductList filterValue="sauce" />
         </Flex>
       </VStack>
+      <Flex justifyContent={"center"}>
+        <FilterProducts />
+      </Flex>
       <Footer />
     </>
   );

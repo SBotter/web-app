@@ -1,6 +1,7 @@
 import { Heading, VStack, Text, Flex } from "@chakra-ui/react";
 import Footer from "../components/Footer";
 import ProductList from "../components/ProductList";
+import FilterProducts from "../components/FilterProducts";
 
 const FocacciaPage = () => {
   return (
@@ -26,10 +27,13 @@ const FocacciaPage = () => {
           premium olive oil converge to create a taste symphony that transforms
           each bite into a culinary masterpiece.
         </Text>
-        <Flex width="100%" justify="center">
+        <Flex width="100%" justifyContent={"center"}>
           <ProductList filterValue="focaccia" />
         </Flex>
       </VStack>
+      <Flex justifyContent={"center"}>
+        <FilterProducts />
+      </Flex>
       <Footer />
     </>
   );
