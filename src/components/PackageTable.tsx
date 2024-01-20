@@ -22,7 +22,7 @@ const PackageTable = ({ productPackage }: Props) => {
       <Table size="sm" colorScheme="base">
         <Thead bg="base.200">
           <Tr>
-            <Th>
+            <Th width="15%">
               <HStack>
                 <i className="fa-solid fa-scale-balanced product-detail-delivery_cost" />
                 <Box paddingTop={3} paddingLeft={0}>
@@ -32,7 +32,7 @@ const PackageTable = ({ productPackage }: Props) => {
                 </Box>
               </HStack>
             </Th>
-            <Th>
+            <Th width="15%">
               <HStack>
                 <i className="fa-solid fa-dollar-sign product-detail-delivery_cost" />
                 <Box paddingTop={3}>
@@ -42,7 +42,7 @@ const PackageTable = ({ productPackage }: Props) => {
                 </Box>
               </HStack>
             </Th>
-            <Th>
+            <Th width="40%">
               <HStack>
                 <i className="fa-solid fa-people-roof product-detail-delivery_cost" />
                 <Box paddingTop={3}>
@@ -52,6 +52,7 @@ const PackageTable = ({ productPackage }: Props) => {
                 </Box>
               </HStack>
             </Th>
+            <Th width="30%"></Th>
           </Tr>
         </Thead>
 
@@ -82,6 +83,7 @@ const PackageTable = ({ productPackage }: Props) => {
                   </Text>
                 </Box>
               </Td>
+              <Td></Td>
             </Tr>
           ))}
         </Tbody>

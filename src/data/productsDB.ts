@@ -563,7 +563,7 @@ export default [
   {
     companyId: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
     productId: "aca65dc9-8e6f-4595-86b9-7be8d57b8ae5",
-    productName: "Spinash Fettuccini",
+    productName: "Spinach Fettuccini",
     productDescription:
       "Elevate your culinary journey with our exquisite handmade fettuccine pasta, expertly crafted using special Italian flour, free-range eggs, and a vibrant infusion of spinach in the dough, creating a symphony of flavors and a visually stunning dining experience that pays homage to the rich traditions of Italian artisanal pasta-making.",
     category: [

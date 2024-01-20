@@ -10,8 +10,8 @@ const DetailsPage = () => {
 
   return (
     <>
-      <Box padding={{ base: 2, md: 5 }} boxSize={"100%"}>
-        <Card borderRadius={20} bg="#FFF" boxShadow="md">
+      <Box padding={{ base: 1, sm: 1, md: 4 }} boxSize={"100%"}>
+        <Card borderRadius={20} bg="#FFF" boxShadow="md" p={0}>
           <CardBody>
             <ProductDetailFilter filterValue={filterValue} />
           </CardBody>
