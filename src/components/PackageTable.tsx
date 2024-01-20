@@ -1,5 +1,16 @@
 import { Package } from "../hooks/useProducts";
-import { Table, Th, Thead, Tr, Text, Tbody, Td } from "@chakra-ui/react";
+import {
+  Table,
+  Th,
+  Thead,
+  Tr,
+  Text,
+  Tbody,
+  Td,
+  Box,
+  HStack,
+  Flex,
+} from "@chakra-ui/react";
 
 interface Props {
   productPackage: Package[];
@@ -7,52 +18,75 @@ interface Props {
 
 const PackageTable = ({ productPackage }: Props) => {
   return (
-    <Table size="sm" colorScheme="base">
-      <Thead bg="base.200">
-        <Tr>
-          <Th>
-            <i className="fa-solid fa-scale-balanced product-detail-icon-link" />
-            <Text color="base.700" fontSize="20px">
-              Size
-            </Text>
-          </Th>
-          <Th>
-            <i className="fa-solid fa-dollar-sign product-detail-icon-link" />
-            <Text color="base.700" fontSize="20px">
-              Price
-            </Text>
-          </Th>
-          <Th>
-            <i className="fa-solid fa-people-roof product-detail-icon-link" />
-            <Text color="base.700" fontSize="20px">
-              Details
-            </Text>
-          </Th>
-        </Tr>
-      </Thead>
-      <Tbody>
-        {productPackage.map((item) => (
-          <Tr key={item.packageId}>
-            <Td>
-              <Text color="base.700" fontSize="18px">
-                {item.packageSize} ({item.packageUnit})
-              </Text>
-            </Td>
-            <Td>
-              <Text color="base.700" fontSize="18px">
-                <i className="fa-solid fa-dollar-sign product-detail-icon-link" />
-                {item.packagePrice}
-              </Text>
-            </Td>
-            <Td>
-              <Text color="base.700" fontSize="18px">
-                {item.packageDescription}
-              </Text>
-            </Td>
+    <Flex justifyContent={"center"}>
+      <Table size="sm" colorScheme="base">
+        <Thead bg="base.200">
+          <Tr>
+            <Th>
+              <HStack>
+                <i className="fa-solid fa-scale-balanced product-detail-delivery_cost" />
+                <Box paddingTop={3} paddingLeft={0}>
+                  <Text color="base.700" fontSize="17px">
+                    Size
+                  </Text>
+                </Box>
+              </HStack>
+            </Th>
+            <Th>
+              <HStack>
+                <i className="fa-solid fa-dollar-sign product-detail-delivery_cost" />
+                <Box paddingTop={3}>
+                  <Text color="base.700" fontSize="17px">
+                    Price
+                  </Text>
+                </Box>
+              </HStack>
+            </Th>
+            <Th>
+              <HStack>
+                <i className="fa-solid fa-people-roof product-detail-delivery_cost" />
+                <Box paddingTop={3}>
+                  <Text color="base.700" fontSize="17px">
+                    Details
+                  </Text>
+                </Box>
+              </HStack>
+            </Th>
           </Tr>
-        ))}
-      </Tbody>
-    </Table>
+        </Thead>
+
+        <Tbody>
+          {productPackage.map((item) => (
+            <Tr key={item.packageId}>
+              <Td>
+                <Box paddingTop={3}>
+                  <Text color="base.700" fontSize="18px">
+                    {item.packageSize} ({item.packageUnit})
+                  </Text>
+                </Box>
+              </Td>
+              <Td>
+                <HStack>
+                  <i className="fa-solid fa-dollar-sign product-detail-delivery_cost" />
+                  <Box paddingTop={3}>
+                    <Text color="base.700" fontSize="17px">
+                      {item.packagePrice}
+                    </Text>
+                  </Box>
+                </HStack>
+              </Td>
+              <Td>
+                <Box paddingTop={3}>
+                  <Text color="base.700" fontSize="18px">
+                    {item.packageDescription}
+                  </Text>
+                </Box>
+              </Td>
+            </Tr>
+          ))}
+        </Tbody>
+      </Table>
+    </Flex>
   );
 };
 

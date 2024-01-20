@@ -1,4 +1,5 @@
 import {
+  Box,
   HStack,
   SimpleGrid,
   Tab,
@@ -22,14 +23,18 @@ const IngredientsPanel = ({ ingredient, instruction }: Props) => {
       <TabList>
         <Tab>
           <HStack justifyContent="space-around">
-            <i className="fa-solid fa-list-ul product-detail-icon-link" />
-            <Text color="base.700">Ingredients</Text>
+            <i className="fa-solid fa-list-ul product-detail-delivery_cost" />
+            <Box paddingTop={3} paddingLeft={0}>
+              <Text color="base.700">Ingredients</Text>
+            </Box>
           </HStack>
         </Tab>
         <Tab>
           <HStack justifyContent="space-around">
-            <i className="fa-solid fa-utensils product-detail-icon-link" />
-            <Text color="base.700">Instructions</Text>
+            <i className="fa-solid fa-utensils product-detail-delivery_cost" />
+            <Box paddingTop={3} paddingLeft={0}>
+              <Text color="base.700">Instructions</Text>
+            </Box>
           </HStack>
         </Tab>
       </TabList>
@@ -40,7 +45,9 @@ const IngredientsPanel = ({ ingredient, instruction }: Props) => {
             {ingredient.map((item) => (
               <HStack key={item.ingredientId}>
                 <i className="fa-solid fa-check product-detail-icon-link" />
-                <Text color="base.700">{item.ingredientName}</Text>
+                <Box paddingTop={3} paddingLeft={0}>
+                  <Text color="base.700">{item.ingredientName}</Text>
+                </Box>
               </HStack>
             ))}
           </SimpleGrid>
@@ -50,7 +57,9 @@ const IngredientsPanel = ({ ingredient, instruction }: Props) => {
             {instruction.map((item) => (
               <HStack key={item.instructionId}>
                 <i className="fa-solid fa-check product-detail-icon-link" />
-                <Text color="base.700">{item.instructionName}</Text>
+                <Box paddingTop={3} paddingLeft={0}>
+                  <Text color="base.700">{item.instructionName}</Text>
+                </Box>
               </HStack>
             ))}
           </SimpleGrid>

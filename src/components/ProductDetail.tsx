@@ -12,8 +12,6 @@ import { Product } from "../hooks/useProducts";
 import PackageTable from "./PackageTable";
 import IngredientsPanel from "./IngredientsPanel";
 import { Link as RouterLink } from "react-router-dom";
-
-import { CiDeliveryTruck } from "react-icons/ci";
 import { FaWhatsapp } from "react-icons/fa";
 
 interface Props {
@@ -43,7 +41,7 @@ const ProductDetail = ({ product }: Props) => {
             <Text color="base.700" fontSize="15px" marginTop={-8}>
               {product.category[0].categoryName}
             </Text>
-            <Divider bgColor="base.800" />
+            <Divider bgColor="base.800" marginTop={-5} />
             <Box marginTop={10}>
               <IngredientsPanel
                 ingredient={product.ingredient}
@@ -70,7 +68,7 @@ const ProductDetail = ({ product }: Props) => {
                 <Button
                   as={RouterLink} // Use the Link component from react-router-dom
                   to={"/delivery"}
-                  leftIcon={<CiDeliveryTruck size="2em" />}
+                  leftIcon={<i className="fa-solid fa-truck-monster" />}
                   colorScheme="base"
                   variant="solid"
                 >
