@@ -65,10 +65,14 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
       {
         productId: "1",
         packageId: "1",
+        packageName: "Package Name",
+        packageUnit: "pkg",
+        packageSize: "150g",
         name: "Pasta Traditional",
-        price: 2.9,
-        quatity: 1,
+        price: 29,
+        quantity: 1,
         imageSrc: "public/images/products/ravioli_1.jpg",
+        categoryName: "pasta",
       },
     ];
   });

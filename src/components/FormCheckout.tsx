@@ -16,6 +16,8 @@ import {
 } from "@chakra-ui/react";
 import Map from "./Map";
 import { CartContext } from "./CartContext";
+import { CartItem } from "./CartItem";
+import productsDB from "../data/productsDB";
 
 const PAYMENT_OPTIONS = [
   {
@@ -31,11 +33,17 @@ const PAYMENT_OPTIONS = [
 ];
 
 const FormCheckout = () => {
-  const { cartItems } = useContext(CartContext);
+  const { cartItems, clearCart, updatePaymentMethod, updateAddress } =
+    useContext(CartContext);
 
   const itemSubtotal = cartItems.reduce<number>((previous, current) => {
     return previous + current.price * current.quantity;
+    console.log(previous, "subtotal");
   }, 0);
+
+  const deliveryCost = "19.80";
+
+  const cartTotal = (Number(deliveryCost) + itemSubtotal).toFixed(2);
 
   const form = useRef<HTMLFormElement | any>("");
 
@@ -96,7 +104,7 @@ const FormCheckout = () => {
     <SimpleGrid columns={{ base: 1, sm: 1, md: 2 }} width="100%" spacing={4}>
       <Box width={"100%"}>
         <Box width={"100%"}>
-          <Card bg="base.50">
+          <Card bg="base.50" borderRadius={20}>
             <CardBody width={"100%"}>
               <form ref={form} onSubmit={validateForm}>
                 <div className="mb-3">
@@ -225,130 +233,160 @@ const FormCheckout = () => {
             </CardBody>
           </Card>
         </Box>
-        <Box width={"100%"}>
-          <Card bg="base.50">
-            <CardBody width={"100%"}>
-              <Card bg="base.50" width={"100%"} borderRadius={20}>
-                <CardBody>
-                  <VStack>
-                    <Text color="base.800" fontSize={"20px"}>
-                      Payment Method
-                    </Text>
-                    <Divider background="base.800" />
-                    <SimpleGrid
-                      columns={{ base: 1, sm: 1, md: 2 }}
-                      spacing={4}
-                      justifyContent={"space-between"}
-                      width={"100%"}
+        <Box width={"100%"} margin={5}>
+          <Card bg="base.50" width={"100%"} borderRadius={20}>
+            <CardBody>
+              <VStack>
+                <Text color="base.800" fontSize={"20px"}>
+                  Payment Method
+                </Text>
+                <Divider background="base.800" />
+                <SimpleGrid
+                  columns={{ base: 1, sm: 1, md: 2 }}
+                  spacing={4}
+                  justifyContent={"space-between"}
+                  width={"100%"}
+                >
+                  {PAYMENT_OPTIONS.map((item) => (
+                    <Button
+                      key={item.id}
+                      variant="outline"
+                      bgColor="base.50"
+                      borderColor={"base.800"}
+                      color={"base.800"}
+                      borderWidth="2"
+                      leftIcon={<i className={item.icon} />}
+                      _hover={{
+                        bg: "base.800", // Change background color on hover
+                        color: "base.50", // Change text color on hover
+                        borderColor: "base.800",
+                      }}
                     >
-                      {PAYMENT_OPTIONS.map((item) => (
-                        <Button
-                          key={item.id}
-                          variant="outline"
-                          bgColor="base.50"
-                          borderColor={"base.800"}
-                          color={"base.800"}
-                          borderWidth="2"
-                          leftIcon={<i className={item.icon} />}
-                          _hover={{
-                            bg: "base.800", // Change background color on hover
-                            color: "base.50", // Change text color on hover
-                            borderColor: "base.800",
-                          }}
-                        >
-                          {item.text}
-                        </Button>
-                      ))}
-                    </SimpleGrid>
-                  </VStack>
-                </CardBody>
-              </Card>
+                      {item.text}
+                    </Button>
+                  ))}
+                </SimpleGrid>
+              </VStack>
             </CardBody>
           </Card>
         </Box>
       </Box>
       <Box width={"100%"}>
-        <Card bg="base.50">
+        <Card bg="base.50" borderRadius={20}>
           <CardBody width={"100%"}>
-            <VStack>
-              {cartItems.map((cart) => (
-                <HStack
-                  width={"100%"}
-                  padding={2}
-                  borderRadius={20}
-                  borderWidth={1}
-                  borderColor={"base.800"}
-                  bg=""
-                >
-                  <Box>
-                    <Box
-                      borderRadius="full"
-                      borderWidth={1}
-                      borderColor={"#base.800"}
-                      bg="base.800"
-                    >
-                      <Box
-                        borderRadius="full"
-                        borderWidth={5}
-                        borderColor={"#FFF"}
-                      >
-                        <Image
-                          src={`/images/products/${cart.imageSrc}`}
-                          boxSize={"80px"}
-                          borderRadius="full"
-                          objectFit={"cover"}
-                        />
-                      </Box>
-                    </Box>
-                  </Box>
-                  <Box marginLeft={5} width={"60%"}>
-                    <VStack align="start">
-                      <Text
-                        color="base.800"
-                        fontSize={20}
-                        fontWeight={"bold"}
-                        marginTop={3}
-                      >
-                        {cart.name}
-                      </Text>
-                      <Text color="base.800" fontSize={15} marginTop={-5}>
-                        {cart.quantity} {cart.packageUnit} {cart.packageSize}
-                      </Text>
-                    </VStack>
-                  </Box>
-                  <Box>
-                    <HStack align="start">
-                      <Box marginTop={4}>
-                        <i className="fa-solid fa-dollar-sign product-detail-icon-link" />
-                      </Box>
-                      <Box>
-                        <Text
-                          color="base.800"
-                          fontSize={20}
-                          fontWeight={"bold"}
-                          marginTop={3}
-                        >
-                          {cart.quantity * cart.price}
-                        </Text>
-                      </Box>
-                    </HStack>
-                  </Box>
-                </HStack>
-              ))}
-            </VStack>
+            {cartItems.map((cartItem) => (
+              <CartItem key={cartItem.packageId} {...cartItem} />
+            ))}
           </CardBody>
           <CardFooter>
             <VStack width={"100%"}>
               <Box width={"100%"}>
                 <Divider background={"base.800"} />
               </Box>
-              <HStack width={"100%"}>
-                <Box width={"80%"} textAlign={"right"}>
-                  Items Sub Total:
-                </Box>
+              <VStack width={"100%"}>
+                <HStack width={"100%"}>
+                  <Box width={"80%"} textAlign={"right"}>
+                    <Text
+                      color="base.800"
+                      fontSize={20}
+                      fontWeight={"bold"}
+                      marginTop={3}
+                    >
+                      Items Sub Total:
+                    </Text>
+                  </Box>
 
-                <Box width={"20%"}>{itemSubtotal}</Box>
-              </HStack>
+                  <Box>
+                    <i className="fa-solid fa-dollar-sign product-detail-icon-link" />
+                  </Box>
+                  <Box>
+                    <Text
+                      color="base.800"
+                      fontSize={20}
+                      fontWeight={"bold"}
+                      marginTop={3}
+                    >
+                      {itemSubtotal.toFixed(2)}
+                    </Text>
+                  </Box>
+                </HStack>
+                <HStack width={"100%"}>
+                  <Box width={"80%"} textAlign={"right"}>
+                    <Text
+                      color="base.800"
+                      fontSize={20}
+                      fontWeight={"bold"}
+                      marginTop={3}
+                    >
+                      Delivery:
+                    </Text>
+                  </Box>
+
+                  <Box>
+                    <i className="fa-solid fa-dollar-sign product-detail-icon-link" />
+                  </Box>
+                  <Box>
+                    <Text
+                      color="base.800"
+                      fontSize={20}
+                      fontWeight={"bold"}
+                      marginTop={3}
+                    >
+                      {Number(deliveryCost).toFixed(2)}
+                    </Text>
+                  </Box>
+                </HStack>
+                <HStack width={"100%"}>
+                  <Box width={"80%"} textAlign={"right"}>
+                    <Text
+                      color="base.800"
+                      fontSize={20}
+                      fontWeight={"bold"}
+                      marginTop={3}
+                    >
+                      TOTAL:
+                    </Text>
+                  </Box>
+
+                  <Box>
+                    <i className="fa-solid fa-dollar-sign product-detail-icon-link" />
+                  </Box>
+                  <Box>
+                    <Text
+                      color="base.800"
+                      fontSize={20}
+                      fontWeight={"bold"}
+                      marginTop={3}
+                    >
+                      {cartTotal}
+                    </Text>
+                  </Box>
+                </HStack>
+
+                <Box width={"100%"}>
+                  <Divider background={"base.800"} />
+                </Box>
+                <Box width={"100%"} textAlign={"center"}>
+                  <Button
+                    width={"80%"}
+                    variant="outline"
+                    bgColor="base.50"
+                    borderColor={"base.800"}
+                    color={"base.800"}
+                    borderWidth="2"
+                    leftIcon={
+                      <i className="fa-solid fa-arrow-up-right-from-square" />
+                    }
+                    _hover={{
+                      bg: "base.800", // Change background color on hover
+                      color: "base.50", // Change text color on hover
+                      borderColor: "base.800",
+                    }}
+                  >
+                    Confirm your Order
+                  </Button>
+                </Box>
+              </VStack>
             </VStack>
           </CardFooter>
         </Card>
