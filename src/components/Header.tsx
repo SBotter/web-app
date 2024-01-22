@@ -129,19 +129,25 @@ const Header = () => {
           <Box paddingRight={5} paddingLeft={{ base: 0, md: 20 }}>
             <HStack>
               <Box padding={2}>
-                <Avatar
-                  size="md"
-                  bg="base.50"
-                  icon={
-                    <FaCartShopping className="product-detail-cart-button-header" />
-                  }
-                >
-                  <AvatarBadge boxSize={"1.25em"} bg="base.50" borderWidth={1}>
-                    <Text color={"base.800"} marginTop={3}>
-                      {cartItems.length > 0 && cartItems.length}
-                    </Text>
-                  </AvatarBadge>
-                </Avatar>
+                <Link to="checkout">
+                  <Avatar
+                    size="md"
+                    bg="base.50"
+                    icon={
+                      <FaCartShopping className="product-detail-cart-button-header" />
+                    }
+                  >
+                    <AvatarBadge
+                      boxSize={"1.25em"}
+                      bg="base.50"
+                      borderWidth={1}
+                    >
+                      <Text color={"base.800"} marginTop={3}>
+                        {cartItems.length > 0 && cartItems.length}
+                      </Text>
+                    </AvatarBadge>
+                  </Avatar>
+                </Link>
               </Box>
               <Box>
                 <i
