@@ -9,10 +9,11 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { Product } from "../hooks/useProducts";
-import PackageTable from "./PackageTable";
+
 import IngredientsPanel from "./IngredientsPanel";
 import { Link as RouterLink } from "react-router-dom";
 import { FaWhatsapp } from "react-icons/fa";
+import { PackageTable } from "./PackageTable";
 
 interface Props {
   product: Product;
@@ -52,7 +53,7 @@ const ProductDetail = ({ product }: Props) => {
               />
             </Box>
             <Box width="100%" marginTop={10}>
-              <PackageTable productPackage={product.package} />
+              <PackageTable product={product} />
             </Box>
             <Box
               width="100%"

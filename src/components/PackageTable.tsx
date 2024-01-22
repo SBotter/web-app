@@ -1,4 +1,4 @@
-import { Package } from "../hooks/useProducts";
+import { Product } from "../hooks/useProducts";
 import {
   Table,
   Th,
@@ -12,52 +12,92 @@ import {
   Flex,
 } from "@chakra-ui/react";
 
+import { useContext, useState } from "react";
+import { QuantitySelector } from "./QuantitySelector";
+import { CartContext } from "./CartContext";
+
 interface Props {
-  productPackage: Package[];
+  product: Product;
 }
 
-const PackageTable = ({ productPackage }: Props) => {
+export function PackageTable({ product }: Props) {
+  const [itemQuantities, setItemQuantities] = useState(
+    product.package.map(() => 1)
+  );
+  const { addItemToCart } = useContext(CartContext);
+
+  function handleMinusButtonClicked(index: number) {
+    setItemQuantities((prevQuantities) => {
+      if (prevQuantities[index] === 1) return prevQuantities;
+      const updatedQuantities = [...prevQuantities];
+      updatedQuantities[index] = prevQuantities[index] - 1;
+      return updatedQuantities;
+    });
+  }
+
+  function handlePlusButtonClicked(index: number) {
+    setItemQuantities((prevQuantities) => {
+      const updatedQuantities = [...prevQuantities];
+      updatedQuantities[index] = prevQuantities[index] + 1;
+      return updatedQuantities;
+    });
+  }
+
+  function handleAddToCartButtonClicked(index: number) {
+    addItemToCart({
+      productId: product.productId,
+      packageId: product.package[index].packageId,
+      packageName: product.package[index].packageName,
+      packageUnit: product.package[index].packageUnit,
+      packageSize: product.package[index].packageSize,
+      name: product.productName,
+      price: product.package[index].packagePrice,
+      quantity: Number(itemQuantities[index]),
+      imageSrc: product.picture[0].picturePath,
+      categoryName: product.category[0].categoryName,
+    });
+  }
   return (
     <Flex justifyContent={"center"}>
       <Table size="sm" colorScheme="base">
         <Thead bg="base.200">
           <Tr>
-            <Th width="15%">
+            <Th width="10%">
               <HStack>
                 <i className="fa-solid fa-scale-balanced product-detail-delivery_cost" />
-                <Box paddingTop={3} paddingLeft={0}>
+                <Box paddingTop={4} paddingLeft={0}>
                   <Text color="base.700" fontSize="17px">
                     Size
                   </Text>
                 </Box>
               </HStack>
             </Th>
-            <Th width="15%">
+            <Th width="10%">
               <HStack>
                 <i className="fa-solid fa-dollar-sign product-detail-delivery_cost" />
-                <Box paddingTop={3}>
+                <Box paddingTop={4}>
                   <Text color="base.700" fontSize="17px">
                     Price
                   </Text>
                 </Box>
               </HStack>
             </Th>
-            <Th width="40%">
+            <Th width="60%">
               <HStack>
                 <i className="fa-solid fa-people-roof product-detail-delivery_cost" />
-                <Box paddingTop={3}>
+                <Box paddingTop={4}>
                   <Text color="base.700" fontSize="17px">
                     Details
                   </Text>
                 </Box>
               </HStack>
             </Th>
-            <Th width="30%"></Th>
+            <Th width="20%"></Th>
           </Tr>
         </Thead>
 
         <Tbody>
-          {productPackage.map((item) => (
+          {product.package.map((item, index) => (
             <Tr key={item.packageId}>
               <Td>
                 <Box paddingTop={3}>
@@ -83,13 +123,20 @@ const PackageTable = ({ productPackage }: Props) => {
                   </Text>
                 </Box>
               </Td>
-              <Td></Td>
+              <Td textAlign={"center"}>
+                <QuantitySelector
+                  quantity={itemQuantities[index]}
+                  onMinusButtonClicked={() => handleMinusButtonClicked(index)}
+                  onPlusButtonClicked={() => handlePlusButtonClicked(index)}
+                  onAddToCartButtonClicked={() =>
+                    handleAddToCartButtonClicked(index)
+                  }
+                />
+              </Td>
             </Tr>
           ))}
         </Tbody>
       </Table>
     </Flex>
   );
-};
-
-export default PackageTable;
+}

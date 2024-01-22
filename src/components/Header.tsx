@@ -1,5 +1,7 @@
 import logo from "../assets/images/PastaLogo.png";
 import {
+  Avatar,
+  AvatarBadge,
   Box,
   Button,
   Flex,
@@ -11,12 +13,18 @@ import {
   MenuList,
   Spacer,
   useBreakpointValue,
+  Text,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { Link as RouterLink } from "react-router-dom";
 import { IoIosArrowDropdown } from "react-icons/io";
+import { useContext } from "react";
+import { CartContext } from "./CartContext";
+import { FaCartShopping } from "react-icons/fa6";
 
 const Header = () => {
+  const { cartItems } = useContext(CartContext);
+
   const listMenuItems = [
     {
       id: "1",
@@ -119,20 +127,29 @@ const Header = () => {
             </HStack>
           )}
           <Box paddingRight={5} paddingLeft={{ base: 0, md: 20 }}>
-            {/*<HStack>
+            <HStack>
               <Box padding={2}>
-                <i
-                  className="fa-solid fa-cart-shopping product-detail-icon-link-gray"
-                  title="Coming Soon"
-                />
+                <Avatar
+                  size="md"
+                  bg="base.50"
+                  icon={
+                    <FaCartShopping className="product-detail-cart-button-header" />
+                  }
+                >
+                  <AvatarBadge boxSize={"1.25em"} bg="base.50" borderWidth={1}>
+                    <Text color={"base.800"} marginTop={3}>
+                      {cartItems.length > 0 && cartItems.length}
+                    </Text>
+                  </AvatarBadge>
+                </Avatar>
               </Box>
               <Box>
                 <i
-                  className="fa-solid fa-right-to-bracket product-detail-icon-link-gray"
+                  className="fa-solid fa-right-to-bracket product-detail-cart-button"
                   title="Coming Soon"
                 />
               </Box>
-            </HStack>*/}
+            </HStack>
           </Box>
         </HStack>
       </Flex>
