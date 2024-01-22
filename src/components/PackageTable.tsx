@@ -124,14 +124,28 @@ export function PackageTable({ product }: Props) {
                 </Box>
               </Td>
               <Td textAlign={"center"}>
-                <QuantitySelector
-                  quantity={itemQuantities[index]}
-                  onMinusButtonClicked={() => handleMinusButtonClicked(index)}
-                  onPlusButtonClicked={() => handlePlusButtonClicked(index)}
-                  onAddToCartButtonClicked={() =>
-                    handleAddToCartButtonClicked(index)
-                  }
-                />
+                <Flex
+                  borderColor={"black"}
+                  justifyContent={"space-evenly"}
+                  textAlign={"center"}
+                  verticalAlign={"center"}
+                >
+                  <HStack>
+                    <QuantitySelector
+                      quantity={itemQuantities[index]}
+                      onMinusButtonClicked={() =>
+                        handleMinusButtonClicked(index)
+                      }
+                      onPlusButtonClicked={() => handlePlusButtonClicked(index)}
+                    />
+                    <Box marginTop={-1}>
+                      <i
+                        className="fa-solid fa-cart-shopping product-detail-icon-link"
+                        onClick={() => handleAddToCartButtonClicked(index)}
+                      />
+                    </Box>
+                  </HStack>
+                </Flex>
               </Td>
             </Tr>
           ))}

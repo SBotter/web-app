@@ -11,13 +11,11 @@ import {
   CardBody,
   VStack,
   HStack,
-  Image,
   CardFooter,
 } from "@chakra-ui/react";
 import Map from "./Map";
 import { CartContext } from "./CartContext";
 import { CartItem } from "./CartItem";
-import productsDB from "../data/productsDB";
 
 const PAYMENT_OPTIONS = [
   {
@@ -33,8 +31,7 @@ const PAYMENT_OPTIONS = [
 ];
 
 const FormCheckout = () => {
-  const { cartItems, clearCart, updatePaymentMethod, updateAddress } =
-    useContext(CartContext);
+  const { cartItems } = useContext(CartContext);
 
   const itemSubtotal = cartItems.reduce<number>((previous, current) => {
     return previous + current.price * current.quantity;

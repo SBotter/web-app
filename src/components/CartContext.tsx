@@ -61,6 +61,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
       return JSON.parse(localStorageCart);
     }
 
+    /*
     return [
       {
         productId: "1",
@@ -75,6 +76,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
         categoryName: "pasta",
       },
     ];
+    */
   });
 
   function addItemToCart(item: CartItem) {

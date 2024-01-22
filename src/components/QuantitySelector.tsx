@@ -1,27 +1,22 @@
-import { Box, Flex, Text } from "@chakra-ui/layout";
+import { Box, Text } from "@chakra-ui/layout";
+import { HStack } from "@chakra-ui/react";
 
 interface QuantitySelectorProps {
   onMinusButtonClicked: () => void;
   onPlusButtonClicked: () => void;
-  onAddToCartButtonClicked: () => void;
   quantity: number;
 }
 
 export function QuantitySelector({
   onMinusButtonClicked,
   onPlusButtonClicked,
-  onAddToCartButtonClicked,
+
   quantity,
 }: QuantitySelectorProps) {
   return (
     <Box position="relative" textAlign={"center"} paddingTop={3}>
-      <Flex
-        borderColor={"black"}
-        justifyContent={"space-evenly"}
-        textAlign={"center"}
-        verticalAlign={"center"}
-      >
-        <Box position="relative">
+      <HStack>
+        <Box position="relative" marginTop={-4}>
           <i
             className="fa-solid fa-square-minus product-detail-icon-link"
             onClick={onMinusButtonClicked}
@@ -48,19 +43,13 @@ export function QuantitySelector({
             {quantity}
           </Text>
         </Box>
-        <Box position="relative">
+        <Box position="relative" marginTop={-4}>
           <i
             className="fa-solid fa-square-plus product-detail-icon-link"
             onClick={onPlusButtonClicked}
           />
         </Box>
-        <Box position="relative">
-          <i
-            className="fa-solid fa-cart-shopping product-detail-icon-link"
-            onClick={onAddToCartButtonClicked}
-          />
-        </Box>
-      </Flex>
+      </HStack>
     </Box>
   );
 }

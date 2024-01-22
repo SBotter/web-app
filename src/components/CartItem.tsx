@@ -1,6 +1,7 @@
-import { Box, HStack, VStack, Image, Text } from "@chakra-ui/react";
+import { Box, HStack, VStack, Image, Text, Flex } from "@chakra-ui/react";
 import { useContext } from "react";
 import { CartContext } from "./CartContext";
+import { QuantitySelector } from "./QuantitySelector";
 
 interface CartItemProps {
   productId: string;
@@ -26,12 +27,36 @@ export function CartItem(cartItem: CartItemProps) {
     price,
     quantity,
     imageSrc,
+
     //categoryName,
   } = cartItem;
 
-  const { updateItemFromCart, removeItemFromnCart } = useContext(CartContext);
+  const { updateItemFromCart, removeItemFromCart } = useContext(CartContext);
 
   const totalPriceFromItem = (price * quantity).toFixed(2);
+
+  function handleMinusButtonClicked() {
+    if (quantity === 0) return;
+    const updatedCartItem = {
+      ...cartItem,
+      quantity: quantity - 1,
+    };
+
+    updateItemFromCart(updatedCartItem);
+  }
+
+  function handlePlusButtonClicked() {
+    const updatedCartItem = {
+      ...cartItem,
+      quantity: quantity + 1,
+    };
+
+    updateItemFromCart(updatedCartItem);
+  }
+
+  function handleRemoveItemButtonClicked() {
+    removeItemFromCart(cartItem);
+  }
 
   return (
     <VStack>
@@ -76,21 +101,43 @@ export function CartItem(cartItem: CartItemProps) {
           </VStack>
         </Box>
         <Box>
-          <HStack align="start">
-            <Box marginTop={4}>
-              <i className="fa-solid fa-dollar-sign product-detail-icon-link" />
-            </Box>
-            <Box>
-              <Text
-                color="base.800"
-                fontSize={20}
-                fontWeight={"bold"}
-                marginTop={3}
-              >
-                {totalPriceFromItem}
-              </Text>
-            </Box>
-          </HStack>
+          <VStack>
+            <HStack align="start">
+              <Box marginTop={4}>
+                <i className="fa-solid fa-dollar-sign product-detail-icon-link" />
+              </Box>
+              <Box>
+                <Text
+                  color="base.800"
+                  fontSize={20}
+                  fontWeight={"bold"}
+                  marginTop={3}
+                >
+                  {totalPriceFromItem}
+                </Text>
+              </Box>
+            </HStack>
+            <Flex
+              borderColor={"black"}
+              justifyContent={"space-evenly"}
+              textAlign={"center"}
+              verticalAlign={"center"}
+            >
+              <HStack>
+                <QuantitySelector
+                  quantity={quantity}
+                  onMinusButtonClicked={() => handleMinusButtonClicked()}
+                  onPlusButtonClicked={() => handlePlusButtonClicked()}
+                />
+                <Box marginTop={-1}>
+                  <i
+                    className="fa-solid fa-trash product-detail-icon-link"
+                    onClick={() => handleRemoveItemButtonClicked()}
+                  />
+                </Box>
+              </HStack>
+            </Flex>
+          </VStack>
         </Box>
       </HStack>
     </VStack>

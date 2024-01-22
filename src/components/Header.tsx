@@ -143,7 +143,11 @@ const Header = () => {
                       borderWidth={1}
                     >
                       <Text color={"base.800"} marginTop={3}>
-                        {cartItems.length > 0 && cartItems.length}
+                        {cartItems
+                          ? cartItems.length > 0
+                            ? cartItems.length
+                            : 0
+                          : 0}
                       </Text>
                     </AvatarBadge>
                   </Avatar>
