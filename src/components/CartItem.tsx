@@ -59,14 +59,14 @@ export function CartItem(cartItem: CartItemProps) {
   }
 
   return (
-    <VStack>
+    <VStack paddingBottom={5}>
       <HStack
         width={"100%"}
         padding={2}
         borderRadius={20}
         borderWidth={1}
         borderColor={"base.800"}
-        bg=""
+        bg="#FFF"
       >
         <Box>
           <Box

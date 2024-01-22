@@ -98,7 +98,12 @@ const FormCheckout = () => {
   };
 
   return (
-    <SimpleGrid columns={{ base: 1, sm: 1, md: 2 }} width="100%" spacing={4}>
+    <SimpleGrid
+      columns={{ base: 1, sm: 1, md: 2 }}
+      width="100%"
+      spacing={4}
+      height={"100%"}
+    >
       <Box width={"100%"}>
         <Box width={"100%"}>
           <Card bg="base.50" borderRadius={20}>
@@ -193,7 +198,11 @@ const FormCheckout = () => {
 
                 {isDelivery && (
                   <>
-                    <Box height={"400px"}>
+                    <Box
+                      height={"600px"}
+                      borderWidth={1}
+                      borderColor={"base.800"}
+                    >
                       <Map />
                     </Box>
                     <div className="mb-3">
@@ -230,7 +239,7 @@ const FormCheckout = () => {
             </CardBody>
           </Card>
         </Box>
-        <Box width={"100%"} margin={5}>
+        <Box width={"100%"} paddingTop={5}>
           <Card bg="base.50" width={"100%"} borderRadius={20}>
             <CardBody>
               <VStack>
@@ -268,8 +277,8 @@ const FormCheckout = () => {
           </Card>
         </Box>
       </Box>
-      <Box width={"100%"}>
-        <Card bg="base.50" borderRadius={20}>
+      <Box width={"100%"} height={"100%"}>
+        <Card bg="base.50" borderRadius={20} height={"100%"}>
           <CardBody width={"100%"}>
             {cartItems.map((cartItem) => (
               <CartItem key={cartItem.packageId} {...cartItem} />
