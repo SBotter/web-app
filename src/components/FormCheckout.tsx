@@ -51,7 +51,6 @@ const FormCheckout = () => {
   const [isDelivery, setIsDelivery] = useState(false);
   //Calculate the distance with google maps API
   const center = { lat: 49.3287158, lng: -123.0856023 };
-  //const [map, setMap] = useState<google.maps.Map>();
   const [deliveryPrice, setDeliveryPrice] = useState(0);
 
   const { isLoaded } = useJsApiLoader({
@@ -60,7 +59,7 @@ const FormCheckout = () => {
   });
 
   if (!isLoaded) {
-    return <Spinner />;
+    <Spinner />;
   }
 
   const [customerAddress, setCustomerAddress] = useState<CustomerAddress>({
@@ -117,6 +116,7 @@ const FormCheckout = () => {
     useState<google.maps.DirectionsResult | null>(null);
   const [mapMessage, setMapMessage] = useState("");
   const [deliveryMessage, setDeliveryMessage] = useState("");
+
   const [distanceValue, setDistanceValue] = useState(0);
 
   const { cartItems } = useContext(CartContext);
@@ -126,6 +126,7 @@ const FormCheckout = () => {
   }, 0);
 
   useEffect(() => {
+    console.log(itemSubtotal, "itemSubtotal");
     calculateFreight(Number(distanceValue), itemSubtotal);
   }, [itemSubtotal]);
 
@@ -148,9 +149,7 @@ const FormCheckout = () => {
     let dist = 0;
     if (results && results.routes && results.routes[0].legs[0].distance) {
       dist = results.routes[0].legs[0].distance?.value;
-      console.log(dist, "dist");
       setDistanceValue(dist);
-      console.log(distanceValue, "distanceValue");
     }
 
     calculateFreight(Number(dist), itemSubtotal);
