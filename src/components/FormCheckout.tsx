@@ -14,6 +14,7 @@ import {
   CardFooter,
   Heading,
   Spinner,
+  Flex,
 } from "@chakra-ui/react";
 
 import { CartContext } from "./CartContext";
@@ -49,6 +50,31 @@ interface CustomerAddress {
 
 const FormCheckout = () => {
   const [isDelivery, setIsDelivery] = useState(false);
+  const [isPickup, setIsPickup] = useState(false);
+
+  const handleDeliveryCalculatorClick = (
+    event: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    // Call the CalculateRoute function with the address form data
+
+    if (
+      event.currentTarget.getAttribute("button-calculate-deliver") === "true"
+    ) {
+      if (
+        customerAddress.street === "" ||
+        customerAddress.unit === "" ||
+        customerAddress.city === "" ||
+        customerAddress.postalcode === "" ||
+        customerAddress.province === ""
+      ) {
+        setDeliveryMessageFormError(true);
+      } else {
+        setDeliveryMessageFormError(false);
+        calculateRoute(customerAddress);
+      }
+    }
+  };
+
   //Calculate the distance with google maps API
   const center = { lat: 49.3287158, lng: -123.0856023 };
   const [deliveryPrice, setDeliveryPrice] = useState(0);
@@ -70,65 +96,52 @@ const FormCheckout = () => {
     province: "BC",
   });
 
-  /*
-  const handleInputChange = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => {
-    setCustomerAddress({
-      ...customerAddress,
-      [event.target.name]: event.target.value,
-    });
-  };
-  */
-
-  const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.checked) {
-      // Call the CalculateRoute function with the address form data
-      if (
-        customerAddress.street === "" ||
-        customerAddress.unit === "" ||
-        customerAddress.city === "" ||
-        customerAddress.postalcode === "" ||
-        customerAddress.province === ""
-      ) {
-        setIsDelivery(false);
-        setMapMessage(
-          "Please provide all information of the delivery address."
-        );
-      } else {
-        setMapMessage("");
-        calculateRoute(customerAddress);
-        setIsDelivery(!isDelivery);
-      }
-    } else {
-      setMapMessage("");
-      setIsDelivery(false);
-      clearRoute();
-    }
-  };
-
-  function clearRoute() {
-    setDirectionsResponse(null);
-    setDistanceValue(0);
-  }
-
   const [directionsResponse, setDirectionsResponse] =
     useState<google.maps.DirectionsResult | null>(null);
-  const [mapMessage, setMapMessage] = useState("");
-  const [deliveryMessage, setDeliveryMessage] = useState("");
+
+  //MESSAGES
+  const DELIVERY_MESSAGE = "Delivery is FREE!";
+  const DELIVERY_MESSAGE_FORM_ERROR =
+    "Please provide all information of the delivery address";
+
+  //MESSAGES HOOKS
+  const [isDeliveryMessage, setDeliveryMessage] = useState(false);
+  const [isDeliveryMessageFormError, setDeliveryMessageFormError] =
+    useState(false);
+
+  const [paymentType, setPaymentType] = useState("E-Transfer");
+
+  const handlePaymentTypeClick = (buttonValue: string) => {
+    setPaymentType(buttonValue);
+  };
 
   const [distanceValue, setDistanceValue] = useState(0);
-
   const { cartItems } = useContext(CartContext);
-
   const itemSubtotal = cartItems.reduce<number>((previous, current) => {
     return previous + current.price * current.quantity;
   }, 0);
 
   useEffect(() => {
-    console.log(itemSubtotal, "itemSubtotal");
     calculateFreight(Number(distanceValue), itemSubtotal);
   }, [itemSubtotal]);
+
+  const [deliveryMethod, setDeliveryMethod] = useState("pickup");
+
+  useEffect(() => {
+    if (deliveryMethod === "pickup") {
+      setIsPickup(true);
+      setIsDelivery(false);
+      setDeliveryMessage(false);
+      setDeliveryPrice(0);
+      setDeliveryMessageFormError(false);
+    }
+
+    if (deliveryMethod === "delivery") {
+      setIsPickup(false);
+      setIsDelivery(true);
+      calculateFreight(Number(distanceValue), itemSubtotal);
+    }
+  }, [deliveryMethod]);
 
   const cartTotal = (Number(deliveryPrice) + itemSubtotal).toFixed(2);
 
@@ -156,59 +169,57 @@ const FormCheckout = () => {
   }
 
   function calculateFreight(distanceValue: Number, newSubTotal: Number) {
-    setDeliveryMessage("");
+    setDeliveryMessage(false);
 
-    console.log(distanceValue, "distanceValue - calculate");
-    console.log(newSubTotal, "newSubTotal - calculate");
+    if (Number(newSubTotal) > 0) {
+      const gasPrice = import.meta.env
+        .VITE_REACT_APP_DELIVERY_GAS_PRICE as string;
+      const deliveryRadious = import.meta.env
+        .VITE_REACT_APP_DELIVERY_RADIOUS as string;
+      const quilometerPerMeter = 8;
+      const costPerMeter = Number(gasPrice) / quilometerPerMeter / 1000;
+      const distanceFree = import.meta.env
+        .VITE_REACT_APP_DELIVERY_DISTANCE_FREE as string;
+      let orderDeliveryFree = "";
 
-    const gasPrice = import.meta.env
-      .VITE_REACT_APP_DELIVERY_GAS_PRICE as string;
-    const deliveryRadious = import.meta.env
-      .VITE_REACT_APP_DELIVERY_RADIOUS as string;
-    const quilometerPerMeter = 8;
-    const costPerMeter = Number(gasPrice) / quilometerPerMeter / 1000;
-    const distanceFree = import.meta.env
-      .VITE_REACT_APP_DELIVERY_DISTANCE_FREE as string;
-    let orderDeliveryFree = "";
+      setDeliveryPrice(Math.round(Number(distanceValue) * costPerMeter * 5));
 
-    setDeliveryPrice(Math.round(Number(distanceValue) * costPerMeter * 5));
-
-    if (distanceValue && Number(distanceValue) <= Number(distanceFree)) {
-      setDeliveryPrice(0);
-      setDeliveryMessage("Delivery is FREE!");
-    } else if (
-      distanceValue &&
-      Number(distanceValue) > Number(distanceFree) &&
-      Number(distanceValue) < 10000
-    ) {
-      orderDeliveryFree = "70";
-      if (Number(newSubTotal) >= Number(orderDeliveryFree)) {
+      if (distanceValue && Number(distanceValue) <= Number(distanceFree)) {
         setDeliveryPrice(0);
-        setDeliveryMessage("Delivery is FREE!");
-      }
-    } else if (
-      distanceValue &&
-      Number(distanceValue) > 10000 &&
-      Number(distanceValue) < Number(15000)
-    ) {
-      orderDeliveryFree = "100";
-      if (Number(newSubTotal) >= Number(orderDeliveryFree)) {
-        setDeliveryPrice(0);
-        setDeliveryMessage("Delivery is FREE!");
-      }
-    } else if (
-      distanceValue &&
-      Number(distanceValue) > 15000 &&
-      Number(distanceValue) < Number(deliveryRadious)
-    ) {
-      orderDeliveryFree = "140";
-      if (Number(newSubTotal) >= Number(orderDeliveryFree)) {
-        setDeliveryPrice(0);
-        setDeliveryMessage("Delivery is FREE!");
+        setDeliveryMessage(true);
+      } else if (
+        distanceValue &&
+        Number(distanceValue) > Number(distanceFree) &&
+        Number(distanceValue) < 10000
+      ) {
+        orderDeliveryFree = "70";
+        if (Number(newSubTotal) >= Number(orderDeliveryFree)) {
+          setDeliveryPrice(0);
+          setDeliveryMessage(true);
+        }
+      } else if (
+        distanceValue &&
+        Number(distanceValue) > 10000 &&
+        Number(distanceValue) < Number(15000)
+      ) {
+        orderDeliveryFree = "100";
+        if (Number(newSubTotal) >= Number(orderDeliveryFree)) {
+          setDeliveryPrice(0);
+          setDeliveryMessage(true);
+        }
+      } else if (
+        distanceValue &&
+        Number(distanceValue) > 15000 &&
+        Number(distanceValue) < Number(deliveryRadious)
+      ) {
+        orderDeliveryFree = "140";
+        if (Number(newSubTotal) >= Number(orderDeliveryFree)) {
+          setDeliveryPrice(0);
+          setDeliveryMessage(true);
+        }
       }
     }
   }
-
   const form = useRef<HTMLFormElement | any>("");
 
   const [customer, setCustomer] = useState({
@@ -271,29 +282,31 @@ const FormCheckout = () => {
       isValid = false;
     }
 
-    if (customer.customer_street.trim() === "") {
-      newErrors.customer_street = "Street is required";
-      isValid = false;
-    }
+    if (!isPickup) {
+      if (customer.customer_street.trim() === "") {
+        newErrors.customer_street = "Street is required";
+        isValid = false;
+      }
 
-    if (customer.customer_unit.trim() === "") {
-      newErrors.customer_unit = "Apartment/Unit is required";
-      isValid = false;
-    }
+      if (customer.customer_unit.trim() === "") {
+        newErrors.customer_unit = "Apartment/Unit is required";
+        isValid = false;
+      }
 
-    if (customer.customer_postalCode.trim() === "") {
-      newErrors.customer_postalCode = "Postal Code is required";
-      isValid = false;
-    }
+      if (customer.customer_postalCode.trim() === "") {
+        newErrors.customer_postalCode = "Postal Code is required";
+        isValid = false;
+      }
 
-    if (customer.customer_city.trim() === "") {
-      newErrors.customer_city = "City is required";
-      isValid = false;
-    }
+      if (customer.customer_city.trim() === "") {
+        newErrors.customer_city = "City is required";
+        isValid = false;
+      }
 
-    if (customer.customer_postalCode.trim() === "") {
-      newErrors.customer_postalCode = "Postalcode is required";
-      isValid = false;
+      if (customer.customer_postalCode.trim() === "") {
+        newErrors.customer_postalCode = "Postalcode is required";
+        isValid = false;
+      }
     }
 
     setErrors(newErrors);
@@ -387,6 +400,11 @@ const FormCheckout = () => {
                 <Heading textColor={"base.800"} fontSize={20}>
                   Address:
                 </Heading>
+                {isDeliveryMessageFormError && (
+                  <Box>
+                    <Text color="red">{DELIVERY_MESSAGE_FORM_ERROR}</Text>
+                  </Box>
+                )}
                 <div style={{ display: "flex", gap: "10px" }}>
                   <div className="mb-3" style={{ width: "70%" }}>
                     <input
@@ -538,28 +556,31 @@ const FormCheckout = () => {
                       name="delivery_checkbox"
                       type="checkbox"
                       className="form-check-input form-label"
-                      onChange={handleCheckboxChange}
+                      onChange={() => {
+                        setDeliveryMethod("delivery");
+                      }}
+                      checked={isDelivery}
                     />
                     <label
                       htmlFor="delivery_checkbox"
                       className="form-check-label ms-2 form-label"
                     >
-                      Require Delivery{" "}
-                      {mapMessage != "" && (
-                        <p style={{ color: "red" }}>{mapMessage}</p>
-                      )}
+                      Require Delivery
                     </label>
                   </Box>
                   <Box textAlign="center">
                     <input
-                      id="delivery_checkbox"
-                      name="delivery_checkbox"
+                      id="delivery_pickup"
+                      name="delivery_pickup"
                       type="checkbox"
                       className="form-check-input form-label"
-                      onChange={() => setIsDelivery(!isDelivery)}
+                      onChange={() => {
+                        setDeliveryMethod("pickup");
+                      }}
+                      checked={isPickup}
                     />
                     <label
-                      htmlFor="delivery_checkbox"
+                      htmlFor="delivery_pickup"
                       className="form-check-label ms-2 form-label"
                     >
                       Order Pickup
@@ -568,28 +589,55 @@ const FormCheckout = () => {
                 </SimpleGrid>
 
                 {isDelivery && (
-                  <Box
-                    height={"400px"}
-                    borderWidth={1}
-                    borderColor={"base.800"}
-                  >
-                    <GoogleMap
-                      center={center}
-                      zoom={15}
-                      mapContainerStyle={{ width: "100%", height: "100%" }}
-                      options={{
-                        zoomControl: false,
-                        streetViewControl: false,
-                        mapTypeControl: false,
-                        fullscreenControl: false,
-                      }}
+                  <>
+                    <Flex justifyContent={"center"} width={"50%"}>
+                      <Button
+                        marginBottom={5}
+                        variant="outline"
+                        bgColor="base.50"
+                        borderColor={"base.800"}
+                        color={"base.800"}
+                        borderWidth="2"
+                        leftIcon={
+                          <i className="fa-solid fa-truck-monster product-detail-icon-link" />
+                        }
+                        _hover={{
+                          bg: "base.800", // Change background color on hover
+                          color: "base.50", // Change text color on hover
+                          borderColor: "base.800",
+                        }}
+                        onClick={(event) =>
+                          handleDeliveryCalculatorClick(event)
+                        }
+                        button-calculate-deliver="true"
+                      >
+                        Calculate Delivery
+                      </Button>
+                    </Flex>
+
+                    <Box
+                      height={"400px"}
+                      borderWidth={1}
+                      borderColor={"base.800"}
                     >
-                      <Marker position={center} />
-                      {directionsResponse && (
-                        <DirectionsRenderer directions={directionsResponse} />
-                      )}
-                    </GoogleMap>
-                  </Box>
+                      <GoogleMap
+                        center={center}
+                        zoom={15}
+                        mapContainerStyle={{ width: "100%", height: "100%" }}
+                        options={{
+                          zoomControl: false,
+                          streetViewControl: false,
+                          mapTypeControl: false,
+                          fullscreenControl: false,
+                        }}
+                      >
+                        <Marker position={center} />
+                        {directionsResponse && (
+                          <DirectionsRenderer directions={directionsResponse} />
+                        )}
+                      </GoogleMap>
+                    </Box>
+                  </>
                 )}
               </CardBody>
             </Card>
@@ -612,9 +660,13 @@ const FormCheckout = () => {
                       <Button
                         key={item.id}
                         variant="outline"
-                        bgColor="base.50"
+                        bgColor={
+                          paymentType === item.text ? "base.800" : "base.50"
+                        }
                         borderColor={"base.800"}
-                        color={"base.800"}
+                        color={
+                          paymentType === item.text ? "base.50" : "base.800"
+                        }
                         borderWidth="2"
                         leftIcon={<i className={item.icon} />}
                         _hover={{
@@ -622,6 +674,7 @@ const FormCheckout = () => {
                           color: "base.50", // Change text color on hover
                           borderColor: "base.800",
                         }}
+                        onClick={() => handlePaymentTypeClick(item.text)}
                       >
                         {item.text}
                       </Button>
@@ -697,16 +750,14 @@ const FormCheckout = () => {
                       </Text>
                     </Box>
                   </HStack>
-                  {deliveryMessage != "" && (
+                  {isDeliveryMessage && (
                     <Box
                       width={"80%"}
                       textAlign={"right"}
                       marginTop={-6}
                       marginLeft={-10}
                     >
-                      <Text color="base.800" size="15" fontWeight={"bold"}>
-                        {deliveryMessage}
-                      </Text>
+                      <Text color="red">{DELIVERY_MESSAGE}</Text>
                     </Box>
                   )}
                   <HStack width={"100%"}>
@@ -741,6 +792,7 @@ const FormCheckout = () => {
                   </Box>
                   <Box width={"100%"} textAlign={"center"}>
                     <Button
+                      isDisabled={cartItems.length > 0 ? false : true}
                       type="submit"
                       width={"80%"}
                       variant="outline"
@@ -752,8 +804,8 @@ const FormCheckout = () => {
                         <i className="fa-solid fa-arrow-up-right-from-square" />
                       }
                       _hover={{
-                        bg: "base.800", // Change background color on hover
-                        color: "base.50", // Change text color on hover
+                        bg: "base.800",
+                        color: "base.50",
                         borderColor: "base.800",
                       }}
                     >
