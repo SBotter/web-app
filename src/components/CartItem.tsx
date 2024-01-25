@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { CartContext } from "./CartContext";
 import { QuantitySelector } from "./QuantitySelector";
 
-interface CartItemProps {
+export interface CartItemProps {
   productId: string;
   packageId: string;
   packageName: string;

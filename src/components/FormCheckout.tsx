@@ -1,5 +1,6 @@
 import "bootstrap/dist/css/bootstrap.css";
 import { FormEvent, useContext, useEffect, useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
 
 import {
   Box,
@@ -15,10 +16,11 @@ import {
   Heading,
   Spinner,
   Flex,
+  useToast,
 } from "@chakra-ui/react";
 
 import { CartContext } from "./CartContext";
-import { CartItem } from "./CartItem";
+import { CartItem, CartItemProps } from "./CartItem";
 
 import {
   useJsApiLoader,
@@ -40,7 +42,19 @@ const PAYMENT_OPTIONS = [
   },
 ];
 
-interface CustomerAddress {
+export interface Order {
+  customerName: string;
+  customerEmail: string;
+  customerPhone: string;
+  address: CustomerAddress;
+  cartItems: CartItemProps[];
+  paymentMethod: string;
+  orderSubTotal: number;
+  orderDelivery: number;
+  orderTotal: number;
+}
+
+export interface CustomerAddress {
   street: string;
   unit: string;
   city: string;
@@ -49,8 +63,24 @@ interface CustomerAddress {
 }
 
 const FormCheckout = () => {
+  const toast = useToast();
   const [isDelivery, setIsDelivery] = useState(false);
   const [isPickup, setIsPickup] = useState(false);
+
+  const [currentDateTime, setCurrentDateTime] = useState(new Date());
+
+  const getOrderNumber = (): string => {
+    const currentDate = new Date();
+
+    const day = currentDate.getDate().toString().padStart(2, "0");
+    const month = (currentDate.getMonth() + 1).toString().padStart(2, "0"); // Months are zero-indexed
+    const year = currentDate.getFullYear().toString().slice(-2);
+    const hour = currentDate.getHours().toString().padStart(2, "0");
+    const minute = currentDate.getMinutes().toString().padStart(2, "0");
+    const second = currentDate.getSeconds().toString().padStart(2, "0");
+
+    return `${day}${month}${year}-${hour}${minute}${second}`;
+  };
 
   const handleDeliveryCalculatorClick = (
     event: React.MouseEvent<HTMLButtonElement>
@@ -244,6 +274,18 @@ const FormCheckout = () => {
     customer_province: "",
   });
 
+  const [order, setOrder] = useState<Order>({
+    customerName: "",
+    customerEmail: "",
+    customerPhone: "",
+    address: customerAddress,
+    cartItems: cartItems,
+    paymentMethod: "",
+    orderSubTotal: 0,
+    orderDelivery: 0,
+    orderTotal: 0,
+  });
+
   const validateForm = (e: FormEvent) => {
     e.preventDefault();
 
@@ -309,12 +351,122 @@ const FormCheckout = () => {
       }
     }
 
+    //console.log(cartItems);
+
     setErrors(newErrors);
+
+    const newOrder = {
+      customerName: "",
+      customerEmail: "",
+      customerPhone: "",
+      address: customerAddress,
+      cartItems: cartItems,
+      paymentMethod: "",
+      orderSubTotal: 0,
+      orderDelivery: 0,
+      orderTotal: 0,
+    };
+
+    if (isValid) {
+      newOrder.customerName = customer.customer_name;
+      newOrder.customerEmail = customer.customer_email;
+      newOrder.customerPhone = customer.customer_phone;
+      newOrder.address = customerAddress;
+      newOrder.cartItems = cartItems;
+      newOrder.paymentMethod = paymentType;
+      newOrder.orderSubTotal = itemSubtotal;
+      newOrder.orderDelivery = deliveryPrice;
+      newOrder.orderTotal = Number(cartTotal);
+
+      setOrder(newOrder);
+
+      console.log(newOrder, "form");
+
+      setCurrentDateTime(new Date());
+
+      //Sent and Email with the order
+      const loadingPromiseToastId = toast({
+        title: "Sending Order",
+        description: "Please wait...",
+        status: "info",
+        duration: null, // null duration makes it a persistent toast until explicitly closed
+        isClosable: true,
+        variant: "outline",
+        render: ({ onClose }) => (
+          <Box
+            color="white"
+            p={3}
+            bg="base.800"
+            borderRadius={10}
+            onClick={onClose}
+            cursor="pointer"
+          >
+            <Text fontWeight="bold" mb={2}>
+              Sending Order
+            </Text>
+            <Text fontSize="sm">Please wait...</Text>
+          </Box>
+        ),
+      });
+
+      const emailSendingPromise = emailjs.sendForm(
+        import.meta.env.VITE_REACT_APP_EMAIL_SERVICE_ID,
+        import.meta.env.VITE_REACT_APP_EMAIL_TEMPLATE_ID_PEDIDO,
+        form.current,
+        import.meta.env.VITE_REACT_APP_EMAIL_PUBLIC_KEY
+      );
+
+      emailSendingPromise
+        .then((result) => {
+          if (result.status === 200) {
+            toast.update(loadingPromiseToastId, {
+              title: "Order Sent Successfully",
+              description: "Thank you! We will contact you soon!",
+              status: "success",
+              duration: 5000, // Set a duration for the success toast
+            });
+
+            // Clear form fields after successful submission
+          }
+        })
+        .catch((error) => {
+          // Close loading toast
+          toast.close(loadingPromiseToastId);
+
+          // Display error toast
+          toast({
+            position: "bottom-right",
+            render: () => (
+              <Box color="white" p={3} bg="base.800" borderRadius={10}>
+                {error.text}
+              </Box>
+            ),
+          });
+        });
+    }
+    console.log(isValid);
+    console.log(newOrder);
+    console.log(order);
     return isValid;
   };
 
   return (
     <form ref={form} onSubmit={validateForm}>
+      <input
+        key="order_number"
+        type="hidden"
+        id="order_number"
+        name="order_number"
+        value={getOrderNumber()}
+      />
+      <input
+        key="order_date"
+        type="hidden"
+        id="order_date"
+        name="order_date"
+        value={currentDateTime.toLocaleString()}
+      />
+
       <SimpleGrid
         columns={{ base: 1, sm: 1, md: 2 }}
         width="100%"
@@ -588,6 +740,14 @@ const FormCheckout = () => {
                   </Box>
                 </SimpleGrid>
 
+                <input
+                  key="order_delivery"
+                  type="hidden"
+                  id="order_delivery"
+                  name="order_delivery"
+                  value={isDelivery ? "Delivery" : "Customer Pick up"}
+                />
+
                 {isDelivery && (
                   <>
                     <Flex justifyContent={"center"} width={"50%"}>
@@ -679,6 +839,13 @@ const FormCheckout = () => {
                         {item.text}
                       </Button>
                     ))}
+                    <input
+                      key="payment_method"
+                      type="hidden"
+                      id="payment_method"
+                      name="payment_method"
+                      value={paymentType}
+                    />
                   </SimpleGrid>
                 </VStack>
               </CardBody>
@@ -691,6 +858,33 @@ const FormCheckout = () => {
               {cartItems.map((cartItem) => (
                 <CartItem key={cartItem.packageId} {...cartItem} />
               ))}
+              <div id="cartItems" className="mb-3" style={{ display: "none" }}>
+                {cartItems.map((cartItem, index) => (
+                  <>
+                    <input
+                      key={cartItem.packageId}
+                      type="hidden"
+                      id={`cartItem_productName_${index}`}
+                      name={`cartItem_productName_${index}`}
+                      value={cartItem.name}
+                    />
+                    <input
+                      key={cartItem.packageId}
+                      type="hidden"
+                      id={`cartItem_packageName_${index}`}
+                      name={`cartItem_packageName_${index}`}
+                      value={`${cartItem.packageName} - ${cartItem.packageSize} - ${cartItem.packageUnit}`}
+                    />
+                    <input
+                      key={cartItem.quantity}
+                      type="hidden"
+                      id={`cartItem_quantity_${index}`}
+                      name={`cartItem_quantity_${index}`}
+                      value={cartItem.quantity}
+                    />
+                  </>
+                ))}
+              </div>
             </CardBody>
             <CardFooter>
               <VStack width={"100%"}>
@@ -722,6 +916,13 @@ const FormCheckout = () => {
                       >
                         {itemSubtotal.toFixed(2)}
                       </Text>
+                      <input
+                        key="order_subTotal"
+                        type="hidden"
+                        id="order_subTotal"
+                        name="order_subTotal"
+                        value={`$${itemSubtotal.toFixed(2)}`}
+                      />
                     </Box>
                   </HStack>
                   <HStack width={"100%"}>
@@ -748,6 +949,13 @@ const FormCheckout = () => {
                       >
                         {Number(deliveryPrice).toFixed(2)}
                       </Text>
+                      <input
+                        key="order_delivery_value"
+                        type="hidden"
+                        id="order_delivery_value"
+                        name="order_delivery_value"
+                        value={`$${Number(deliveryPrice).toFixed(2)}`}
+                      />
                     </Box>
                   </HStack>
                   {isDeliveryMessage && (
@@ -785,6 +993,13 @@ const FormCheckout = () => {
                         {cartTotal}
                       </Text>
                     </Box>
+                    <input
+                      key="order_total"
+                      type="hidden"
+                      id="order_total"
+                      name="order_total"
+                      value={`$${cartTotal}`}
+                    />
                   </HStack>
 
                   <Box width={"100%"}>
