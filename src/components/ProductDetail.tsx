@@ -71,7 +71,7 @@ const ProductDetail = ({ product }: Props) => {
                   colorScheme="base"
                   variant="solid"
                 >
-                  Place you Order
+                  Place you Order by phone
                 </Button>
                 <Button
                   as={RouterLink} // Use the Link component from react-router-dom

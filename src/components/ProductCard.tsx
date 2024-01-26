@@ -9,7 +9,7 @@ import {
   CardFooter,
   Button,
 } from "@chakra-ui/react";
-import { GoSearch } from "react-icons/go";
+import { FaShoppingCart } from "react-icons/fa";
 import { Link, Link as RouterLink } from "react-router-dom";
 
 interface Props {
@@ -60,11 +60,11 @@ const ProductCard = ({ product }: Props) => {
           <Button
             as={RouterLink} // Use the Link component from react-router-dom
             to={`/products/detail/${product.productId}`}
-            leftIcon={<GoSearch />}
+            leftIcon={<FaShoppingCart />}
             colorScheme="base"
             variant="solid"
           >
-            Details
+            Add to Cart
           </Button>
         </CardFooter>
       </Card>
