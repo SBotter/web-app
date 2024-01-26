@@ -773,6 +773,9 @@ const FormCheckout = () => {
                   <Text color="base.800" fontSize={"20px"}>
                     Payment Method
                   </Text>
+                  <Text color="base.800" fontSize={"13px"} marginTop={-5}>
+                    The payment is done upon delivery. Choose payment method:
+                  </Text>
                   <Divider background="base.800" />
                   <SimpleGrid
                     columns={{ base: 1, sm: 1, md: 2 }}
