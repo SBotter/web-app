@@ -81,6 +81,7 @@ const FormCheckout = () => {
 
     return `${day}${month}${year}-${hour}${minute}${second}`;
   };
+  const orderNumber = getOrderNumber();
 
   const [customerAddress, setCustomerAddress] = useState<CustomerAddress>({
     street: "",
@@ -335,35 +336,8 @@ const FormCheckout = () => {
     }
 
     setErrors(newErrors);
-    /*
-    const newOrder = {
-      customerName: "",
-      customerEmail: "",
-      customerPhone: "",
-      address: customerAddress,
-      cartItems: cartItems,
-      paymentMethod: "",
-      orderSubTotal: 0,
-      orderDelivery: 0,
-      orderTotal: 0,
-    };
-*/
+
     if (isValid) {
-      /*
-      newOrder.customerName = customer.customer_name;
-      newOrder.customerEmail = customer.customer_email;
-      newOrder.customerPhone = customer.customer_phone;
-      newOrder.address = customerAddress;
-      newOrder.cartItems = cartItems;
-      newOrder.paymentMethod = paymentType;
-      newOrder.orderSubTotal = itemSubtotal;
-      newOrder.orderDelivery = deliveryPrice;
-      newOrder.orderTotal = Number(cartTotal);
-*/
-      //setOrder(newOrder);
-
-      //console.log(newOrder, "form");
-
       setCurrentDateTime(new Date());
 
       //Sent and Email with the order
@@ -403,10 +377,10 @@ const FormCheckout = () => {
         .then((result) => {
           if (result.status === 200) {
             toast.update(loadingPromiseToastId, {
-              title: "Order Sent Successfully",
+              title: `Order #${orderNumber} Sent Successfully!`,
               description: "Thank you! We will contact you soon!",
               status: "success",
-              duration: 5000, // Set a duration for the success toast
+              duration: 8000, // Set a duration for the success toast
             });
           }
         })
@@ -436,7 +410,7 @@ const FormCheckout = () => {
         type="hidden"
         id="order_number"
         name="order_number"
-        value={getOrderNumber()}
+        value={orderNumber}
       />
       {/*order date */}
       <input
