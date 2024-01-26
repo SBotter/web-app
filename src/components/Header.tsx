@@ -153,12 +153,6 @@ const Header = () => {
                   </Avatar>
                 </Link>
               </Box>
-              <Box>
-                <i
-                  className="fa-solid fa-right-to-bracket product-detail-cart-button"
-                  title="Coming Soon"
-                />
-              </Box>
             </HStack>
           </Box>
         </HStack>
