@@ -141,7 +141,6 @@ const FormCheckout = () => {
     ) {
       if (
         customerAddress.street === "" ||
-        customerAddress.unit === "" ||
         customerAddress.city === "" ||
         customerAddress.postalcode === "" ||
         customerAddress.province === ""
@@ -313,16 +312,18 @@ const FormCheckout = () => {
     if (customer.customer_phone.trim() === "") {
       newErrors.customer_phone = "Mobile is required";
       isValid = false;
+    } else {
+      // validate phone
+      const phoneRegex = /^[0-9\-]+$/;
+      if (!phoneRegex.test(customer.customer_phone)) {
+        newErrors.customer_phone = "Invalid phone number format";
+        isValid = false;
+      }
     }
 
     if (!isPickup) {
       if (customer.customer_street.trim() === "") {
-        newErrors.customer_street = "Street is required";
-        isValid = false;
-      }
-
-      if (customer.customer_unit.trim() === "") {
-        newErrors.customer_unit = "Apartment/Unit is required";
+        newErrors.customer_street = "Street address is required";
         isValid = false;
       }
 
@@ -454,12 +455,13 @@ const FormCheckout = () => {
                     className={`form-control ${
                       errors.customer_name ? "is-invalid" : ""
                     }`}
-                    onChange={(event) =>
+                    onChange={(event) => {
                       setCustomer({
                         ...customer,
                         customer_name: event.target.value,
-                      })
-                    }
+                      }),
+                        (errors.customer_name = "");
+                    }}
                     value={customer.customer_name}
                   />
                   {errors.customer_name && (
@@ -478,12 +480,13 @@ const FormCheckout = () => {
                     className={`form-control ${
                       errors.customer_email ? "is-invalid" : ""
                     }`}
-                    onChange={(event) =>
+                    onChange={(event) => {
                       setCustomer({
                         ...customer,
                         customer_email: event.target.value,
-                      })
-                    }
+                      }),
+                        (errors.customer_email = "");
+                    }}
                     value={customer.customer_email}
                   />
                   {errors.customer_email && (
@@ -501,12 +504,13 @@ const FormCheckout = () => {
                     className={`form-control ${
                       errors.customer_phone ? "is-invalid" : ""
                     }`}
-                    onChange={(event) =>
+                    onChange={(event) => {
                       setCustomer({
                         ...customer,
                         customer_phone: event.target.value,
-                      })
-                    }
+                      }),
+                        (errors.customer_phone = "");
+                    }}
                     value={customer.customer_phone}
                   />
                   {errors.customer_phone && (
@@ -528,7 +532,7 @@ const FormCheckout = () => {
                   <div className="mb-3" style={{ width: "70%" }}>
                     {/*customer address street */}
                     <input
-                      placeholder="Street"
+                      placeholder="Street Address"
                       id="customer_street"
                       name="customer_street"
                       className={`form-control ${
@@ -555,7 +559,7 @@ const FormCheckout = () => {
                   <div className="mb-3" style={{ width: "30%" }}>
                     {/*customer address unit */}
                     <input
-                      placeholder="Apatment/Unit"
+                      placeholder="Apartment/Unit"
                       id="customer_unit"
                       name="customer_unit"
                       className={`form-control ${
