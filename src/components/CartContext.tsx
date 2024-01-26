@@ -63,20 +63,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
       return JSON.parse(localStorageCart);
     }
 
-    return [
-      {
-        productId: "0",
-        packageId: "0",
-        packageName: "",
-        packageUnit: "",
-        packageSize: "",
-        name: "",
-        price: 1,
-        quantity: 1,
-        imageSrc: "public/images/products/ravioli_1.jpg",
-        categoryName: "",
-      },
-    ];
+    return [];
   });
 
   function addItemToCart(item: CartItem) {
