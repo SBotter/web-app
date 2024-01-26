@@ -2,7 +2,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import { FormEvent, useContext, useEffect, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { BsCartXFill } from "react-icons/bs";
-
+import { useNavigate } from "react-router-dom";
 import {
   Box,
   Button,
@@ -53,9 +53,10 @@ export interface CustomerAddress {
 
 const FormCheckout = () => {
   const toast = useToast();
+  const navigate = useNavigate();
 
   //cartItems
-  const { cartItems } = useContext(CartContext);
+  const { cartItems, clearCart } = useContext(CartContext);
   const itemSubtotal = cartItems.reduce<number>((previous, current) => {
     return previous + current.price * current.quantity;
   }, 0);
@@ -388,6 +389,9 @@ const FormCheckout = () => {
               status: "success",
               duration: 8000, // Set a duration for the success toast
             });
+            //clear cart
+            clearCart();
+            navigate("/order-success");
           }
         })
         .catch((error) => {
