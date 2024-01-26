@@ -97,13 +97,6 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
       if (existingItem) {
         existingItem.quantity = item.quantity;
         updateItemFromCart(existingItem);
-        toast({
-          title: "Item updated",
-          description: `${existingItem.name} updated to ${existingItem.quantity}!`,
-          status: "success",
-          duration: 3000,
-          isClosable: true,
-        });
       } else {
         setCartItems((previousItems) => [...previousItems, item]);
         toast({
