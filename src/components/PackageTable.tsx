@@ -10,7 +10,6 @@ import {
   Box,
   HStack,
   Flex,
-  useToast,
 } from "@chakra-ui/react";
 
 import { useContext, useState } from "react";
@@ -22,8 +21,6 @@ interface Props {
 }
 
 export function PackageTable({ product }: Props) {
-  const toast = useToast();
-
   const [itemQuantities, setItemQuantities] = useState(
     product.package.map(() => 1)
   );
@@ -58,15 +55,6 @@ export function PackageTable({ product }: Props) {
       quantity: Number(itemQuantities[index]),
       imageSrc: product.picture[0].picturePath,
       categoryName: product.category[0].categoryName,
-    });
-
-    // Display a Chakra UI toast
-    toast({
-      title: "Item added to cart",
-      description: product.productName,
-      status: "success",
-      duration: 3000,
-      isClosable: true,
     });
   }
   return (

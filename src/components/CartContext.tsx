@@ -1,6 +1,6 @@
 import { ReactNode, createContext, useEffect, useState } from "react";
 import { LOCAL_STORAGE_CART_KEY } from "../constants/constants";
-import toast from "react-hot-toast";
+import { useToast } from "@chakra-ui/react";
 
 interface CartItem {
   productId: string;
@@ -45,6 +45,8 @@ interface CartContextProviderProps {
 export const CartContext = createContext({} as CartContextType);
 
 export function CartContextProvider({ children }: CartContextProviderProps) {
+  const toast = useToast();
+
   const [address, setAddress] = useState<AddressType>({
     street: "",
     postcode: "",
@@ -78,17 +80,40 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
   });
 
   function addItemToCart(item: CartItem) {
-    const existingItem = cartItems.find((c) => c.packageId === item.packageId);
-
-    if (existingItem) {
-      existingItem.quantity = item.quantity;
-      updateItemFromCart(existingItem);
-      toast.success(
-        `${existingItem.name} updated to ${existingItem.quantity}!`
-      );
+    if (cartItems.length == 10) {
+      // Display a Chakra UI toast
+      toast({
+        title: "",
+        description: "Maximmun of 10 items on the cart",
+        status: "warning",
+        duration: 3000,
+        isClosable: true,
+      });
     } else {
-      setCartItems((previousItems) => [...previousItems, item]);
-      toast.success(`${item.quantity} ${item.name} added to the cart!`);
+      const existingItem = cartItems.find(
+        (c) => c.packageId === item.packageId
+      );
+
+      if (existingItem) {
+        existingItem.quantity = item.quantity;
+        updateItemFromCart(existingItem);
+        toast({
+          title: "Item updated",
+          description: `${existingItem.name} updated to ${existingItem.quantity}!`,
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
+      } else {
+        setCartItems((previousItems) => [...previousItems, item]);
+        toast({
+          title: "Item added to the cart",
+          description: `${item.quantity} ${item.name} added to the cart!`,
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
+      }
     }
   }
 
@@ -101,6 +126,13 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
       ...previousItems.slice(0, itemIndex),
       ...previousItems.slice(itemIndex + 1, previousItems.length),
     ]);
+    toast({
+      title: "Item removed",
+      description: `${item.name} removed to the cart!`,
+      status: "success",
+      duration: 3000,
+      isClosable: true,
+    });
   }
 
   function updateItemFromCart(item: CartItem) {
@@ -113,6 +145,13 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
       item,
       ...previousItems.slice(itemIndex + 1, previousItems.length),
     ]);
+    toast({
+      title: "Item updated",
+      description: `${item.name} updated to ${item.quantity}!`,
+      status: `${item.quantity > 0 ? "success" : "warning"}`,
+      duration: 3000,
+      isClosable: true,
+    });
   }
 
   function updatePaymentMethod(method: PaymentMethodType) {
