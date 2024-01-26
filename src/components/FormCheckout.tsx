@@ -877,7 +877,7 @@ const FormCheckout = () => {
                     
                     Product Name*/}
                     <input
-                      key={cartItem.packageId}
+                      key={`ProdName_${index}`}
                       type="hidden"
                       id={`cartItem_productName_${index}`}
                       name={`cartItem_productName_${index}`}
@@ -887,7 +887,7 @@ const FormCheckout = () => {
                     
                     Package Name*/}
                     <input
-                      key={cartItem.packageId}
+                      key={`PackName_${index}`}
                       type="hidden"
                       id={`cartItem_packageName_${index}`}
                       name={`cartItem_packageName_${index}`}
@@ -897,7 +897,7 @@ const FormCheckout = () => {
                     
                     Quantity*/}
                     <input
-                      key={cartItem.quantity}
+                      key={`ProdQtd_${index}`}
                       type="hidden"
                       id={`cartItem_quantity_${index}`}
                       name={`cartItem_quantity_${index}`}
