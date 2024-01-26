@@ -10,6 +10,7 @@ import {
   Box,
   HStack,
   Flex,
+  Divider,
 } from "@chakra-ui/react";
 
 import { useContext, useState } from "react";
@@ -59,10 +60,10 @@ export function PackageTable({ product }: Props) {
   }
   return (
     <Flex justifyContent={"center"}>
-      <Table size="sm" colorScheme="base">
+      <Table size="sm" colorScheme="base" variant="unstyled">
         <Thead bg="base.200">
           <Tr>
-            <Th width="10%">
+            <Th width="15%">
               <HStack>
                 <i className="fa-solid fa-scale-balanced product-detail-delivery_cost" />
                 <Box paddingTop={4} paddingLeft={0}>
@@ -72,8 +73,8 @@ export function PackageTable({ product }: Props) {
                 </Box>
               </HStack>
             </Th>
-            <Th width="10%">
-              <HStack>
+            <Th width="15%">
+              <HStack justifyContent={"center"}>
                 <i className="fa-solid fa-dollar-sign product-detail-delivery_cost" />
                 <Box paddingTop={4}>
                   <Text color="base.700" fontSize="17px">
@@ -82,7 +83,7 @@ export function PackageTable({ product }: Props) {
                 </Box>
               </HStack>
             </Th>
-            <Th width="60%">
+            <Th width="70%">
               <HStack>
                 <i className="fa-solid fa-people-roof product-detail-delivery_cost" />
                 <Box paddingTop={4}>
@@ -92,62 +93,69 @@ export function PackageTable({ product }: Props) {
                 </Box>
               </HStack>
             </Th>
-            <Th width="20%"></Th>
           </Tr>
         </Thead>
 
         <Tbody>
           {product.package.map((item, index) => (
-            <Tr key={item.packageId}>
-              <Td>
-                <Box paddingTop={3}>
-                  <Text color="base.700" fontSize="18px">
-                    {item.packageSize} ({item.packageUnit})
-                  </Text>
-                </Box>
-              </Td>
-              <Td>
-                <HStack>
-                  <i className="fa-solid fa-dollar-sign product-detail-delivery_cost" />
+            <>
+              <Tr key={item.packageId} bg="base.50">
+                <Td>
                   <Box paddingTop={3}>
-                    <Text color="base.700" fontSize="17px">
-                      {item.packagePrice}
+                    <Text color="base.700" fontSize="18px">
+                      {item.packageSize} ({item.packageUnit})
                     </Text>
                   </Box>
-                </HStack>
-              </Td>
-              <Td>
-                <Box paddingTop={3}>
-                  <Text color="base.700" fontSize="18px">
-                    {item.packageDescription}
-                  </Text>
-                </Box>
-              </Td>
-              <Td textAlign={"center"}>
-                <Flex
-                  borderColor={"black"}
-                  justifyContent={"space-evenly"}
-                  textAlign={"center"}
-                  verticalAlign={"center"}
-                >
-                  <HStack>
-                    <QuantitySelector
-                      quantity={itemQuantities[index]}
-                      onMinusButtonClicked={() =>
-                        handleMinusButtonClicked(index)
-                      }
-                      onPlusButtonClicked={() => handlePlusButtonClicked(index)}
-                    />
-                    <Box marginTop={-1}>
-                      <i
-                        className="fa-solid fa-cart-shopping product-detail-icon-link"
-                        onClick={() => handleAddToCartButtonClicked(index)}
-                      />
+                </Td>
+                <Td>
+                  <HStack justifyContent={"center"}>
+                    <i className="fa-solid fa-dollar-sign product-detail-delivery_cost" />
+                    <Box paddingTop={3}>
+                      <Text color="base.700" fontSize="17px">
+                        {item.packagePrice}
+                      </Text>
                     </Box>
                   </HStack>
-                </Flex>
-              </Td>
-            </Tr>
+                </Td>
+                <Td>
+                  <Box paddingTop={3}>
+                    <Text color="base.700" fontSize="18px">
+                      {item.packageDescription}
+                    </Text>
+                  </Box>
+                </Td>
+              </Tr>
+              <Tr bg="base.50">
+                <Td colSpan={3} verticalAlign={"center"}>
+                  <Flex
+                    borderColor={"black"}
+                    justifyContent={"space-evenly"}
+                    textAlign={"center"}
+                    verticalAlign={"center"}
+                    marginTop={-5}
+                  >
+                    <HStack>
+                      <QuantitySelector
+                        quantity={itemQuantities[index]}
+                        onMinusButtonClicked={() =>
+                          handleMinusButtonClicked(index)
+                        }
+                        onPlusButtonClicked={() =>
+                          handlePlusButtonClicked(index)
+                        }
+                      />
+                      <Box marginTop={-1}>
+                        <i
+                          className="fa-solid fa-cart-shopping product-detail-icon-link"
+                          onClick={() => handleAddToCartButtonClicked(index)}
+                        />
+                      </Box>
+                    </HStack>
+                  </Flex>
+                  <Divider bg="base.800" />
+                </Td>
+              </Tr>
+            </>
           ))}
         </Tbody>
       </Table>
