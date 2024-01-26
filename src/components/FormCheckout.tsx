@@ -1,6 +1,7 @@
 import "bootstrap/dist/css/bootstrap.css";
 import { FormEvent, useContext, useEffect, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
+import { BsCartXFill } from "react-icons/bs";
 
 import {
   Box,
@@ -17,6 +18,7 @@ import {
   Spinner,
   Flex,
   useToast,
+  Icon,
 } from "@chakra-ui/react";
 
 import { CartContext } from "./CartContext";
@@ -830,6 +832,41 @@ const FormCheckout = () => {
               Your Cart:
             </Heading>
             <CardBody width={"100%"}>
+              {cartItems.length == 0 && (
+                <>
+                  <Box
+                    width={"100%"}
+                    padding={2}
+                    borderRadius={20}
+                    borderWidth={1}
+                    borderColor={"base.800"}
+                    bg="#FFF"
+                  >
+                    <HStack
+                      width={"100%"}
+                      justifyContent={"center"}
+                      verticalAlign={"center"}
+                    >
+                      <Flex justifyContent={"center"} width={"100%"}>
+                        <Icon
+                          as={BsCartXFill}
+                          boxSize={"40px"}
+                          color="base.800"
+                        />
+                        <Text
+                          marginLeft={5}
+                          marginTop={1}
+                          color="base.800"
+                          fontSize="20px"
+                          verticalAlign={"center"}
+                        >
+                          Sorry! Your cart is empty!
+                        </Text>
+                      </Flex>
+                    </HStack>
+                  </Box>
+                </>
+              )}
               {cartItems.map((cartItem) => (
                 <CartItem key={cartItem.packageId} {...cartItem} />
               ))}
