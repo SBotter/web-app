@@ -316,7 +316,7 @@ const FormCheckout = () => {
       // validate phone
       const phoneRegex = /^[0-9\-]+$/;
       if (!phoneRegex.test(customer.customer_phone)) {
-        newErrors.customer_phone = "Invalid phone number format";
+        newErrors.customer_phone = "Invalid phone number format (999-999-9999)";
         isValid = false;
       }
     }
