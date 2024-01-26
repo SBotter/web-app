@@ -845,6 +845,9 @@ const FormCheckout = () => {
         </Box>
         <Box width={"100%"} height={"100%"}>
           <Card bg="base.50" borderRadius={20} height={"100%"}>
+            <Heading paddingLeft={5} paddingTop={5} textColor={"base.800"}>
+              Your Cart:
+            </Heading>
             <CardBody width={"100%"}>
               {cartItems.map((cartItem) => (
                 <CartItem key={cartItem.packageId} {...cartItem} />
