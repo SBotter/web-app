@@ -227,13 +227,17 @@ const FormCheckout = () => {
       const costPerMeter = Number(gasPrice) / quilometerPerMeter / 1000;
       const distanceFree = import.meta.env
         .VITE_REACT_APP_DELIVERY_DISTANCE_FREE as string;
-      let orderDeliveryFree = "";
+      let orderDeliveryFree = "50";
 
       setDeliveryPrice(Math.round(Number(distanceValue) * costPerMeter * 5));
 
       //rules for delivery changed
 
-      if (distanceValue && Number(distanceValue) <= Number(distanceFree)) {
+      if (
+        distanceValue &&
+        Number(distanceValue) <= Number(distanceFree) &&
+        Number(newSubTotal) >= Number(orderDeliveryFree)
+      ) {
         setDeliveryPrice(0);
         setDeliveryMessage(true);
       } else if (
