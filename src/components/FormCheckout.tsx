@@ -20,7 +20,7 @@ import {
 } from "@chakra-ui/react";
 
 import { CartContext } from "./CartContext";
-import { CartItem, CartItemProps } from "./CartItem";
+import { CartItem } from "./CartItem";
 
 import {
   useJsApiLoader,
@@ -41,19 +41,6 @@ const PAYMENT_OPTIONS = [
     icon: "fa-solid fa-sack-dollar",
   },
 ];
-
-export interface Order {
-  customerName: string;
-  customerEmail: string;
-  customerPhone: string;
-  address: CustomerAddress;
-  cartItems: CartItemProps[];
-  paymentMethod: string;
-  orderSubTotal: number;
-  orderDelivery: number;
-  orderTotal: number;
-}
-
 export interface CustomerAddress {
   street: string;
   unit: string;
@@ -64,11 +51,24 @@ export interface CustomerAddress {
 
 const FormCheckout = () => {
   const toast = useToast();
+
+  //cartItems
+  const { cartItems } = useContext(CartContext);
+  const itemSubtotal = cartItems.reduce<number>((previous, current) => {
+    return previous + current.price * current.quantity;
+  }, 0);
+
+  //delivery controll
+  const [deliveryPrice, setDeliveryPrice] = useState(0);
   const [isDelivery, setIsDelivery] = useState(false);
   const [isPickup, setIsPickup] = useState(false);
+  const [deliveryMethod, setDeliveryMethod] = useState("pickup");
 
+  //payment type
+  const [paymentType, setPaymentType] = useState("E-Transfer");
+
+  //order number and order date
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
-
   const getOrderNumber = (): string => {
     const currentDate = new Date();
 
@@ -82,11 +82,56 @@ const FormCheckout = () => {
     return `${day}${month}${year}-${hour}${minute}${second}`;
   };
 
+  const [customerAddress, setCustomerAddress] = useState<CustomerAddress>({
+    street: "",
+    unit: "",
+    city: "",
+    postalcode: "",
+    province: "BC",
+  });
+
+  //form fields control
+  const form = useRef<HTMLFormElement | any>("");
+  const [customer, setCustomer] = useState({
+    customer_name: "",
+    customer_email: "",
+    customer_phone: "",
+    customer_street: "",
+    customer_unit: "",
+    customer_postalCode: "",
+    customer_city: "",
+    customer_province: "BC",
+  });
+  const [errors, setErrors] = useState({
+    customer_name: "",
+    customer_email: "",
+    customer_phone: "",
+    customer_street: "",
+    customer_unit: "",
+    customer_postalCode: "",
+    customer_city: "",
+    customer_province: "",
+  });
+
+  //google maps API
+  const [directionsResponse, setDirectionsResponse] =
+    useState<google.maps.DirectionsResult | null>(null);
+  const [distanceValue, setDistanceValue] = useState(0);
+
+  //CONSTANTS MESSAGES
+  const DELIVERY_MESSAGE = "Delivery is FREE!";
+  const DELIVERY_MESSAGE_FORM_ERROR =
+    "Please provide all information of the delivery address";
+
+  //MESSAGES HOOKS
+  const [isDeliveryMessage, setDeliveryMessage] = useState(false);
+  const [isDeliveryMessageFormError, setDeliveryMessageFormError] =
+    useState(false);
+
+  //button click to calculate de delivery fee
   const handleDeliveryCalculatorClick = (
     event: React.MouseEvent<HTMLButtonElement>
   ) => {
-    // Call the CalculateRoute function with the address form data
-
     if (
       event.currentTarget.getAttribute("button-calculate-deliver") === "true"
     ) {
@@ -107,7 +152,6 @@ const FormCheckout = () => {
 
   //Calculate the distance with google maps API
   const center = { lat: 49.3287158, lng: -123.0856023 };
-  const [deliveryPrice, setDeliveryPrice] = useState(0);
 
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: import.meta.env
@@ -118,45 +162,17 @@ const FormCheckout = () => {
     <Spinner />;
   }
 
-  const [customerAddress, setCustomerAddress] = useState<CustomerAddress>({
-    street: "",
-    unit: "",
-    city: "",
-    postalcode: "",
-    province: "BC",
-  });
-
-  const [directionsResponse, setDirectionsResponse] =
-    useState<google.maps.DirectionsResult | null>(null);
-
-  //MESSAGES
-  const DELIVERY_MESSAGE = "Delivery is FREE!";
-  const DELIVERY_MESSAGE_FORM_ERROR =
-    "Please provide all information of the delivery address";
-
-  //MESSAGES HOOKS
-  const [isDeliveryMessage, setDeliveryMessage] = useState(false);
-  const [isDeliveryMessageFormError, setDeliveryMessageFormError] =
-    useState(false);
-
-  const [paymentType, setPaymentType] = useState("E-Transfer");
-
+  //set the payment type
   const handlePaymentTypeClick = (buttonValue: string) => {
     setPaymentType(buttonValue);
   };
 
-  const [distanceValue, setDistanceValue] = useState(0);
-  const { cartItems } = useContext(CartContext);
-  const itemSubtotal = cartItems.reduce<number>((previous, current) => {
-    return previous + current.price * current.quantity;
-  }, 0);
-
+  //handle the freight calculator when the subtotal value is changed
   useEffect(() => {
     calculateFreight(Number(distanceValue), itemSubtotal);
   }, [itemSubtotal]);
 
-  const [deliveryMethod, setDeliveryMethod] = useState("pickup");
-
+  //handle the choice between pickup or delivery and persist the delivery fee
   useEffect(() => {
     if (deliveryMethod === "pickup") {
       setIsPickup(true);
@@ -214,6 +230,8 @@ const FormCheckout = () => {
 
       setDeliveryPrice(Math.round(Number(distanceValue) * costPerMeter * 5));
 
+      //rules for delivery changed
+
       if (distanceValue && Number(distanceValue) <= Number(distanceFree)) {
         setDeliveryPrice(0);
         setDeliveryMessage(true);
@@ -250,41 +268,6 @@ const FormCheckout = () => {
       }
     }
   }
-  const form = useRef<HTMLFormElement | any>("");
-
-  const [customer, setCustomer] = useState({
-    customer_name: "",
-    customer_email: "",
-    customer_phone: "",
-    customer_street: "",
-    customer_unit: "",
-    customer_postalCode: "",
-    customer_city: "",
-    customer_province: "BC",
-  });
-
-  const [errors, setErrors] = useState({
-    customer_name: "",
-    customer_email: "",
-    customer_phone: "",
-    customer_street: "",
-    customer_unit: "",
-    customer_postalCode: "",
-    customer_city: "",
-    customer_province: "",
-  });
-
-  const [order, setOrder] = useState<Order>({
-    customerName: "",
-    customerEmail: "",
-    customerPhone: "",
-    address: customerAddress,
-    cartItems: cartItems,
-    paymentMethod: "",
-    orderSubTotal: 0,
-    orderDelivery: 0,
-    orderTotal: 0,
-  });
 
   const validateForm = (e: FormEvent) => {
     e.preventDefault();
@@ -351,10 +334,8 @@ const FormCheckout = () => {
       }
     }
 
-    //console.log(cartItems);
-
     setErrors(newErrors);
-
+    /*
     const newOrder = {
       customerName: "",
       customerEmail: "",
@@ -366,8 +347,9 @@ const FormCheckout = () => {
       orderDelivery: 0,
       orderTotal: 0,
     };
-
+*/
     if (isValid) {
+      /*
       newOrder.customerName = customer.customer_name;
       newOrder.customerEmail = customer.customer_email;
       newOrder.customerPhone = customer.customer_phone;
@@ -377,10 +359,10 @@ const FormCheckout = () => {
       newOrder.orderSubTotal = itemSubtotal;
       newOrder.orderDelivery = deliveryPrice;
       newOrder.orderTotal = Number(cartTotal);
+*/
+      //setOrder(newOrder);
 
-      setOrder(newOrder);
-
-      console.log(newOrder, "form");
+      //console.log(newOrder, "form");
 
       setCurrentDateTime(new Date());
 
@@ -409,6 +391,7 @@ const FormCheckout = () => {
         ),
       });
 
+      //emailJS service
       const emailSendingPromise = emailjs.sendForm(
         import.meta.env.VITE_REACT_APP_EMAIL_SERVICE_ID,
         import.meta.env.VITE_REACT_APP_EMAIL_TEMPLATE_ID_PEDIDO,
@@ -425,8 +408,6 @@ const FormCheckout = () => {
               status: "success",
               duration: 5000, // Set a duration for the success toast
             });
-
-            // Clear form fields after successful submission
           }
         })
         .catch((error) => {
@@ -444,14 +425,12 @@ const FormCheckout = () => {
           });
         });
     }
-    console.log(isValid);
-    console.log(newOrder);
-    console.log(order);
     return isValid;
   };
 
   return (
     <form ref={form} onSubmit={validateForm}>
+      {/*order number */}
       <input
         key="order_number"
         type="hidden"
@@ -459,6 +438,7 @@ const FormCheckout = () => {
         name="order_number"
         value={getOrderNumber()}
       />
+      {/*order date */}
       <input
         key="order_date"
         type="hidden"
@@ -481,6 +461,7 @@ const FormCheckout = () => {
               </Heading>
               <CardBody width={"100%"}>
                 <div className="mb-3">
+                  {/*customer name */}
                   <input
                     placeholder="Name"
                     id="customer_name"
@@ -504,6 +485,7 @@ const FormCheckout = () => {
                   )}
                 </div>
                 <div className="mb-3">
+                  {/*customer e-mail */}
                   <input
                     placeholder="Email"
                     id="customer_email"
@@ -527,6 +509,7 @@ const FormCheckout = () => {
                   )}
                 </div>
                 <div className="mb-3">
+                  {/*customer phone */}
                   <input
                     placeholder="Mobile"
                     id="customer_phone"
@@ -559,6 +542,7 @@ const FormCheckout = () => {
                 )}
                 <div style={{ display: "flex", gap: "10px" }}>
                   <div className="mb-3" style={{ width: "70%" }}>
+                    {/*customer address street */}
                     <input
                       placeholder="Street"
                       id="customer_street"
@@ -585,6 +569,7 @@ const FormCheckout = () => {
                     )}
                   </div>
                   <div className="mb-3" style={{ width: "30%" }}>
+                    {/*customer address unit */}
                     <input
                       placeholder="Apatment/Unit"
                       id="customer_unit"
@@ -613,6 +598,7 @@ const FormCheckout = () => {
                 </div>
                 <div style={{ display: "flex", gap: "10px" }}>
                   <div className="mb-3" style={{ width: "30%" }}>
+                    {/*customer address postalcode */}
                     <input
                       placeholder="Postalcode"
                       id="customer_postalCode"
@@ -639,6 +625,7 @@ const FormCheckout = () => {
                     )}
                   </div>
                   <div className="mb-3" style={{ width: "50%" }}>
+                    {/*customer address city */}
                     <input
                       placeholder="City"
                       id="customer_city"
@@ -665,6 +652,7 @@ const FormCheckout = () => {
                     )}
                   </div>
                   <div className="mb-3" style={{ width: "20%" }}>
+                    {/*custmer address province */}
                     <input
                       placeholder="BC"
                       id="customer_province"
@@ -703,6 +691,7 @@ const FormCheckout = () => {
                   width={"100%"}
                 >
                   <Box textAlign="center">
+                    {/*delivery checkbox control */}
                     <input
                       id="delivery_checkbox"
                       name="delivery_checkbox"
@@ -721,6 +710,7 @@ const FormCheckout = () => {
                     </label>
                   </Box>
                   <Box textAlign="center">
+                    {/*pickup checkbox control */}
                     <input
                       id="delivery_pickup"
                       name="delivery_pickup"
@@ -739,7 +729,7 @@ const FormCheckout = () => {
                     </label>
                   </Box>
                 </SimpleGrid>
-
+                {/*order delivery hidden field - order email*/}
                 <input
                   key="order_delivery"
                   type="hidden"
@@ -839,6 +829,7 @@ const FormCheckout = () => {
                         {item.text}
                       </Button>
                     ))}
+                    {/*order payment type hidden field - order email*/}
                     <input
                       key="payment_method"
                       type="hidden"
@@ -861,6 +852,9 @@ const FormCheckout = () => {
               <div id="cartItems" className="mb-3" style={{ display: "none" }}>
                 {cartItems.map((cartItem, index) => (
                   <>
+                    {/*list of products hidden field - order email
+                    
+                    Product Name*/}
                     <input
                       key={cartItem.packageId}
                       type="hidden"
@@ -868,6 +862,9 @@ const FormCheckout = () => {
                       name={`cartItem_productName_${index}`}
                       value={cartItem.name}
                     />
+                    {/*list of products hidden field - order email
+                    
+                    Package Name*/}
                     <input
                       key={cartItem.packageId}
                       type="hidden"
@@ -875,6 +872,9 @@ const FormCheckout = () => {
                       name={`cartItem_packageName_${index}`}
                       value={`${cartItem.packageName} - ${cartItem.packageSize} - ${cartItem.packageUnit}`}
                     />
+                    {/*list of products hidden field - order email
+                    
+                    Quantity*/}
                     <input
                       key={cartItem.quantity}
                       type="hidden"
@@ -916,6 +916,7 @@ const FormCheckout = () => {
                       >
                         {itemSubtotal.toFixed(2)}
                       </Text>
+                      {/*order subtotal hidden field - order email*/}
                       <input
                         key="order_subTotal"
                         type="hidden"
@@ -949,6 +950,7 @@ const FormCheckout = () => {
                       >
                         {Number(deliveryPrice).toFixed(2)}
                       </Text>
+                      {/*order delivery fee hidden field - order email*/}
                       <input
                         key="order_delivery_value"
                         type="hidden"
@@ -993,6 +995,7 @@ const FormCheckout = () => {
                         {cartTotal}
                       </Text>
                     </Box>
+                    {/*order total hidden field - order email*/}
                     <input
                       key="order_total"
                       type="hidden"
