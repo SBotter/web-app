@@ -13,7 +13,7 @@ const PromotionalSection = () => {
       packageId: "d8588502-6467-48bf-abaa-6fd6e8deaa49",
       packageName: "Valentine's Day Basket",
       packageUnit: "un",
-      packageSize: "1",
+      packageSize: "",
       name: "Valentine's Day Promotional Basket",
       price: 120,
       quantity: 1,
