@@ -98,10 +98,7 @@ export function CartItem(cartItem: CartItemProps) {
               fontWeight={"bold"}
               marginTop={-1}
             >
-              {name}
-            </Text>
-            <Text color="base.800" fontSize={13} marginTop={-6}>
-              {quantity} {packageUnit} {packageSize}
+              {`${name} (${quantity} ${packageUnit} ${packageSize})`}
             </Text>
           </VStack>
         </GridItem>
