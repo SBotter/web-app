@@ -6,13 +6,11 @@ import {
   Text,
   Heading,
   Divider,
-  Button,
 } from "@chakra-ui/react";
 import { Product } from "../hooks/useProducts";
 
 import IngredientsPanel from "./IngredientsPanel";
-import { Link as RouterLink } from "react-router-dom";
-import { FaWhatsapp } from "react-icons/fa";
+
 import { PackageTable } from "./PackageTable";
 
 interface Props {
@@ -46,43 +44,14 @@ const ProductDetail = ({ product }: Props) => {
               {product.category[0].categoryName}
             </Text>
             <Divider bgColor="base.800" marginTop={-5} />
-            <Box marginTop={10}>
+            <Box marginTop={-5}>
               <IngredientsPanel
                 ingredient={product.ingredient}
                 instruction={product.instruction}
               />
             </Box>
-            <Box width="100%" marginTop={10}>
+            <Box width="100%" marginTop={0}>
               <PackageTable product={product} />
-            </Box>
-            <Box
-              width="100%"
-              p={{ base: 1, sm: 1, md: 4 }}
-              textAlign={"center"}
-            >
-              <SimpleGrid
-                columns={{ base: 1, md: 2 }}
-                spacing={{ base: 2, md: 4 }}
-              >
-                <Button
-                  as={RouterLink} // Use the Link component from react-router-dom
-                  to={"/contact"}
-                  leftIcon={<FaWhatsapp size="1.3em" />}
-                  colorScheme="base"
-                  variant="solid"
-                >
-                  Place you Order by phone
-                </Button>
-                <Button
-                  as={RouterLink} // Use the Link component from react-router-dom
-                  to={"/delivery"}
-                  leftIcon={<i className="fa-solid fa-truck-monster" />}
-                  colorScheme="base"
-                  variant="solid"
-                >
-                  WE DELIVER!
-                </Button>
-              </SimpleGrid>
             </Box>
           </VStack>
         </Box>
