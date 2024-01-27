@@ -49,7 +49,7 @@ export default [
     productGroupName: "Canneloni",
     productGroupDescription:
       "Experience the savory allure of our cannelloni—tender pasta tubes cradle a delectable medley of carefully curated fillings, wrapped in layers of culinary craftsmanship. Each bite unfolds a perfect union of texture and taste, inviting you to savor the essence of handmade excellence.",
-    productGroupImage: "ravioli_4.jpg",
+    productGroupImage: "cnneloni_1.jpg",
     productGroupPath: "products/canneloni",
     productGroupFilter: "canneloni",
   },
