@@ -11,6 +11,7 @@ import {
   HStack,
   Flex,
   Divider,
+  Button,
 } from "@chakra-ui/react";
 
 import { useContext, useState } from "react";
@@ -145,10 +146,26 @@ export function PackageTable({ product }: Props) {
                         }
                       />
                       <Box marginTop={-1}>
-                        <i
-                          className="fa-solid fa-cart-shopping product-detail-icon-link"
+                        <Button
+                          size="xs"
+                          variant="outline"
+                          bgColor="base.50"
+                          borderColor={"base.800"}
+                          color={"base.800"}
+                          borderWidth="2"
+                          leftIcon={
+                            <i className="fa-solid fa-cart-shopping " />
+                          }
+                          _hover={{
+                            bg: "base.800", // Change background color on hover
+                            color: "base.50", // Change text color on hover
+                            borderColor: "base.800",
+                          }}
                           onClick={() => handleAddToCartButtonClicked(index)}
-                        />
+                          button-calculate-deliver="true"
+                        >
+                          Add to Cart
+                        </Button>
                       </Box>
                     </HStack>
                   </Flex>
