@@ -107,7 +107,7 @@ const Header = () => {
                 .map((item) => (
                   <Button
                     key={item.id}
-                    as={RouterLink} // Use the Link component from react-router-dom
+                    as={RouterLink} 
                     to={item.path}
                     variant="outline"
                     bgColor="base.50"
@@ -116,8 +116,8 @@ const Header = () => {
                     borderWidth="2"
                     leftIcon={<i className={item.icon} />}
                     _hover={{
-                      bg: "base.800", // Change background color on hover
-                      color: "base.50", // Change text color on hover
+                      bg: "base.800", 
+                      color: "base.50", 
                       borderColor: "base.800",
                     }}
                   >

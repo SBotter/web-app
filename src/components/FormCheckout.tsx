@@ -153,6 +153,27 @@ const FormCheckout = () => {
     }
   };
 
+  //checkbox click to calculate de delivery fee
+  const handleDeliveryCalculatorCheckboxClick = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    if (
+      event.currentTarget.getAttribute("button-calculate-deliver") === "true"
+    ) {
+      if (
+        customerAddress.street === "" ||
+        customerAddress.city === "" ||
+        customerAddress.postalcode === "" ||
+        customerAddress.province === ""
+      ) {
+        setDeliveryMessageFormError(true);
+      } else {
+        setDeliveryMessageFormError(false);
+        calculateRoute(customerAddress);
+      }
+    }
+  };
+
   //Calculate the distance with google maps API
   const center = { lat: 49.3287158, lng: -123.0856023 };
 
@@ -685,9 +706,13 @@ const FormCheckout = () => {
                       name="delivery_checkbox"
                       type="checkbox"
                       className="form-check-input form-label"
-                      onChange={() => {
-                        setDeliveryMethod("delivery");
+                      onChange={(event) => {
+                        {
+                          setDeliveryMethod("delivery");
+                          handleDeliveryCalculatorCheckboxClick(event);
+                        }
                       }}
+                      button-calculate-deliver="true"
                       checked={isDelivery}
                     />
                     <label
@@ -728,20 +753,19 @@ const FormCheckout = () => {
 
                 {isDelivery && (
                   <>
-                    <Flex justifyContent={"center"} width={"50%"}>
+                    <Flex justifyContent={"center"} width={"100%"}>
                       <Button
+                        width={{ base: "90%", sm: "90%" }}
                         marginBottom={5}
                         variant="outline"
-                        bgColor="base.50"
-                        borderColor={"base.800"}
-                        color={"base.800"}
+                        bgColor="base.200"
+                        borderColor={"base.200"}
+                        color={"base.50"}
                         borderWidth="2"
-                        leftIcon={
-                          <i className="fa-solid fa-truck-monster product-detail-icon-link" />
-                        }
+                        leftIcon={<i className="fa-solid fa-truck-monster " />}
                         _hover={{
-                          bg: "base.800", // Change background color on hover
-                          color: "base.50", // Change text color on hover
+                          bg: "base.50", // Change background color on hover
+                          color: "base.800", // Change text color on hover
                           borderColor: "base.800",
                         }}
                         onClick={(event) =>
