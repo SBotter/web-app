@@ -30,7 +30,7 @@ export default [
       {
         packageId: "50dad664-4fb0-4bbe-a248-32875d6b2cfa",
         packageName: "Large",
-        packageDescription: "Serves up three person.",
+        packageDescription: "Serves up three people.",
         packageUnit: "pkg",
         packageSize: "300g",
         packagePrice: 30.0,
@@ -38,7 +38,7 @@ export default [
       {
         packageId: "2f4a016a-7678-4a2f-97b6-f773fc4b20b6",
         packageName: "Family",
-        packageDescription: "Serves more than three person.",
+        packageDescription: "Serves more than three people.",
         packageUnit: "pkg",
         packageSize: "500g",
         packagePrice: 50.0,
@@ -119,7 +119,7 @@ export default [
       {
         packageId: "a5b5e251-2f1d-41e0-b838-7b81cff76bd5",
         packageName: "Large",
-        packageDescription: "Serves up three person.",
+        packageDescription: "Serves up three people.",
         packageUnit: "pkg",
         packageSize: "300g",
         packagePrice: 30.0,
@@ -127,7 +127,7 @@ export default [
       {
         packageId: "819efecd-15b5-487a-b919-33f12bec12d7",
         packageName: "Family",
-        packageDescription: "Serves more than three person.",
+        packageDescription: "Serves more than three people.",
         packageUnit: "pkg",
         packageSize: "500g",
         packagePrice: 50.0,
@@ -208,7 +208,7 @@ export default [
       {
         packageId: "4afe8e79-b372-4160-a3bc-663b6509dc8d",
         packageName: "Large",
-        packageDescription: "Serves up three person.",
+        packageDescription: "Serves up three people.",
         packageUnit: "pkg",
         packageSize: "300g",
         packagePrice: 30.0,
@@ -216,7 +216,7 @@ export default [
       {
         packageId: "5aa3cdad-3528-4a64-b372-38d3c1301fff",
         packageName: "Family",
-        packageDescription: "Serves more than three person.",
+        packageDescription: "Serves more than three people.",
         packageUnit: "pkg",
         packageSize: "500g",
         packagePrice: 50.0,
@@ -301,7 +301,7 @@ export default [
       {
         packageId: "b0b87861-c321-4b3c-a656-7e3473abc6f8",
         packageName: "Large",
-        packageDescription: "Serves up three person.",
+        packageDescription: "Serves up three people.",
         packageUnit: "pkg",
         packageSize: "300g",
         packagePrice: 30.0,
@@ -309,7 +309,7 @@ export default [
       {
         packageId: "d73fe028-81a8-4dad-8354-e34816f03adc",
         packageName: "Family",
-        packageDescription: "Serves more than three person.",
+        packageDescription: "Serves more than three people.",
         packageUnit: "pkg",
         packageSize: "500g",
         packagePrice: 50.0,
@@ -767,8 +767,8 @@ export default [
         packageId: "882f59ef-901f-46da-a353-1c51c90b62f6",
         packageName: "package",
         packageDescription: "Serves up 3 people",
-        packageUnit: "kg",
-        packageSize: "1",
+        packageUnit: "pkg",
+        packageSize: "1kg",
         packagePrice: 60,
       },
     ],
