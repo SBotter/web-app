@@ -45,7 +45,7 @@ const Header = () => {
       name: "We Deliver",
       path: "/delivery",
       icon: "fa-solid fa-truck-monster",
-      display: "1",
+      display: "0",
     },
   ];
 
@@ -82,22 +82,24 @@ const Header = () => {
                 View Menu
               </MenuButton>
               <MenuList bgColor={"base.50"} borderColor={"base.800"}>
-                {listMenuItems.map((item) => (
-                  <MenuItem
-                    as="a"
-                    href={item.path}
-                    key={item.id}
-                    bg="base.50"
-                    color="base.800"
-                    _hover={{
-                      bg: "base.100",
-                      color: "base.800",
-                      fontWeight: "bold",
-                    }}
-                  >
-                    {item.name}
-                  </MenuItem>
-                ))}
+                {listMenuItems
+                  .filter((d) => d.display == "1")
+                  .map((item) => (
+                    <MenuItem
+                      as="a"
+                      href={item.path}
+                      key={item.id}
+                      bg="base.50"
+                      color="base.800"
+                      _hover={{
+                        bg: "base.100",
+                        color: "base.800",
+                        fontWeight: "bold",
+                      }}
+                    >
+                      {item.name}
+                    </MenuItem>
+                  ))}
               </MenuList>
             </Menu>
           ) : (
