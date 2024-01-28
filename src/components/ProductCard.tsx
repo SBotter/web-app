@@ -51,12 +51,12 @@ const ProductCard = ({ product }: Props) => {
             </Text>
           </Box>
           <Divider borderColor="base.800" />
-          <Text color="base.700" marginTop={10}>
+          <Text color="base.700" marginTop={5} marginBottom={-5}>
             {product.productDescription}
           </Text>
         </CardBody>
         <Divider borderColor="base.800" />
-        <CardFooter margin="auto">
+        <CardFooter margin="auto" marginTop={-5}>
           <Button
             as={RouterLink} // Use the Link component from react-router-dom
             to={`/products/detail/${product.productId}`}
