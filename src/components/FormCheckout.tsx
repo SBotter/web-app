@@ -250,7 +250,7 @@ const FormCheckout = () => {
       const costPerMeter = Number(gasPrice) / quilometerPerMeter / 1000;
       const distanceFree = import.meta.env
         .VITE_REACT_APP_DELIVERY_DISTANCE_FREE as string;
-      let orderDeliveryFree = "50";
+      let orderDeliveryFree = "30";
 
       setDeliveryPrice(Math.round(Number(distanceValue) * costPerMeter * 5));
 

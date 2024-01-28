@@ -12,12 +12,17 @@ function DeliveryCalculator({ distance }: Props) {
   const costPerMeter = Number(gasPrice) / quilometerPerMeter / 1000;
   const distanceFree = import.meta.env
     .VITE_REACT_APP_DELIVERY_DISTANCE_FREE as string;
-  let orderDeliveryFree = "";
+  let orderDeliveryFree = "30";
 
   let deliveryPrice = Math.round(distance * costPerMeter * 5);
 
-  if (distance && distance <= Number(distanceFree)) {
-    deliveryPrice = 0;
+  if (
+    distance &&
+    distance <= Number(distanceFree) &&
+    deliveryPrice >= Number(orderDeliveryFree)
+  ) {
+    //deliveryPrice = 0;
+    orderDeliveryFree = "30";
   } else if (distance && distance > Number(distanceFree) && distance < 10000) {
     orderDeliveryFree = "70";
   } else if (distance && distance > 10000 && distance < 15000) {
