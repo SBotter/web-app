@@ -1,6 +1,7 @@
 import { useState } from "react";
 import useProducts from "../hooks/useProducts";
 import ProductDetail from "./ProductDetail";
+import { Box } from "@chakra-ui/react";
 
 interface Props {
   filterValue: string;
@@ -9,7 +10,7 @@ const ProductDetailFilter = ({ filterValue }: Props) => {
   const { data } = useProducts();
   const [filter] = useState(filterValue);
   return (
-    <div>
+    <Box padding={0}>
       {data
         .filter((prod) => {
           return filter.toLowerCase() === ""
@@ -19,7 +20,7 @@ const ProductDetailFilter = ({ filterValue }: Props) => {
         .map((prod) => (
           <ProductDetail key={prod.productId} product={prod} />
         ))}
-    </div>
+    </Box>
   );
 };
 
