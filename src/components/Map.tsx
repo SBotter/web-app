@@ -113,7 +113,7 @@ function Map() {
       position="relative"
       flexDirection="column"
       alignItems="center"
-      h="100vh"
+      h="100%"
       w="100%"
     >
       <Box position="absolute" left={0} top={0} h="100%" w="100%">
@@ -163,10 +163,11 @@ function Map() {
                 </Box>
                 <AccordionIcon />
               </AccordionButton>
-              <AccordionPanel pb={2}>
+              <AccordionPanel pb={0}>
                 <CardHeader width="100%">
                   <HStack
                     wrap={isWrapEnabled ? "wrap" : "nowrap"}
+                    marginTop={-6}
 
                     //maxW="md" // Adjust the maximum width based on your layout
                   >
@@ -192,8 +193,13 @@ function Map() {
                 <Divider
                   bgColor="base.800"
                   display={showFreight ? "block" : "none"}
+                  marginTop={-2}
                 />
-                <CardBody width="100%" display={showFreight ? "block" : "none"}>
+                <CardBody
+                  width="100%"
+                  display={showFreight ? "block" : "none"}
+                  marginTop={-5}
+                >
                   <HStack width={"100%"} justifyContent="space-evenly">
                     <Box>
                       <HStack>
@@ -212,12 +218,14 @@ function Map() {
                 <Divider
                   bgColor="base.800"
                   display={showFreight ? "block" : "none"}
+                  marginTop={-5}
                 />
                 <CardFooter
                   width="100%"
                   display={showFreight ? "block" : "none"}
+                  marginTop={-8}
                 >
-                  <Box>
+                  <Box marginTop={0}>
                     <DeliveryCalculator distance={Number(distanceValue)} />
                   </Box>
                 </CardFooter>

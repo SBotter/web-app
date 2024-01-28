@@ -44,15 +44,15 @@ const MenuCard = ({ product }: Props) => {
           borderBottomLeftRadius={20}
           opacity={0.8}
         >
-          <Text color="base.50" p={2}>
+          <Text fontSize={{ md: "30px" }} color="base.50" p={2}>
             {product.productGroupName}
           </Text>
         </Heading>
         <CardBody>
           <Text color="base.700">{product.productGroupDescription}</Text>
         </CardBody>
-        <Divider borderColor="base.800" />
-        <CardFooter margin="auto">
+        <Divider borderColor="base.800" marginTop={-8} />
+        <CardFooter margin="auto" marginTop={-5}>
           <Button
             as={RouterLink} // Use the Link component from react-router-dom
             to={`/${product.productGroupPath}`}

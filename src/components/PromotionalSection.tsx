@@ -1,10 +1,27 @@
 import { Button, Heading, Text } from "@chakra-ui/react";
 import "./../index.css";
-import { Link as RouterLink } from "react-router-dom";
-import { FaWhatsapp } from "react-icons/fa";
+import { FaShoppingCart } from "react-icons/fa";
 import MenuPromoList from "./MenuPromoList";
+import { useContext } from "react";
+import { CartContext } from "./CartContext";
 
 const PromotionalSection = () => {
+  const { addItemToCart } = useContext(CartContext);
+  function handleAddToCartButtonClicked() {
+    addItemToCart({
+      productId: "e52bf6cd-91b8-4fbd-bf70-9e4482e99e84",
+      packageId: "d8588502-6467-48bf-abaa-6fd6e8deaa49",
+      packageName: "Valentine's Day Basket",
+      packageUnit: "un",
+      packageSize: "",
+      name: "Valentine's Day Promotional Basket",
+      price: 120,
+      quantity: 1,
+      imageSrc: "valentinesdaybasket.jpg",
+      categoryName: "promotional",
+    });
+  }
+
   return (
     <>
       <div className="hero-container">
@@ -55,10 +72,9 @@ const PromotionalSection = () => {
           </Text>
           <Button
             width={"100%"}
+            onClick={() => handleAddToCartButtonClicked()}
             variant="outline"
-            as={RouterLink} // Use the Link component from react-router-dom
-            to={"/contact"}
-            leftIcon={<FaWhatsapp size="1.3em" />}
+            leftIcon={<FaShoppingCart size="1.3em" />}
             bgColor="base.200"
             color={"base.800"}
             borderWidth="2"
@@ -68,7 +84,7 @@ const PromotionalSection = () => {
               borderColor: "base.800",
             }}
           >
-            Place you Order
+            Add to Cart
           </Button>
         </div>
       </div>

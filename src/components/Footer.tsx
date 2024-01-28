@@ -41,14 +41,12 @@ const Footer = () => {
           </VStack>
 
           <VStack>
-            <Link to={"/delivery"}>
-              <Box width={"100%"}>
-                <i className="fa-solid fa-truck-monster product-detail-icon-link" />
-                <Text textColor="base.800" fontWeight="bold">
-                  WE DELIVER
-                </Text>
-              </Box>
-            </Link>
+            <Box width={"100%"}>
+              <i className="fa-solid fa-truck-monster product-detail-icon-link" />
+              <Text textColor="base.800" fontWeight="bold">
+                WE DELIVER
+              </Text>
+            </Box>
           </VStack>
 
           <VStack>

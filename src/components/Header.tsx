@@ -1,5 +1,7 @@
 import logo from "../assets/images/PastaLogo.png";
 import {
+  Avatar,
+  AvatarBadge,
   Box,
   Button,
   Flex,
@@ -11,12 +13,18 @@ import {
   MenuList,
   Spacer,
   useBreakpointValue,
+  Text,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { Link as RouterLink } from "react-router-dom";
 import { IoIosArrowDropdown } from "react-icons/io";
+import { useContext } from "react";
+import { CartContext } from "./CartContext";
+import { FaCartShopping } from "react-icons/fa6";
 
 const Header = () => {
+  const { cartItems } = useContext(CartContext);
+
   const listMenuItems = [
     {
       id: "1",
@@ -37,7 +45,7 @@ const Header = () => {
       name: "We Deliver",
       path: "/delivery",
       icon: "fa-solid fa-truck-monster",
-      display: "1",
+      display: "0",
     },
   ];
 
@@ -74,22 +82,24 @@ const Header = () => {
                 View Menu
               </MenuButton>
               <MenuList bgColor={"base.50"} borderColor={"base.800"}>
-                {listMenuItems.map((item) => (
-                  <MenuItem
-                    as="a"
-                    href={item.path}
-                    key={item.id}
-                    bg="base.50"
-                    color="base.800"
-                    _hover={{
-                      bg: "base.100",
-                      color: "base.800",
-                      fontWeight: "bold",
-                    }}
-                  >
-                    {item.name}
-                  </MenuItem>
-                ))}
+                {listMenuItems
+                  .filter((d) => d.display == "1")
+                  .map((item) => (
+                    <MenuItem
+                      as="a"
+                      href={item.path}
+                      key={item.id}
+                      bg="base.50"
+                      color="base.800"
+                      _hover={{
+                        bg: "base.100",
+                        color: "base.800",
+                        fontWeight: "bold",
+                      }}
+                    >
+                      {item.name}
+                    </MenuItem>
+                  ))}
               </MenuList>
             </Menu>
           ) : (
@@ -99,7 +109,7 @@ const Header = () => {
                 .map((item) => (
                   <Button
                     key={item.id}
-                    as={RouterLink} // Use the Link component from react-router-dom
+                    as={RouterLink}
                     to={item.path}
                     variant="outline"
                     bgColor="base.50"
@@ -108,8 +118,8 @@ const Header = () => {
                     borderWidth="2"
                     leftIcon={<i className={item.icon} />}
                     _hover={{
-                      bg: "base.800", // Change background color on hover
-                      color: "base.50", // Change text color on hover
+                      bg: "base.800",
+                      color: "base.50",
                       borderColor: "base.800",
                     }}
                   >
@@ -119,20 +129,34 @@ const Header = () => {
             </HStack>
           )}
           <Box paddingRight={5} paddingLeft={{ base: 0, md: 20 }}>
-            {/*<HStack>
+            <HStack>
               <Box padding={2}>
-                <i
-                  className="fa-solid fa-cart-shopping product-detail-icon-link-gray"
-                  title="Coming Soon"
-                />
+                <Link to="checkout">
+                  <Avatar
+                    size="md"
+                    bg="base.50"
+                    icon={
+                      <FaCartShopping className="product-detail-cart-button-header" />
+                    }
+                  >
+                    <AvatarBadge
+                      boxSize={"1.25em"}
+                      bg="base.50"
+                      borderWidth={1}
+                      borderColor={"base.800"}
+                    >
+                      <Text color={"base.800"} marginTop={3}>
+                        {cartItems
+                          ? cartItems.length > 0
+                            ? cartItems.length
+                            : 0
+                          : 0}
+                      </Text>
+                    </AvatarBadge>
+                  </Avatar>
+                </Link>
               </Box>
-              <Box>
-                <i
-                  className="fa-solid fa-right-to-bracket product-detail-icon-link-gray"
-                  title="Coming Soon"
-                />
-              </Box>
-            </HStack>*/}
+            </HStack>
           </Box>
         </HStack>
       </Flex>
