@@ -107,7 +107,7 @@ const Header = () => {
                 .map((item) => (
                   <Button
                     key={item.id}
-                    as={RouterLink} 
+                    as={RouterLink}
                     to={item.path}
                     variant="outline"
                     bgColor="base.50"
@@ -116,8 +116,8 @@ const Header = () => {
                     borderWidth="2"
                     leftIcon={<i className={item.icon} />}
                     _hover={{
-                      bg: "base.800", 
-                      color: "base.50", 
+                      bg: "base.800",
+                      color: "base.50",
                       borderColor: "base.800",
                     }}
                   >
@@ -141,6 +141,7 @@ const Header = () => {
                       boxSize={"1.25em"}
                       bg="base.50"
                       borderWidth={1}
+                      borderColor={"base.800"}
                     >
                       <Text color={"base.800"} marginTop={3}>
                         {cartItems
