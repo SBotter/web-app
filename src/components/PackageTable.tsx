@@ -126,7 +126,7 @@ export function PackageTable({ product }: Props) {
                   </Box>
                 </Td>
               </Tr>
-              <Tr bg="base.50">
+              <Tr key={index} bg="base.50">
                 <Td colSpan={3} verticalAlign={"center"}>
                   <Flex
                     borderColor={"black"}
@@ -137,6 +137,7 @@ export function PackageTable({ product }: Props) {
                   >
                     <HStack>
                       <QuantitySelector
+                        key={`selector${index}`}
                         quantity={itemQuantities[index]}
                         onMinusButtonClicked={() =>
                           handleMinusButtonClicked(index)
@@ -145,7 +146,7 @@ export function PackageTable({ product }: Props) {
                           handlePlusButtonClicked(index)
                         }
                       />
-                      <Box marginTop={-1}>
+                      <Box marginTop={-1} key={`button${index}`}>
                         <Button
                           size="xs"
                           variant="outline"

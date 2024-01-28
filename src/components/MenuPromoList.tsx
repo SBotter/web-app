@@ -38,6 +38,7 @@ const MenuPromoList = () => {
           <CardFooter justifyContent={"space-between"}>
             {displayMode === "menu" ? (
               <SimpleGrid
+                key="simplegrid_1"
                 columns={{ base: 1, sm: 1, md: 4, lg: 4, xl: 4 }}
                 spacing={{ base: 1, sm: 3, md: 4, lg: 4, xl: 4 }}
                 p={{ base: 1, sm: 3, md: 4, lg: 4, xl: 4 }}
@@ -50,6 +51,7 @@ const MenuPromoList = () => {
             ) : (
               <>
                 <Card
+                  key="card_1"
                   borderRadius={20}
                   bg="#FFF"
                   boxShadow="md"
@@ -57,9 +59,9 @@ const MenuPromoList = () => {
                   marginTop={-8}
                 >
                   <CardBody width={"100%"}>
-                    {data.map((prod) => (
+                    {data.map((prod, index) => (
                       <Box key={prod.productId} width={"100%"}>
-                        <VStack>
+                        <VStack key={`vstack${index}`}>
                           <Text
                             fontSize="15px"
                             fontWeight="bold"
@@ -93,7 +95,7 @@ const MenuPromoList = () => {
                                     </Text>
                                   </Box>
                                   <Box
-                                    key={pkg.packageName}
+                                    key={pkg.packageSize}
                                     width={"20%"}
                                     verticalAlign={"left"}
                                   >
@@ -106,6 +108,7 @@ const MenuPromoList = () => {
                             </>
                           ))}
                           <Divider
+                            key={`divider${index}`}
                             backgroundColor={"base.800"}
                             width="100%"
                             marginTop={-2}
