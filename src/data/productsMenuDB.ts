@@ -53,4 +53,13 @@ export default [
     productGroupPath: "products/canneloni",
     productGroupFilter: "canneloni",
   },
+  {
+    productGroupId: "ce319b64-76f3-4d8d-9e71-75367e77db62",
+    productGroupName: "Breads",
+    productGroupDescription:
+      "Indulge in the sublime pleasure of sinking your teeth into a warm, handmade loaf of freshly baked bread, where each golden crust crackles with the promise of artisanal perfection and every tender crumb whispers of time-honored craftsmanship and unparalleled flavor.",
+    productGroupImage: "bread_1.jpeg",
+    productGroupPath: "products/bread",
+    productGroupFilter: "bread",
+  },
 ];

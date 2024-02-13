@@ -14,6 +14,7 @@ import DetailsPage from "./pages/DetailsPage";
 import DeliveryPage from "./pages/DeliveryPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import OrderSucess from "./pages/OrderSucess";
+import BreadPage from "./pages/BreadPage";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,7 @@ const router = createBrowserRouter([
       { path: "/products/lasagna", element: <LasagnaPage /> },
       { path: "/products/sauce", element: <SaucePage /> },
       { path: "/products/canneloni", element: <CannelloniPage /> },
+      { path: "/products/bread", element: <BreadPage /> },
       { path: "/products/detail/:filterValue", element: <DetailsPage /> },
       { path: "/delivery", element: <DeliveryPage /> },
       { path: "/checkout", element: <CheckoutPage /> },

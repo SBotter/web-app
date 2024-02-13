@@ -41,9 +41,14 @@ const ContactPage = () => {
                   <i className="fa-brands fa-whatsapp product-detail-icon-link" />
                   <i className="fa-solid fa-phone product-detail-icon-link" />
                 </HStack>
-                <Text color="base.800" marginTop={2}>
-                  +1 604 679-0898
-                </Text>
+                <VStack>
+                  <Text color="base.800" marginTop={2}>
+                    +1 778 838-2564
+                  </Text>
+                  <Text color="base.800" marginTop={-5}>
+                    +1 604 679-0898
+                  </Text>
+                </VStack>
               </Box>
               <Box bg="base.50" width="100%" padding={4}>
                 <i className="fa-brands fa-instagram product-detail-icon-link" />

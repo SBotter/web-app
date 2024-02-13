@@ -353,6 +353,84 @@ export default [
   },
   {
     companyId: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    productId: "255f8317-157b-407c-8a12-fcc605f6cfeb",
+    productName: "Chicken Cappelletti",
+    productDescription:
+      "Savor the exquisite flavors of our Handmade Chicken Cappelletti, where tender pasta envelopes succulent chicken, creating a culinary experience that delights the senses. Pair it with a delicate broth infused with seasonal vegetables for a comforting and nourishing soup that will warm your soul.",
+    category: [
+      {
+        categoryId: "23ebff41-c6cc-4969-a6ad-56d09ef6c45b",
+        categoryName: "Cappelletti",
+      },
+    ],
+    productGroupName: "stuffedpasta",
+    picture: [
+      {
+        pictureId: "5bef6913-64e7-4889-bb32-ecdc38d7f89b",
+        picturePath: "cappelletti_1.jpeg",
+      },
+    ],
+    package: [
+      {
+        packageId: "b462f76d-5fe9-442a-89c9-ff5d03137942",
+        packageName: "Small",
+        packageDescription: "Serves up two people.",
+        packageUnit: "pkg",
+        packageSize: "150g",
+        packagePrice: 15.0,
+      },
+      {
+        packageId: "74ebf3b1-09ff-45d0-9741-1537c6a28196",
+        packageName: "Large",
+        packageDescription: "Serves up three people.",
+        packageUnit: "pkg",
+        packageSize: "300g",
+        packagePrice: 30.0,
+      },
+      {
+        packageId: "b0f821ad-02cb-4a53-bebb-a235cba6355f",
+        packageName: "Family",
+        packageDescription: "Serves more than three people.",
+        packageUnit: "pkg",
+        packageSize: "500g",
+        packagePrice: 50.0,
+      },
+    ],
+    ingredient: [
+      {
+        ingredientId: "d063f86e-df61-47b5-9da3-79e1ce5c6d51",
+        ingredientName: "Special Italyan Flour",
+      },
+      {
+        ingredientId: "32ca0909-4913-4de6-b86d-1d30a409820c",
+        ingredientName: "Free Range Eggs",
+      },
+      {
+        ingredientId: "c239945d-2ff0-40bc-814a-e3fa28f4e331",
+        ingredientName: "Chiken breast",
+      },
+    ],
+    instruction: [
+      {
+        instructionId: "9298afdb-4b16-409d-8270-8efa3a1545db",
+        instructionName:
+          "Bring the water/broth to a complete boil and add salt on it",
+      },
+      {
+        instructionId: "29693963-7ce8-40ce-b292-886b75c5deea",
+        instructionName: "Add the cappelletti frozen gently",
+      },
+      {
+        instructionId: "de14260f-f90c-45ad-963c-00c893d1a6b3",
+        instructionName:
+          "Cook for 4 to 5 minutes to achieve al dente cappelletti.",
+      },
+    ],
+
+    isDeleted: false,
+  },
+  {
+    companyId: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
     productId: "5fb605c9-35c4-4824-a2d6-631f62602170",
     productName: "Rosemary Focaccia",
     productDescription:
@@ -752,10 +830,10 @@ export default [
     category: [
       {
         categoryId: "3837af85-62da-4ef5-85c7-453084fdb960",
-        categoryName: "canneloni",
+        categoryName: "Canneloni",
       },
     ],
-    productGroupName: "Canneloni",
+    productGroupName: "canneloni",
     picture: [
       {
         pictureId: "e2f7bed0-6316-4650-979e-ee0b2a26753d",
@@ -950,6 +1028,238 @@ export default [
       {
         ingredientId: "23451b8d-762b-45f0-8088-de75fea62bba",
         ingredientName: "fresh rosemary herb",
+      },
+    ],
+    instruction: [
+      {
+        instructionId: "9298afdb-4b16-409d-8270-8efa3a1545db",
+        instructionName: "keep on fridge up to 6 days",
+      },
+    ],
+    isDeleted: false,
+  },
+  {
+    companyId: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    productId: "23bdb4e7-f08b-4e9f-9a94-f8c3359ad264",
+    productName: "Ham & Cheese Bread",
+    productDescription:
+      "Savor the irresistible fusion of savory ham and creamy cheese embraced within every bite of our artisanal bread, a delectable symphony of flavors crafted to tantalize your taste buds and elevate your culinary experience to new heights of satisfaction.",
+    category: [
+      {
+        categoryId: "87a45a8f-30c5-45d3-a428-31f98dbba401",
+        categoryName: "Bread",
+      },
+    ],
+    productGroupName: "bread",
+    picture: [
+      {
+        pictureId: "515ce5b6-3d52-4c6c-b6ca-da4579f456c6",
+        picturePath: "hamcheesebread_1.jpeg",
+      },
+    ],
+    package: [
+      {
+        packageId: "718839de-d56a-4dfc-b8ce-3bb8acbf8f61",
+        packageName: "Package",
+        packageDescription: "6 un x 100g",
+        packageUnit: "pkg",
+        packageSize: "600g",
+        packagePrice: 30,
+      },
+    ],
+    ingredient: [
+      {
+        ingredientId: "d063f86e-df61-47b5-9da3-79e1ce5c6d51",
+        ingredientName: "special flour",
+      },
+      {
+        ingredientId: "32ca0909-4913-4de6-b86d-1d30a409820c",
+        ingredientName: "yeast",
+      },
+      {
+        ingredientId: "95529787-e293-4203-af53-0b7090e5358b",
+        ingredientName: "Ham & Cheese",
+      },
+      {
+        ingredientId: "656393c6-e762-45c9-b55b-d7f84097044c",
+        ingredientName: "Tomato",
+      },
+      {
+        ingredientId: "23f1517c-557a-40d6-9f87-d4cdb8709acc",
+        ingredientName: "Oregano",
+      },
+    ],
+    instruction: [
+      {
+        instructionId: "9298afdb-4b16-409d-8270-8efa3a1545db",
+        instructionName: "keep on fridge up to 6 days",
+      },
+    ],
+    isDeleted: false,
+  },
+  {
+    companyId: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    productId: "b8d62f50-a8b6-468a-837f-e72ac1d99b7c",
+    productName: "Pao Frances - Bread",
+    productDescription:
+      "Indulge in the beloved taste of Brazil with our authentic French bread, featuring a crispy crust and soft interior, perfect for enjoying at breakfast or as a delicious snack any time of day.",
+    category: [
+      {
+        categoryId: "87a45a8f-30c5-45d3-a428-31f98dbba401",
+        categoryName: "Bread",
+      },
+    ],
+    productGroupName: "bread",
+    picture: [
+      {
+        pictureId: "8d598c89-1155-44fd-ad21-02fa8968246c",
+        picturePath: "paofrances_1.jpeg",
+      },
+    ],
+    package: [
+      {
+        packageId: "7e474f11-9275-4cd1-aef9-05baaed3af68",
+        packageName: "Package",
+        packageDescription: "6 un x 80g",
+        packageUnit: "pkg",
+        packageSize: "480g",
+        packagePrice: 15,
+      },
+      {
+        packageId: "37e56e7e-a087-42f1-8e73-0907fa8c8605",
+        packageName: "Package",
+        packageDescription: "12 un x 80g",
+        packageUnit: "pkg",
+        packageSize: "960g",
+        packagePrice: 25,
+      },
+    ],
+    ingredient: [
+      {
+        ingredientId: "d063f86e-df61-47b5-9da3-79e1ce5c6d51",
+        ingredientName: "special flour",
+      },
+      {
+        ingredientId: "32ca0909-4913-4de6-b86d-1d30a409820c",
+        ingredientName: "yeast",
+      },
+      {
+        ingredientId: "656393c6-e762-45c9-b55b-d7f84097044c",
+        ingredientName: "Butter",
+      },
+    ],
+    instruction: [
+      {
+        instructionId: "9298afdb-4b16-409d-8270-8efa3a1545db",
+        instructionName: "keep on fridge up to 6 days",
+      },
+    ],
+    isDeleted: false,
+  },
+  {
+    companyId: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    productId: "cc889183-596b-477c-a35b-44135d93a4f3",
+    productName: "Vegan Bread",
+    productDescription:
+      "Savor the goodness of our vegan bread, crafted with plant-based ingredients and baked to perfection, offering a guilt-free indulgence that delights both your taste buds and your conscience.",
+    category: [
+      {
+        categoryId: "87a45a8f-30c5-45d3-a428-31f98dbba401",
+        categoryName: "Bread",
+      },
+    ],
+    productGroupName: "bread",
+    picture: [
+      {
+        pictureId: "515ce5b6-3d52-4c6c-b6ca-da4579f456c6",
+        picturePath: "veganbread_1.jpeg",
+      },
+    ],
+    package: [
+      {
+        packageId: "718839de-d56a-4dfc-b8ce-3bb8acbf8f61",
+        packageName: "Piece",
+        packageDescription: "1 un x 500g",
+        packageUnit: "piece",
+        packageSize: "500g",
+        packagePrice: 15,
+      },
+    ],
+    ingredient: [
+      {
+        ingredientId: "d063f86e-df61-47b5-9da3-79e1ce5c6d51",
+        ingredientName: "special flour",
+      },
+      {
+        ingredientId: "32ca0909-4913-4de6-b86d-1d30a409820c",
+        ingredientName: "yeast",
+      },
+      {
+        ingredientId: "95529787-e293-4203-af53-0b7090e5358b",
+        ingredientName: "Oil",
+      },
+      {
+        ingredientId: "656393c6-e762-45c9-b55b-d7f84097044c",
+        ingredientName: "Salt",
+      },
+      {
+        ingredientId: "23f1517c-557a-40d6-9f87-d4cdb8709acc",
+        ingredientName: "Sugar",
+      },
+    ],
+    instruction: [
+      {
+        instructionId: "9298afdb-4b16-409d-8270-8efa3a1545db",
+        instructionName: "keep on fridge up to 6 days",
+      },
+    ],
+    isDeleted: false,
+  },
+  {
+    companyId: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    productId: "966fb9f9-ad14-4ae7-966d-dc45ff1fffe9",
+    productName: "Milk Bread",
+    productDescription:
+      "Indulge in our milk bread—so soft and fresh, bursting with flavor. Perfect for packing in your lunch box, it promises a delightful midday treat that will leave you craving more.",
+    category: [
+      {
+        categoryId: "87a45a8f-30c5-45d3-a428-31f98dbba401",
+        categoryName: "Bread",
+      },
+    ],
+    productGroupName: "bread",
+    picture: [
+      {
+        pictureId: "8d598c89-1155-44fd-ad21-02fa8968246c",
+        picturePath: "milkbread_1.jpeg",
+      },
+    ],
+    package: [
+      {
+        packageId: "ece4e40e-679d-49f0-bcb8-81aa908c79a1",
+        packageName: "Package",
+        packageDescription: "12 un x 50g",
+        packageUnit: "pkg",
+        packageSize: "600g",
+        packagePrice: 15,
+      },
+    ],
+    ingredient: [
+      {
+        ingredientId: "d063f86e-df61-47b5-9da3-79e1ce5c6d51",
+        ingredientName: "special flour",
+      },
+      {
+        ingredientId: "32ca0909-4913-4de6-b86d-1d30a409820c",
+        ingredientName: "yeast",
+      },
+      {
+        ingredientId: "656393c6-e762-45c9-b55b-d7f84097044c",
+        ingredientName: "Butter",
+      },
+      {
+        ingredientId: "0a3f2cfc-eb94-494f-be9e-91dbc0c8e0ef",
+        ingredientName: "Milk",
       },
     ],
     instruction: [
