@@ -25,8 +25,10 @@ const Footer = () => {
             <Text textColor="base.800" fontWeight="bold">
               Contact Us
             </Text>
-            <i className="fa-brands fa-whatsapp product-detail-icon-link" />
-            <Text textColor="base.800">+1 604 679-0898</Text>
+            <Link to="https://wa.me/c/17788382564" target="_blank">
+              <i className="fa-brands fa-whatsapp product-detail-icon-link" />
+              <Text textColor="base.800">+1 604 679-0898</Text>
+            </Link>
             <Link to="/contact" target="_self">
               <i className="fa-regular fa-envelope product-detail-icon-link" />
               <Text color="base.800">michelespasta@gmail.com</Text>
@@ -56,7 +58,7 @@ const Footer = () => {
             <HStack spacing={5}>
               <Link
                 className="social-icon-link"
-                to="http://www.facebook.com"
+                to="https://www.facebook.com/profile.php?id=61552676556732"
                 target="_blank"
               >
                 <i className="fab fa-facebook-f" />
@@ -68,10 +70,11 @@ const Footer = () => {
               >
                 <i className="fab fa-instagram" />
               </Link>
-              <Link className="social-icon-link" to="" target="_blank">
-                <i className="fab fa-youtube" />
-              </Link>
-              <Link className="social-icon-link facebook" to="" target="_blank">
+              <Link
+                className="social-icon-link facebook"
+                to="https://wa.me/c/17788382564"
+                target="_blank"
+              >
                 <i className="fa-brands fa-whatsapp" />
               </Link>
             </HStack>

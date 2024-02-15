@@ -43,6 +43,11 @@ const FilterProducts = () => {
       name: "Canneloni",
       path: "/canneloni",
     },
+    {
+      id: "bread",
+      name: "Bread",
+      path: "/bread",
+    },
   ];
   const displayMode = useBreakpointValue({ base: "menu", md: "hstack" });
 
