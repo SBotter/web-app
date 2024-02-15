@@ -273,9 +273,9 @@ export default [
   {
     companyId: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
     productId: "c97b21cf-7ae6-4d0e-873d-cb1c575448a7",
-    productName: "Buffalo Mozzarella Ravioli",
+    productName: "Fresh Mozzarella Ravioli",
     productDescription:
-      "Embark on a culinary journey with our exquisite Handmade Buffalo Mozzarella-stuffed Ravioli, where each intricately crafted pasta parcel encases the luxurious creaminess of buffalo mozzarella filling. Savor the harmonious balance of velvety pasta and the indulgent, tangy nuances of buffalo mozzarella, creating a savory symphony that elevates the classic ravioli into a true gourmet delight.",
+      "Embark on a culinary journey with our exquisite Handmade Fresh Mozzarella-stuffed Ravioli, where each intricately crafted pasta parcel encases the luxurious creaminess of fresh mozzarella filling. Savor the harmonious balance of velvety pasta and the indulgent, tangy nuances of fresh mozzarella, creating a savory symphony that elevates the classic ravioli into a true gourmet delight.",
     category: [
       {
         categoryId: "3837af85-62da-4ef5-85c7-453084fdb960",
@@ -326,7 +326,7 @@ export default [
       },
       {
         ingredientId: "95529787-e293-4203-af53-0b7090e5358b",
-        ingredientName: "Buffalo Mozzarella",
+        ingredientName: "Fresh Mozzarella",
       },
       {
         ingredientId: "20aff552-86f7-4f53-8c22-171717ec1f4c",

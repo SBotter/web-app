@@ -58,7 +58,7 @@ export default [
     productGroupName: "Breads",
     productGroupDescription:
       "Indulge in the sublime pleasure of sinking your teeth into a warm, handmade loaf of freshly baked bread, where each golden crust crackles with the promise of artisanal perfection and every tender crumb whispers of time-honored craftsmanship and unparalleled flavor.",
-    productGroupImage: "bread_1.jpeg",
+    productGroupImage: "hamcheesebread_1.jpeg",
     productGroupPath: "products/bread",
     productGroupFilter: "bread",
   },
