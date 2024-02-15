@@ -101,7 +101,7 @@ input[type="checkbox"]:checked {
 
 @media screen and (max-width: 960px) {
   .hero-container{
-    background: url('assets/images/products/valentines_5.png') center center/cover no-repeat;
+    background: url('assets/images/products/pastaseca_5.jpg') center center/cover no-repeat;
     background-color: rgba(240, 239, 239, 0.8);
   }
   
