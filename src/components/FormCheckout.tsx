@@ -95,6 +95,11 @@ const FormCheckout = () => {
   });
 
   //form fields control
+  const [text, setText] = useState<string>("");
+  const maxChars = 250;
+  const [messageColor, setMessageColor] = useState<string>("base.800");
+  const [classNameError, setClassNameError] = useState<string>("form-control");
+
   const form = useRef<HTMLFormElement | any>("");
   const [customer, setCustomer] = useState({
     customer_name: "",
@@ -185,6 +190,19 @@ const FormCheckout = () => {
   if (!isLoaded) {
     <Spinner />;
   }
+
+  //set the maximum text size for a message notes
+  const handleTextChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const newText = event.target.value;
+    setText(newText.slice(0, maxChars));
+    if (newText.length > maxChars) {
+      setMessageColor("red");
+      setClassNameError("form-control is-invalid");
+    } else {
+      setMessageColor("base.800");
+      setClassNameError("form-control");
+    }
+  };
 
   //set the payment type
   const handlePaymentTypeClick = (buttonValue: string) => {
@@ -1058,6 +1076,23 @@ const FormCheckout = () => {
                     />
                   </HStack>
 
+                  <Box width={"100%"}>
+                    <Divider background={"base.800"} />
+                  </Box>
+
+                  <textarea
+                    placeholder="Message Notes"
+                    id="message_notes"
+                    name="message_notes"
+                    className={classNameError}
+                    onChange={handleTextChange}
+                    rows={4}
+                    value={text.slice(0, maxChars)}
+                  />
+
+                  <Text color={messageColor}>
+                    {maxChars - text.length}/{maxChars}
+                  </Text>
                   <Box width={"100%"}>
                     <Divider background={"base.800"} />
                   </Box>
