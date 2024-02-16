@@ -30,6 +30,7 @@ import {
   Marker,
   DirectionsRenderer,
 } from "@react-google-maps/api";
+import CalendarComponent from "./Calendar";
 
 const PAYMENT_OPTIONS = [
   {
@@ -95,6 +96,11 @@ const FormCheckout = () => {
   });
 
   //form fields control
+  const [text, setText] = useState<string>("");
+  const maxChars = 250;
+  const [messageColor, setMessageColor] = useState<string>("base.800");
+  const [classNameError, setClassNameError] = useState<string>("form-control");
+
   const form = useRef<HTMLFormElement | any>("");
   const [customer, setCustomer] = useState({
     customer_name: "",
@@ -185,6 +191,19 @@ const FormCheckout = () => {
   if (!isLoaded) {
     <Spinner />;
   }
+
+  //set the maximum text size for a message notes
+  const handleTextChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const newText = event.target.value;
+    setText(newText.slice(0, maxChars));
+    if (newText.length > maxChars) {
+      setMessageColor("red");
+      setClassNameError("form-control is-invalid");
+    } else {
+      setMessageColor("base.800");
+      setClassNameError("form-control");
+    }
+  };
 
   //set the payment type
   const handlePaymentTypeClick = (buttonValue: string) => {
@@ -809,6 +828,25 @@ const FormCheckout = () => {
               <CardBody>
                 <VStack>
                   <Text color="base.800" fontSize={"20px"}>
+                    Delivery / Pick up Date
+                  </Text>
+                  <Text color="base.800" fontSize={"13px"} marginTop={-5}>
+                    Please note that we require up to <b>48 hours</b> for online
+                    order delivery / pick up to ensure the freshest and most
+                    flavorful experience. Feel free to contact us for any
+                    inquiries or special requests!
+                  </Text>
+                  <Divider background="base.800" />
+                  <CalendarComponent />
+                </VStack>
+              </CardBody>
+            </Card>
+          </Box>
+          <Box width={"100%"} paddingTop={5}>
+            <Card bg="base.50" width={"100%"} borderRadius={20}>
+              <CardBody>
+                <VStack>
+                  <Text color="base.800" fontSize={"20px"}>
                     Payment Method
                   </Text>
                   <Text color="base.800" fontSize={"13px"} marginTop={-5}>
@@ -1058,6 +1096,23 @@ const FormCheckout = () => {
                     />
                   </HStack>
 
+                  <Box width={"100%"}>
+                    <Divider background={"base.800"} />
+                  </Box>
+
+                  <textarea
+                    placeholder="Message Notes"
+                    id="message_notes"
+                    name="message_notes"
+                    className={classNameError}
+                    onChange={handleTextChange}
+                    rows={4}
+                    value={text.slice(0, maxChars)}
+                  />
+
+                  <Text color={messageColor}>
+                    {maxChars - text.length}/{maxChars}
+                  </Text>
                   <Box width={"100%"}>
                     <Divider background={"base.800"} />
                   </Box>
