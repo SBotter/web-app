@@ -1164,9 +1164,9 @@ export default [
   {
     companyId: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
     productId: "f0f63185-c0bb-4eb4-bb13-488ba0e22ce4",
-    productName: "Tomato Sauce",
+    productName: "Pomodoro Sauce",
     productDescription:
-      "Our classic Tomato Sauce is a symphony of sun-ripened tomatoes, simmered to perfection with aromatic herbs and a touch of olive oil. Bursting with freshness, it transforms every dish into a taste of traditional Italian warmth.",
+      "Our classic Pomodoro Sauce is a symphony of sun-ripened tomatoes, simmered to perfection with aromatic herbs and a touch of olive oil. Bursting with freshness, it transforms every dish into a taste of traditional Italian warmth.",
     category: [
       {
         categoryId: "3837af85-62da-4ef5-85c7-453084fdb960",
