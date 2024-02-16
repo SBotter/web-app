@@ -30,6 +30,7 @@ import {
   Marker,
   DirectionsRenderer,
 } from "@react-google-maps/api";
+import CalendarComponent from "./Calendar";
 
 const PAYMENT_OPTIONS = [
   {
@@ -819,6 +820,25 @@ const FormCheckout = () => {
                     </Box>
                   </>
                 )}
+              </CardBody>
+            </Card>
+          </Box>
+          <Box width={"100%"} paddingTop={5}>
+            <Card bg="base.50" width={"100%"} borderRadius={20}>
+              <CardBody>
+                <VStack>
+                  <Text color="base.800" fontSize={"20px"}>
+                    Delivery / Pick up Date
+                  </Text>
+                  <Text color="base.800" fontSize={"13px"} marginTop={-5}>
+                    Please note that we require up to <b>48 hours</b> for online
+                    order delivery / pick up to ensure the freshest and most
+                    flavorful experience. Feel free to contact us for any
+                    inquiries or special requests!
+                  </Text>
+                  <Divider background="base.800" />
+                  <CalendarComponent />
+                </VStack>
               </CardBody>
             </Card>
           </Box>
