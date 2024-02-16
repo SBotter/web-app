@@ -1086,7 +1086,7 @@ export default [
     picture: [
       {
         pictureId: "e2f7bed0-6316-4650-979e-ee0b2a26753d",
-        picturePath: "lasagna_1.jpg",
+        picturePath: "lasagnaChicken_1.jpg",
       },
     ],
     package: [
