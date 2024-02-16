@@ -916,6 +916,14 @@ export default [
         packageSize: "1kg",
         packagePrice: 60,
       },
+      {
+        packageId: "9689092f-656f-4f17-9d9c-fbdefedb86f8",
+        packageName: "package",
+        packageDescription: "Serves up 2 people",
+        packageUnit: "pkg",
+        packageSize: "500g",
+        packagePrice: 30,
+      },
     ],
     ingredient: [
       {
@@ -929,6 +937,196 @@ export default [
       {
         ingredientId: "b6cf884a-0ed1-4468-888f-73b867dde366",
         ingredientName: "Cheese",
+      },
+      {
+        ingredientId: "6d309253-3f5c-4d5a-8a00-fb8a8480a7b1",
+        ingredientName: "Bechamel Sauce",
+      },
+      {
+        ingredientId: "8273e36e-f8f3-4464-9a29-3cb1ed8c390a",
+        ingredientName: "Bolognese Sauce",
+      },
+    ],
+    instruction: [
+      {
+        instructionId: "9298afdb-4b16-409d-8270-8efa3a1545db",
+        instructionName: "Preheat the Oven: it's around 375°F (190°C).",
+      },
+      {
+        instructionId: "07c4e600-a46f-4ed0-ac0a-55360d4ef0db",
+        instructionName: "Remove the lid",
+      },
+      {
+        instructionId: "6c8b549b-3fc8-4646-a59a-9ba0faca8cac",
+        instructionName:
+          "Place in Oven: Position the uncovered lasagna in the preheated oven.",
+      },
+      {
+        instructionId: "bbbd1a73-b97c-479d-9b3d-2fd1ec130d00",
+        instructionName:
+          "Bake for 30 Minutes: Cook the lasagna for approximately 30 minutes. This initial stage without the lid helps in the early cooking process.",
+      },
+      {
+        instructionId: "7b4f3794-1eff-4cc3-9b88-c2beb1694896",
+        instructionName:
+          "Adjust Cooking Time: Adjust the total cooking time as needed. Aim for a thorough cooking process where the lasagna is bubbling, and the cheese is fully melted.",
+      },
+      {
+        instructionId: "0c0d431a-8ea9-432e-864c-ebf965bbac45",
+        instructionName:
+          "Serve: Slice the lasagna into portions and serve while it's still hot.",
+      },
+    ],
+    isDeleted: false,
+  },
+  {
+    companyId: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    productId: "dfdd66b3-f189-4405-9303-65d2df108d70",
+    productName: "Lasagna Ham & Cheese",
+    productDescription:
+      "Indulge in Handcrafted Perfection: Lasagna Ham & Cheese - A Taste of Tradition, Fresh from Our Kitchen to Your Table!",
+    category: [
+      {
+        categoryId: "3837af85-62da-4ef5-85c7-453084fdb960",
+        categoryName: "Lasagna",
+      },
+    ],
+    productGroupName: "Lasagna",
+    picture: [
+      {
+        pictureId: "e2f7bed0-6316-4650-979e-ee0b2a26753d",
+        picturePath: "lasagna_1.jpg",
+      },
+    ],
+    package: [
+      {
+        packageId: "80a38612-b76b-4adc-857b-41cb0a2a8b51",
+        packageName: "package",
+        packageDescription: "Serves up 3 people",
+        packageUnit: "pkg",
+        packageSize: "1kg",
+        packagePrice: 60,
+      },
+      {
+        packageId: "6ccea7c0-8150-4455-8606-6de1da4e4ea3",
+        packageName: "package",
+        packageDescription: "Serves up 2 people",
+        packageUnit: "pkg",
+        packageSize: "500g",
+        packagePrice: 30,
+      },
+    ],
+    ingredient: [
+      {
+        ingredientId: "d063f86e-df61-47b5-9da3-79e1ce5c6d51",
+        ingredientName: "special flour",
+      },
+      {
+        ingredientId: "4727f41e-43a1-4848-9668-1501508ca53e",
+        ingredientName: "Ham",
+      },
+      {
+        ingredientId: "b6cf884a-0ed1-4468-888f-73b867dde366",
+        ingredientName: "Mozzarella Cheese",
+      },
+      {
+        ingredientId: "6d309253-3f5c-4d5a-8a00-fb8a8480a7b1",
+        ingredientName: "Bechamel Sauce",
+      },
+      {
+        ingredientId: "8273e36e-f8f3-4464-9a29-3cb1ed8c390a",
+        ingredientName: "Pomodoro Sauce",
+      },
+    ],
+    instruction: [
+      {
+        instructionId: "9298afdb-4b16-409d-8270-8efa3a1545db",
+        instructionName: "Preheat the Oven: it's around 375°F (190°C).",
+      },
+      {
+        instructionId: "07c4e600-a46f-4ed0-ac0a-55360d4ef0db",
+        instructionName: "Remove the lid",
+      },
+      {
+        instructionId: "6c8b549b-3fc8-4646-a59a-9ba0faca8cac",
+        instructionName:
+          "Place in Oven: Position the uncovered lasagna in the preheated oven.",
+      },
+      {
+        instructionId: "bbbd1a73-b97c-479d-9b3d-2fd1ec130d00",
+        instructionName:
+          "Bake for 30 Minutes: Cook the lasagna for approximately 30 minutes. This initial stage without the lid helps in the early cooking process.",
+      },
+      {
+        instructionId: "7b4f3794-1eff-4cc3-9b88-c2beb1694896",
+        instructionName:
+          "Adjust Cooking Time: Adjust the total cooking time as needed. Aim for a thorough cooking process where the lasagna is bubbling, and the cheese is fully melted.",
+      },
+      {
+        instructionId: "0c0d431a-8ea9-432e-864c-ebf965bbac45",
+        instructionName:
+          "Serve: Slice the lasagna into portions and serve while it's still hot.",
+      },
+    ],
+    isDeleted: false,
+  },
+  {
+    companyId: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    productId: "c663ab44-6117-4a40-acd4-b335bdd28020",
+    productName: "Lasagna Chicken",
+    productDescription:
+      "Discover a Twist on Tradition: Chicken Lasagna - Layers of Flavor, Handcrafted with Love!",
+    category: [
+      {
+        categoryId: "3837af85-62da-4ef5-85c7-453084fdb960",
+        categoryName: "Lasagna",
+      },
+    ],
+    productGroupName: "Lasagna",
+    picture: [
+      {
+        pictureId: "e2f7bed0-6316-4650-979e-ee0b2a26753d",
+        picturePath: "lasagna_1.jpg",
+      },
+    ],
+    package: [
+      {
+        packageId: "048f6496-c635-4c1d-a81c-bc8458aa24a2",
+        packageName: "package",
+        packageDescription: "Serves up 3 people",
+        packageUnit: "pkg",
+        packageSize: "1kg",
+        packagePrice: 60,
+      },
+      {
+        packageId: "897be477-cbdc-4181-81ad-b99050c5f62f",
+        packageName: "package",
+        packageDescription: "Serves up 2 people",
+        packageUnit: "pkg",
+        packageSize: "500g",
+        packagePrice: 30,
+      },
+    ],
+    ingredient: [
+      {
+        ingredientId: "d063f86e-df61-47b5-9da3-79e1ce5c6d51",
+        ingredientName: "special flour",
+      },
+      {
+        ingredientId: "4727f41e-43a1-4848-9668-1501508ca53e",
+        ingredientName: "Chicken breast",
+      },
+      {
+        ingredientId: "b6cf884a-0ed1-4468-888f-73b867dde366",
+        ingredientName: "Mozzarella Cheese",
+      },
+      {
+        ingredientId: "6d309253-3f5c-4d5a-8a00-fb8a8480a7b1",
+        ingredientName: "Bechamel Sauce",
+      },
+      {
+        ingredientId: "8273e36e-f8f3-4464-9a29-3cb1ed8c390a",
+        ingredientName: "Pomodoro Sauce",
       },
     ],
     instruction: [
