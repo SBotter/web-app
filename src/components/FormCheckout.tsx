@@ -777,14 +777,14 @@ const FormCheckout = () => {
                         width={{ base: "90%", sm: "90%" }}
                         marginBottom={5}
                         variant="outline"
-                        bgColor="base.200"
-                        borderColor={"base.200"}
-                        color={"base.50"}
+                        bgColor="base.50"
+                        borderColor={"base.800"}
+                        color={"base.800"}
                         borderWidth="2"
                         leftIcon={<i className="fa-solid fa-truck-monster " />}
                         _hover={{
-                          bg: "base.50", // Change background color on hover
-                          color: "base.800", // Change text color on hover
+                          bg: "base.800", // Change background color on hover
+                          color: "base.50", // Change text color on hover
                           borderColor: "base.800",
                         }}
                         onClick={(event) =>
@@ -836,7 +836,7 @@ const FormCheckout = () => {
                     flavorful experience. Feel free to contact us for any
                     inquiries or special requests!
                   </Text>
-                  <Divider background="base.800" />
+                  <Divider background="base.800" marginTop={-4} />
                   <CalendarComponent />
                 </VStack>
               </CardBody>
@@ -852,7 +852,7 @@ const FormCheckout = () => {
                   <Text color="base.800" fontSize={"13px"} marginTop={-5}>
                     The payment is done upon delivery. Choose payment method:
                   </Text>
-                  <Divider background="base.800" />
+                  <Divider background="base.800" marginTop={-4} />
                   <SimpleGrid
                     columns={{ base: 1, sm: 1, md: 2 }}
                     spacing={4}
@@ -980,7 +980,7 @@ const FormCheckout = () => {
             <CardFooter>
               <VStack width={"100%"}>
                 <Box width={"100%"}>
-                  <Divider background={"base.800"} />
+                  <Divider background={"base.800"} marginTop={-4} />
                 </Box>
                 <VStack width={"100%"}>
                   <HStack width={"100%"}>
